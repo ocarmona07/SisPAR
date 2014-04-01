@@ -1,6 +1,7 @@
 Sistema PAR
-“Plataforma de Atención de Requerimientos”
 ======
+“Plataforma de Atención de Requerimientos”
+------
 
 El sistema se divide en dos partes:
 
