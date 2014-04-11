@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SisPAR.Entidades
+namespace SisPAR.Negocio
 {
-    public class Class1
-    {
+    public class TipoProcesosBo
+    { 
+
     }
 }
