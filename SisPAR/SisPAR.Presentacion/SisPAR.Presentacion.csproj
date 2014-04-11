@@ -50,7 +50,6 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
@@ -59,9 +58,6 @@
     <Content Include="css\fonts.css" />
     <Content Include="fonts\fontawesome-social-webfont.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="4_Encuestas.aspx" />
-    <Content Include="1_Inicio.aspx" />
-    <Content Include="3_Solicitud_Requerimiento.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="images\banner.png" />
     <Content Include="images\LogoAguasNuevas.jpg" />
@@ -81,13 +77,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Account\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,27 +104,6 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="4_Encuestas.aspx.cs">
-      <DependentUpon>4_Encuestas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="4_Encuestas.aspx.designer.cs">
-      <DependentUpon>4_Encuestas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="1_Inicio.aspx.cs">
-      <DependentUpon>1_Inicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="1_Inicio.aspx.designer.cs">
-      <DependentUpon>1_Inicio.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="3_Solicitud_Requerimiento.aspx.cs">
-      <DependentUpon>3_Solicitud_Requerimiento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="3_Solicitud_Requerimiento.aspx.designer.cs">
-      <DependentUpon>3_Solicitud_Requerimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
