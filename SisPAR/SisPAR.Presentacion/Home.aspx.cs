@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace SisPAR
 {
-    public partial class Site : System.Web.UI.MasterPage
+    public partial class Home : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
