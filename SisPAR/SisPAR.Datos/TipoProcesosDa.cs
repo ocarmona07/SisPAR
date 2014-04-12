@@ -1,14 +1,9 @@
-﻿using System.Data.SqlClient;
-
-namespace SisPAR.Datos
+﻿namespace SisPAR.Datos
 {
-
     using System;
-    using System.Configuration;
-    using System.Data;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System.Data;
+    using System.Data.SqlClient;
     using Entidades;
 
     /// <summary>
@@ -16,23 +11,111 @@ namespace SisPAR.Datos
     /// </summary>
     public class TipoProcesosDa
     {
-        
-        public bool CrearTipoProceso(TPR_TIPO_PROCESO tipoProceso)
+        /// <summary>
+        /// Método que crea un Tipo de Proceso
+        /// </summary>
+        /// <param name="tipoProceso">Datos del Tipo de Proceso</param>
+        /// <returns>Id de confirmación</returns>
+        public int CrearTipoProceso(TPR_TIPO_PROCESO tipoProceso)
         {
+            var idRetorno = -1;
             try
             {
-                var conexionBd = new SqlConnection("data source=.\\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnetdb.mdf;User Instance=true");
-                var comandoSql = new SqlCommand("SELECT * FROM TPR_TIPOPROCESOS", conexionBd);
+                var comandoSql = new SqlCommand("PA_CrearTipoProceso", new Conexion().ConexionSql());
+                comandoSql.CommandType = CommandType.StoredProcedure;
+                comandoSql.Parameters.Add("TPR_DESCRIPCION", SqlDbType.VarChar, 50).Value = tipoProceso.TPR_DESCRIPCION;
                 comandoSql.Connection.Open();
-                comandoSql.ExecuteNonQuery();
+                idRetorno = comandoSql.ExecuteNonQuery();
                 comandoSql.Connection.Close();
+                comandoSql.Dispose();
+                return idRetorno;
             }
             catch (Exception)
             {
-                return false;
+                return idRetorno;
             }
-            
-            return true;
+        }
+
+        /// <summary>
+        /// Método que obtiene todos los Tipos de Procesos
+        /// </summary>
+        /// <returns></returns>
+        public List<TPR_TIPO_PROCESO> ObtenerTipoProcesos()
+        {
+            var listaRetorno = new List<TPR_TIPO_PROCESO>();
+            try
+            {
+                var comandoSql = new SqlCommand("PA_ObtenerTipoProcesos", new Conexion().ConexionSql());
+                comandoSql.CommandType = CommandType.StoredProcedure;
+                comandoSql.Connection.Open();
+                var listaReader = comandoSql.ExecuteReader();
+                while (listaReader.Read())
+                {
+                    var tipoProceso = new TPR_TIPO_PROCESO();
+                    tipoProceso.TPR_ID = Convert.ToInt32(listaReader["TPR_ID"]);
+                    tipoProceso.TPR_DESCRIPCION = listaReader["TPR_DESCRIPCION"].ToString();
+                    listaRetorno.Add(tipoProceso);
+                }
+
+                comandoSql.Connection.Close();
+                comandoSql.Dispose();
+                return listaRetorno;
+            }
+            catch (Exception)
+            {
+                return listaRetorno;
+            }
+        }
+
+        /// <summary>
+        /// Método que actualiza un Tipo de Proceso
+        /// </summary>
+        /// <param name="tipoProceso">Datos del Tipo de Proceso</param>
+        /// <returns>Id de confirmación</returns>
+        public int ActualizarTipoProceso(TPR_TIPO_PROCESO tipoProceso)
+        {
+            var idRetorno = -1;
+            try
+            {
+                var comandoSql = new SqlCommand("PA_ActualizarTipoProceso", new Conexion().ConexionSql());
+                comandoSql.CommandType = CommandType.StoredProcedure;
+                comandoSql.Parameters.Add("TPR_ID", SqlDbType.Int).Value = tipoProceso.TPR_ID;
+                comandoSql.Parameters.Add("TPR_DESCRIPCION", SqlDbType.VarChar, 50).Value = tipoProceso.TPR_DESCRIPCION;
+                comandoSql.Connection.Open();
+                idRetorno = comandoSql.ExecuteNonQuery();
+                comandoSql.Connection.Close();
+                comandoSql.Dispose();
+                return idRetorno;
+            }
+            catch (Exception)
+            {
+                return idRetorno;
+            }
+        }
+
+        /// <summary>
+        /// Método que crea un Tipo de Proceso
+        /// </summary>
+        /// <param name="idTipoProceso">ID Tipo de Proceso</param>
+        /// <returns>Id de confirmación</returns>
+        public int EliminarTipoProceso(int idTipoProceso)
+        {
+            var idRetorno = -1;
+            try
+            {
+                var comandoSql = new SqlCommand("PA_EliminarTipoProceso", new Conexion().ConexionSql());
+                comandoSql.CommandType = CommandType.StoredProcedure;
+                comandoSql.Parameters.Add("TPR_ID", SqlDbType.Int).Value = idTipoProceso;
+                comandoSql.Connection.Open();
+                idRetorno = comandoSql.ExecuteNonQuery();
+                comandoSql.Connection.Close();
+                comandoSql.Dispose();
+                return idRetorno;
+            }
+            catch (Exception)
+            {
+                return idRetorno;
+            }
         }
     }
 }
