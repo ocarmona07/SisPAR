@@ -16,7 +16,7 @@ CREATE TABLE dbo.DER_DERIVACION
       DER_FECHA DATE NOT NULL ,
       DER_REQ_ID INT NOT NULL ,
       DER_RESPONSABLE INT NOT NULL ,
-      DER_OBSERVACION NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      DER_OBSERVACION VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                                     NOT NULL ,
       DER_ORIGEN_PRO INT NOT NULL ,
       DER_ORIGEN_SPO INT NOT NULL ,
@@ -34,14 +34,14 @@ go
 /*==============================================================*/
 CREATE TABLE dbo.EPR_EMPRESA
     (
-      EPR_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      EPR_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                          NOT NULL ,
-      EPR_RAZONSOCIAL NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      EPR_RAZONSOCIAL VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                                    NOT NULL ,
       EPR_FONO INT NOT NULL ,
-      EPR_DIRECCION NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      EPR_DIRECCION VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                                  NOT NULL ,
-      EPR_SUCURSAL NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      EPR_SUCURSAL VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                                 NOT NULL ,
       CONSTRAINT PK_EPR_EMPRESA PRIMARY KEY ( EPR_ID ) ON "PRIMARY"
     )
@@ -54,9 +54,9 @@ go
 CREATE TABLE dbo.EST_ESTADOS
     (
       EST_ID INT IDENTITY(1, 1) ,
-      EST_TIP NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      EST_TIP VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                            NOT NULL ,
-      EST_OBS NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      EST_OBS VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                             NOT NULL ,
       CONSTRAINT PK_EST_ESTADOS PRIMARY KEY ( EST_ID ) ON "PRIMARY"
     )
@@ -72,7 +72,7 @@ CREATE TABLE dbo.EVA_EVALUACION
       EVA_PRE_ID INT NOT NULL ,
       EVA_REQ_ID INT NOT NULL ,
       EVA_NOTA INT NOT NULL ,
-      EVA_DESC NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      EVA_DESC VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                              NULL ,
       CONSTRAINT PK_EVA_EVALUACION PRIMARY KEY ( EVA_ID ) ON "PRIMARY"
     )
@@ -88,9 +88,9 @@ CREATE TABLE dbo.EVE_EVENTO
       EVE_REQ_ID INT NOT NULL ,
       EVE_EST_ID INT NOT NULL ,
       EVE_NOT_ID INT NOT NULL ,
-      EVE_RESPONSABLE NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      EVE_RESPONSABLE VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                                    NULL ,
-      EVE_DESCRIPCION NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      EVE_DESCRIPCION VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                                     NOT NULL ,
       EVE_FECHA INT NULL ,
       CONSTRAINT PK_EVE_EVENTO PRIMARY KEY ( EVE_ID ) ON "PRIMARY"
@@ -106,7 +106,7 @@ CREATE TABLE dbo.HRE_HISTORIAL_REQUERIMIENTO
       HRE_ID INT IDENTITY(1, 1) ,
       HRE_REQ_ID INT NOT NULL ,
       HRE_EST_ID INT NOT NULL ,
-      HRE_FECHA NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      HRE_FECHA VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
       HRE_RESPONSABLE_REQ NCHAR(10) COLLATE Modern_Spanish_CI_AS
                                     NULL ,
@@ -121,15 +121,15 @@ go
 CREATE TABLE dbo.NOT_NOTIFICACION
     (
       NOT_ID INT IDENTITY(1, 1) ,
-      NOT_NOMBRE NVARCHAR(255) COLLATE Modern_Spanish_CI_AS
+      NOT_NOMBRE VARCHAR(255) COLLATE Modern_Spanish_CI_AS
                                NOT NULL ,
-      NOT_TITULO NVARCHAR(255) COLLATE Modern_Spanish_CI_AS
+      NOT_TITULO VARCHAR(255) COLLATE Modern_Spanish_CI_AS
                                NOT NULL ,
-      NOT_ADJUNTO NVARCHAR(255) COLLATE Modern_Spanish_CI_AS
+      NOT_ADJUNTO VARCHAR(255) COLLATE Modern_Spanish_CI_AS
                                 NOT NULL ,
-      NOT_ENCABEZADO NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      NOT_ENCABEZADO VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                                    NOT NULL ,
-      NOT_DESCRIPCION_EVENTO NVARCHAR(255) COLLATE Modern_Spanish_CI_AS
+      NOT_DESCRIPCION_EVENTO VARCHAR(255) COLLATE Modern_Spanish_CI_AS
                                            NOT NULL ,
       NOT_ENVIAR_RDP INT NOT NULL ,
       NOT_ENVIAR_ADR INT NOT NULL ,
@@ -146,7 +146,7 @@ go
 CREATE TABLE dbo.PRE_PREGUNTA
     (
       PRE_ID INT IDENTITY(1, 1) ,
-      PRE_DESCRIPCION NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      PRE_DESCRIPCION VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                                     NOT NULL ,
       PRE_SECUENCIA INT NOT NULL ,
       PRE_ACTIVO INT NOT NULL ,
@@ -161,12 +161,12 @@ go
 CREATE TABLE dbo.PRO_PROCESO
     (
       PRO_ID INT IDENTITY(1, 1) ,
-      PRO_NOMBRE NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      PRO_NOMBRE VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                               NOT NULL ,
       PRO_TPR_ID INT NOT NULL ,
       PRO_OBS VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                            NOT NULL ,
-      PRO_EPR_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      PRO_EPR_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
       PRO_RES_ID INT NOT NULL ,
       CONSTRAINT PK_PRO_PROCESO PRIMARY KEY ( PRO_ID ) ON "PRIMARY"
@@ -179,16 +179,16 @@ go
 /*==============================================================*/
 CREATE TABLE dbo.PRV_PROOVEDOR
     (
-      PRV_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      PRV_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                          NOT NULL ,
-      PRV_RAZ_SOCIAL NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      PRV_RAZ_SOCIAL VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                                   NOT NULL ,
       PRV_FONO INT NOT NULL ,
-      PRV_EMAIL NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      PRV_EMAIL VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
-      PRV_DIREC NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      PRV_DIREC VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
-      PRV_TIPO NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      PRV_TIPO VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                             NOT NULL ,
       CONSTRAINT PK_PRV_PROOVEDOR PRIMARY KEY ( PRV_ID ) ON "PRIMARY"
     )
@@ -207,11 +207,11 @@ CREATE TABLE dbo.REQ_REQUERIMIENTO
       REQ_FECHA_PROV DATE NULL ,
       REQ_FECHA_CIERRE_PRE DATE NULL ,
       REQ_FECHA_CIERRE_DEF DATE NULL ,
-      REQ_TIPO_CIERRE NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      REQ_TIPO_CIERRE VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                                    NULL ,
-      REQ_GLOSA_USU NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      REQ_GLOSA_USU VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                                   NOT NULL ,
-      REQ_DESC_TEC NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      REQ_DESC_TEC VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                                  NULL ,
       REQ_PLAZO_ATENC INT NULL ,
       REQ_PRO_ID INT NULL ,
@@ -219,11 +219,11 @@ CREATE TABLE dbo.REQ_REQUERIMIENTO
       REQ_URG_ID INT NULL ,
       REQ_EST_ID INT NULL ,
       REQ_RES_ID INT NULL ,
-      REQ_PRV_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      REQ_PRV_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                              NULL ,
-      REQ_EPR_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      REQ_EPR_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
-      REQ_USU_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      REQ_USU_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
       REQ_ARC_ADJUNTO IMAGE NULL ,
       CONSTRAINT PK_REQ_REQUERIMIENTO PRIMARY KEY ( REQ_ID ) ON "PRIMARY"
@@ -238,7 +238,7 @@ CREATE TABLE dbo.RES_RESPONSABLE
     (
       RES_ID INT IDENTITY(1, 1) ,
       RES_TIPO_ID INT NOT NULL ,
-      RES_USU_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      RES_USU_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
       CONSTRAINT PK_RES_RESPONSABLE PRIMARY KEY ( RES_ID ) ON "PRIMARY"
     )
@@ -251,7 +251,7 @@ go
 CREATE TABLE dbo.SPO_SUBPROCESO
     (
       SPO_ID INT IDENTITY(1, 1) ,
-      SPO_NOMBRE NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      SPO_NOMBRE VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                               NOT NULL ,
       SPO_OBSERVACION VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                                    NOT NULL ,
@@ -268,7 +268,7 @@ go
 CREATE TABLE dbo.TIP_TIPO
     (
       TIP_ID INT IDENTITY(1, 1) ,
-      TIP_NOMBRE NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      TIP_NOMBRE VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                               NOT NULL ,
       CONSTRAINT PK_TIP_TIPO PRIMARY KEY ( TIP_ID ) ON "PRIMARY"
     )
@@ -281,7 +281,7 @@ go
 CREATE TABLE dbo.TPR_TIPO_PROCESO
     (
       TPR_ID INT IDENTITY(1, 1) ,
-      TPR_DESCRIPCION NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      TPR_DESCRIPCION VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                                     NOT NULL ,
       CONSTRAINT PK_TPR_TIPO_PROCESO PRIMARY KEY ( TPR_ID ) ON "PRIMARY"
     )
@@ -294,9 +294,9 @@ go
 CREATE TABLE dbo.URG_URGENCIA
     (
       URG_ID INT IDENTITY(1, 1) ,
-      URG_TIPO NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      URG_TIPO VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                             NOT NULL ,
-      URG_OBS NVARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+      URG_OBS VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                             NOT NULL ,
       CONSTRAINT PK_URG_URGENCIA PRIMARY KEY ( URG_ID ) ON "PRIMARY"
     )
@@ -308,22 +308,22 @@ go
 /*==============================================================*/
 CREATE TABLE dbo.USU_USUARIO
     (
-      USU_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      USU_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                          NOT NULL ,
-      USU_NOMBRE NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      USU_NOMBRE VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                               NOT NULL ,
-      USU_APELLIDO NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      USU_APELLIDO VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                                 NOT NULL ,
       USU_FONO INT NOT NULL ,
-      USU_DIRECCION NVARCHAR(100) COLLATE Modern_Spanish_CI_AS
+      USU_DIRECCION VARCHAR(100) COLLATE Modern_Spanish_CI_AS
                                   NOT NULL ,
-      USU_CARGO NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      USU_CARGO VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
-      USU_CORREO NVARCHAR(50) COLLATE Modern_Spanish_CI_AS
+      USU_CORREO VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                               NULL ,
-      USU_EPR_ID NVARCHAR(9) COLLATE Modern_Spanish_CI_AS
+      USU_EPR_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
-      USU_CLAVE NVARCHAR(15) COLLATE Modern_Spanish_CI_AS
+      USU_CLAVE VARCHAR(15) COLLATE Modern_Spanish_CI_AS
                              NULL ,
       CONSTRAINT PK_USU_USUARIO PRIMARY KEY ( USU_ID ) ON "PRIMARY"
     )
