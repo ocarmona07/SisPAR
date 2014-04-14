@@ -9,26 +9,31 @@
     /// <summary>
     /// Clase de datos Tipo de Procesos
     /// </summary>
-    public class TipoProcesosDa
+    public class RequerimientoDa
     {
+        SisPAREntities dbSisPAR;
+
+        public RequerimientoDa()
+        {
+            if (dbSisPAR == null)
+            {
+                dbSisPAR = new SisPAREntities();
+            }
+        }
+
         /// <summary>
         /// Método que crea un Tipo de Proceso
         /// </summary>
-        /// <param name="tipoProceso">Datos del Tipo de Proceso</param>
+        /// <param name="requerimiento">Datos del Requerimiento</param>
         /// <returns>Id de confirmación</returns>
-        public int CrearTipoProceso(TPR_TIPO_PROCESO tipoProceso)
+        public int CrearTipoProceso(REQ_REQUERIMIENTO requerimiento)
         {
             var idRetorno = -1;
             try
             {
-                var comandoSql = new SqlCommand("PA_CrearTipoProceso", new Conexion().ConexionSql());
-                comandoSql.CommandType = CommandType.StoredProcedure;
-                comandoSql.Parameters.Add("TPR_DESCRIPCION", SqlDbType.VarChar, 50).Value = tipoProceso.TPR_DESCRIPCION;
-                comandoSql.Connection.Open();
-                idRetorno = comandoSql.ExecuteNonQuery();
-                comandoSql.Connection.Close();
-                comandoSql.Dispose();
-                return idRetorno;
+                dbSisPAR.REQ_REQUERIMIENTO.AddObject(requerimiento);
+                idRetorno = dbSisPAR.SaveChanges();
+                dbSisPAR.Dispose();
             }
             catch (Exception)
             {

@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="SolicitudRequerimiento.aspx.cs">
       <DependentUpon>SolicitudRequerimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SolicitudRequerimiento.aspx.designer.cs">
       <DependentUpon>SolicitudRequerimiento.aspx</DependentUpon>

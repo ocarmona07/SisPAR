@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SisPARModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SisPARModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SisPARModelStoreContainer">
           <EntitySet Name="DER_DERIVACION" EntityType="SisPARModel.Store.DER_DERIVACION" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EPR_EMPRESA" EntityType="SisPARModel.Store.EPR_EMPRESA" store:Type="Tables" Schema="dbo" />
@@ -15,12 +15,10 @@
           <EntitySet Name="NOT_NOTIFICACION" EntityType="SisPARModel.Store.NOT_NOTIFICACION" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRE_PREGUNTA" EntityType="SisPARModel.Store.PRE_PREGUNTA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PRO_PROCESO" EntityType="SisPARModel.Store.PRO_PROCESO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PRV_PROOVEDOR" EntityType="SisPARModel.Store.PRV_PROOVEDOR" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="REQ_REQUERIMIENTO" EntityType="SisPARModel.Store.REQ_REQUERIMIENTO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RES_RESPONSABLE" EntityType="SisPARModel.Store.RES_RESPONSABLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ROL_ROL" EntityType="SisPARModel.Store.ROL_ROL" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SPO_SUBPROCESO" EntityType="SisPARModel.Store.SPO_SUBPROCESO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TIP_TIPO" EntityType="SisPARModel.Store.TIP_TIPO" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TPR_TIPO_PROCESO" EntityType="SisPARModel.Store.TPR_TIPO_PROCESO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="URG_URGENCIA" EntityType="SisPARModel.Store.URG_URGENCIA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USU_USUARIO" EntityType="SisPARModel.Store.USU_USUARIO" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_DER_DERIVACION_PRO_PROCESO" Association="SisPARModel.Store.FK_DER_DERIVACION_PRO_PROCESO">
@@ -79,10 +77,6 @@
             <End Role="RES_RESPONSABLE" EntitySet="RES_RESPONSABLE" />
             <End Role="PRO_PROCESO" EntitySet="PRO_PROCESO" />
           </AssociationSet>
-          <AssociationSet Name="FK_PRO_PROCESO_TPR_TIPO_PROCESO" Association="SisPARModel.Store.FK_PRO_PROCESO_TPR_TIPO_PROCESO">
-            <End Role="TPR_TIPO_PROCESO" EntitySet="TPR_TIPO_PROCESO" />
-            <End Role="PRO_PROCESO" EntitySet="PRO_PROCESO" />
-          </AssociationSet>
           <AssociationSet Name="FK_REQ_REQUERIMIENTO_EPR_EMPRESA" Association="SisPARModel.Store.FK_REQ_REQUERIMIENTO_EPR_EMPRESA">
             <End Role="EPR_EMPRESA" EntitySet="EPR_EMPRESA" />
             <End Role="REQ_REQUERIMIENTO" EntitySet="REQ_REQUERIMIENTO" />
@@ -93,10 +87,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_REQ_REQUERIMIENTO_PRO_PROCESO" Association="SisPARModel.Store.FK_REQ_REQUERIMIENTO_PRO_PROCESO">
             <End Role="PRO_PROCESO" EntitySet="PRO_PROCESO" />
-            <End Role="REQ_REQUERIMIENTO" EntitySet="REQ_REQUERIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR" Association="SisPARModel.Store.FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR">
-            <End Role="PRV_PROOVEDOR" EntitySet="PRV_PROOVEDOR" />
             <End Role="REQ_REQUERIMIENTO" EntitySet="REQ_REQUERIMIENTO" />
           </AssociationSet>
           <AssociationSet Name="FK_REQ_REQUERIMIENTO_RES_RESPONSABLE" Association="SisPARModel.Store.FK_REQ_REQUERIMIENTO_RES_RESPONSABLE">
@@ -115,8 +105,8 @@
             <End Role="USU_USUARIO" EntitySet="USU_USUARIO" />
             <End Role="REQ_REQUERIMIENTO" EntitySet="REQ_REQUERIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK_RES_RESPONSABLE_TIP_TIPO" Association="SisPARModel.Store.FK_RES_RESPONSABLE_TIP_TIPO">
-            <End Role="TIP_TIPO" EntitySet="TIP_TIPO" />
+          <AssociationSet Name="FK_RES_RESPONSABLE_ROL_ROL" Association="SisPARModel.Store.FK_RES_RESPONSABLE_ROL_ROL">
+            <End Role="ROL_ROL" EntitySet="ROL_ROL" />
             <End Role="RES_RESPONSABLE" EntitySet="RES_RESPONSABLE" />
           </AssociationSet>
           <AssociationSet Name="FK_RES_RESPONSABLE_USU_USUARIO" Association="SisPARModel.Store.FK_RES_RESPONSABLE_USU_USUARIO">
@@ -144,7 +134,7 @@
           <Property Name="DER_FECHA" Type="date" Nullable="false" />
           <Property Name="DER_REQ_ID" Type="int" Nullable="false" />
           <Property Name="DER_RESPONSABLE" Type="int" Nullable="false" />
-          <Property Name="DER_OBSERVACION" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DER_OBSERVACION" Type="varchar(max)" Nullable="false" />
           <Property Name="DER_ORIGEN_PRO" Type="int" Nullable="false" />
           <Property Name="DER_ORIGEN_SPO" Type="int" Nullable="false" />
           <Property Name="DER_ORIGEN_ANALISTA" Type="int" />
@@ -156,19 +146,19 @@
           <Key>
             <PropertyRef Name="EPR_ID" />
           </Key>
-          <Property Name="EPR_ID" Type="nvarchar" Nullable="false" MaxLength="9" />
-          <Property Name="EPR_RAZONSOCIAL" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EPR_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="EPR_RAZONSOCIAL" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="EPR_FONO" Type="int" Nullable="false" />
-          <Property Name="EPR_DIRECCION" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="EPR_SUCURSAL" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EPR_DIRECCION" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="EPR_SUCURSAL" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="EST_ESTADOS">
           <Key>
             <PropertyRef Name="EST_ID" />
           </Key>
           <Property Name="EST_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="EST_TIP" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="EST_OBS" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EST_TIP" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="EST_OBS" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="EVA_EVALUACION">
           <Key>
@@ -178,7 +168,7 @@
           <Property Name="EVA_PRE_ID" Type="int" Nullable="false" />
           <Property Name="EVA_REQ_ID" Type="int" Nullable="false" />
           <Property Name="EVA_NOTA" Type="int" Nullable="false" />
-          <Property Name="EVA_DESC" Type="nvarchar(max)" />
+          <Property Name="EVA_DESC" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="EVE_EVENTO">
           <Key>
@@ -188,8 +178,8 @@
           <Property Name="EVE_REQ_ID" Type="int" Nullable="false" />
           <Property Name="EVE_EST_ID" Type="int" Nullable="false" />
           <Property Name="EVE_NOT_ID" Type="int" Nullable="false" />
-          <Property Name="EVE_RESPONSABLE" Type="nvarchar" MaxLength="50" />
-          <Property Name="EVE_DESCRIPCION" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EVE_RESPONSABLE" Type="varchar" MaxLength="50" />
+          <Property Name="EVE_DESCRIPCION" Type="varchar(max)" Nullable="false" />
           <Property Name="EVE_FECHA" Type="int" />
         </EntityType>
         <EntityType Name="HRE_HISTORIAL_REQUERIMIENTO">
@@ -199,7 +189,7 @@
           <Property Name="HRE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="HRE_REQ_ID" Type="int" Nullable="false" />
           <Property Name="HRE_EST_ID" Type="int" Nullable="false" />
-          <Property Name="HRE_FECHA" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="HRE_FECHA" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="HRE_RESPONSABLE_REQ" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="NOT_NOTIFICACION">
@@ -207,11 +197,11 @@
             <PropertyRef Name="NOT_ID" />
           </Key>
           <Property Name="NOT_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="NOT_NOMBRE" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="NOT_TITULO" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="NOT_ADJUNTO" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="NOT_ENCABEZADO" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="NOT_DESCRIPCION_EVENTO" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="NOT_NOMBRE" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="NOT_TITULO" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="NOT_ADJUNTO" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="NOT_ENCABEZADO" Type="varchar(max)" Nullable="false" />
+          <Property Name="NOT_DESCRIPCION_EVENTO" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="NOT_ENVIAR_RDP" Type="int" Nullable="false" />
           <Property Name="NOT_ENVIAR_ADR" Type="int" Nullable="false" />
           <Property Name="NOT_ENVIAR_ANALISTA" Type="int" Nullable="false" />
@@ -222,7 +212,7 @@
             <PropertyRef Name="PRE_ID" />
           </Key>
           <Property Name="PRE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="PRE_DESCRIPCION" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PRE_DESCRIPCION" Type="varchar(max)" Nullable="false" />
           <Property Name="PRE_SECUENCIA" Type="int" Nullable="false" />
           <Property Name="PRE_ACTIVO" Type="int" Nullable="false" />
         </EntityType>
@@ -231,22 +221,11 @@
             <PropertyRef Name="PRO_ID" />
           </Key>
           <Property Name="PRO_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="PRO_NOMBRE" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="PRO_TPR_ID" Type="int" Nullable="false" />
+          <Property Name="PRO_NOMBRE" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="PRO_DESCRIPCION" Type="varchar(max)" Nullable="false" />
           <Property Name="PRO_OBS" Type="varchar(max)" Nullable="false" />
-          <Property Name="PRO_EPR_ID" Type="nvarchar" Nullable="false" MaxLength="9" />
+          <Property Name="PRO_EPR_ID" Type="varchar" Nullable="false" MaxLength="9" />
           <Property Name="PRO_RES_ID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PRV_PROOVEDOR">
-          <Key>
-            <PropertyRef Name="PRV_ID" />
-          </Key>
-          <Property Name="PRV_ID" Type="nvarchar" Nullable="false" MaxLength="9" />
-          <Property Name="PRV_RAZ_SOCIAL" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="PRV_FONO" Type="int" Nullable="false" />
-          <Property Name="PRV_EMAIL" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="PRV_DIREC" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="PRV_TIPO" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="REQ_REQUERIMIENTO">
           <Key>
@@ -259,18 +238,18 @@
           <Property Name="REQ_FECHA_PROV" Type="date" />
           <Property Name="REQ_FECHA_CIERRE_PRE" Type="date" />
           <Property Name="REQ_FECHA_CIERRE_DEF" Type="date" />
-          <Property Name="REQ_TIPO_CIERRE" Type="nvarchar" MaxLength="50" />
-          <Property Name="REQ_GLOSA_USU" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="REQ_DESC_TEC" Type="nvarchar(max)" />
+          <Property Name="REQ_TIPO_CIERRE" Type="varchar" MaxLength="50" />
+          <Property Name="REQ_GLOSA_USU" Type="varchar(max)" Nullable="false" />
+          <Property Name="REQ_DESC_TEC" Type="varchar(max)" />
           <Property Name="REQ_PLAZO_ATENC" Type="int" />
           <Property Name="REQ_PRO_ID" Type="int" />
           <Property Name="REQ_SPO_ID" Type="int" />
           <Property Name="REQ_URG_ID" Type="int" />
           <Property Name="REQ_EST_ID" Type="int" />
           <Property Name="REQ_RES_ID" Type="int" />
-          <Property Name="REQ_PRV_ID" Type="nvarchar" MaxLength="9" />
-          <Property Name="REQ_EPR_ID" Type="nvarchar" Nullable="false" MaxLength="9" />
-          <Property Name="REQ_USU_ID" Type="nvarchar" Nullable="false" MaxLength="9" />
+          <Property Name="REQ_PRV_ID" Type="varchar" MaxLength="9" />
+          <Property Name="REQ_EPR_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="REQ_USU_ID" Type="varchar" Nullable="false" MaxLength="9" />
           <Property Name="REQ_ARC_ADJUNTO" Type="image" />
         </EntityType>
         <EntityType Name="RES_RESPONSABLE">
@@ -279,53 +258,46 @@
           </Key>
           <Property Name="RES_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="RES_TIPO_ID" Type="int" Nullable="false" />
-          <Property Name="RES_USU_ID" Type="nvarchar" Nullable="false" MaxLength="9" />
+          <Property Name="RES_USU_ID" Type="varchar" Nullable="false" MaxLength="9" />
+        </EntityType>
+        <EntityType Name="ROL_ROL">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ROL_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="SPO_SUBPROCESO">
           <Key>
             <PropertyRef Name="SPO_ID" />
           </Key>
           <Property Name="SPO_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="SPO_NOMBRE" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SPO_NOMBRE" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="SPO_OBSERVACION" Type="varchar(max)" Nullable="false" />
           <Property Name="SPO_PRO_ID" Type="int" Nullable="false" />
           <Property Name="SPO_RES_ID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TIP_TIPO">
-          <Key>
-            <PropertyRef Name="TIP_ID" />
-          </Key>
-          <Property Name="TIP_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="TIP_NOMBRE" Type="nvarchar" Nullable="false" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="TPR_TIPO_PROCESO">
-          <Key>
-            <PropertyRef Name="TPR_ID" />
-          </Key>
-          <Property Name="TPR_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="TPR_DESCRIPCION" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="URG_URGENCIA">
           <Key>
             <PropertyRef Name="URG_ID" />
           </Key>
           <Property Name="URG_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="URG_TIPO" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="URG_OBS" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="URG_TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="URG_OBS" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="USU_USUARIO">
           <Key>
             <PropertyRef Name="USU_ID" />
           </Key>
-          <Property Name="USU_ID" Type="nvarchar" Nullable="false" MaxLength="9" />
-          <Property Name="USU_NOMBRE" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="USU_APELLIDO" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="USU_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="USU_NOMBRE" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="USU_APELLIDO" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="USU_FONO" Type="int" Nullable="false" />
-          <Property Name="USU_DIRECCION" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="USU_CARGO" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="USU_CORREO" Type="nvarchar" MaxLength="50" />
-          <Property Name="USU_EPR_ID" Type="nvarchar" Nullable="false" MaxLength="9" />
-          <Property Name="USU_CLAVE" Type="nvarchar" MaxLength="15" />
+          <Property Name="USU_DIRECCION" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="USU_CARGO" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="USU_CORREO" Type="varchar" MaxLength="50" />
+          <Property Name="USU_EPR_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="USU_CLAVE" Type="varchar" MaxLength="15" />
         </EntityType>
         <Association Name="FK_DER_DERIVACION_PRO_PROCESO">
           <End Role="PRO_PROCESO" Type="SisPARModel.Store.PRO_PROCESO" Multiplicity="1" />
@@ -495,18 +467,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PRO_PROCESO_TPR_TIPO_PROCESO">
-          <End Role="TPR_TIPO_PROCESO" Type="SisPARModel.Store.TPR_TIPO_PROCESO" Multiplicity="1" />
-          <End Role="PRO_PROCESO" Type="SisPARModel.Store.PRO_PROCESO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TPR_TIPO_PROCESO">
-              <PropertyRef Name="TPR_ID" />
-            </Principal>
-            <Dependent Role="PRO_PROCESO">
-              <PropertyRef Name="PRO_TPR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_REQ_REQUERIMIENTO_EPR_EMPRESA">
           <End Role="EPR_EMPRESA" Type="SisPARModel.Store.EPR_EMPRESA" Multiplicity="1" />
           <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.Store.REQ_REQUERIMIENTO" Multiplicity="*" />
@@ -540,18 +500,6 @@
             </Principal>
             <Dependent Role="REQ_REQUERIMIENTO">
               <PropertyRef Name="REQ_PRO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR">
-          <End Role="PRV_PROOVEDOR" Type="SisPARModel.Store.PRV_PROOVEDOR" Multiplicity="0..1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.Store.REQ_REQUERIMIENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRV_PROOVEDOR">
-              <PropertyRef Name="PRV_ID" />
-            </Principal>
-            <Dependent Role="REQ_REQUERIMIENTO">
-              <PropertyRef Name="REQ_PRV_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -603,12 +551,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RES_RESPONSABLE_TIP_TIPO">
-          <End Role="TIP_TIPO" Type="SisPARModel.Store.TIP_TIPO" Multiplicity="1" />
+        <Association Name="FK_RES_RESPONSABLE_ROL_ROL">
+          <End Role="ROL_ROL" Type="SisPARModel.Store.ROL_ROL" Multiplicity="1" />
           <End Role="RES_RESPONSABLE" Type="SisPARModel.Store.RES_RESPONSABLE" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TIP_TIPO">
-              <PropertyRef Name="TIP_ID" />
+            <Principal Role="ROL_ROL">
+              <PropertyRef Name="ROL_ID" />
             </Principal>
             <Dependent Role="RES_RESPONSABLE">
               <PropertyRef Name="RES_TIPO_ID" />
@@ -663,8 +611,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SisPARModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -678,12 +625,10 @@
           <EntitySet Name="NOT_NOTIFICACION" EntityType="SisPARModel.NOT_NOTIFICACION" />
           <EntitySet Name="PRE_PREGUNTA" EntityType="SisPARModel.PRE_PREGUNTA" />
           <EntitySet Name="PRO_PROCESO" EntityType="SisPARModel.PRO_PROCESO" />
-          <EntitySet Name="PRV_PROOVEDOR" EntityType="SisPARModel.PRV_PROOVEDOR" />
           <EntitySet Name="REQ_REQUERIMIENTO" EntityType="SisPARModel.REQ_REQUERIMIENTO" />
           <EntitySet Name="RES_RESPONSABLE" EntityType="SisPARModel.RES_RESPONSABLE" />
+          <EntitySet Name="ROL_ROL" EntityType="SisPARModel.ROL_ROL" />
           <EntitySet Name="SPO_SUBPROCESO" EntityType="SisPARModel.SPO_SUBPROCESO" />
-          <EntitySet Name="TIP_TIPO" EntityType="SisPARModel.TIP_TIPO" />
-          <EntitySet Name="TPR_TIPO_PROCESO" EntityType="SisPARModel.TPR_TIPO_PROCESO" />
           <EntitySet Name="URG_URGENCIA" EntityType="SisPARModel.URG_URGENCIA" />
           <EntitySet Name="USU_USUARIO" EntityType="SisPARModel.USU_USUARIO" />
           <AssociationSet Name="FK_DER_DERIVACION_PRO_PROCESO" Association="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO">
@@ -754,10 +699,6 @@
             <End Role="RES_RESPONSABLE" EntitySet="RES_RESPONSABLE" />
             <End Role="PRO_PROCESO" EntitySet="PRO_PROCESO" />
           </AssociationSet>
-          <AssociationSet Name="FK_PRO_PROCESO_TPR_TIPO_PROCESO" Association="SisPARModel.FK_PRO_PROCESO_TPR_TIPO_PROCESO">
-            <End Role="TPR_TIPO_PROCESO" EntitySet="TPR_TIPO_PROCESO" />
-            <End Role="PRO_PROCESO" EntitySet="PRO_PROCESO" />
-          </AssociationSet>
           <AssociationSet Name="FK_REQ_REQUERIMIENTO_PRO_PROCESO" Association="SisPARModel.FK_REQ_REQUERIMIENTO_PRO_PROCESO">
             <End Role="PRO_PROCESO" EntitySet="PRO_PROCESO" />
             <End Role="REQ_REQUERIMIENTO" EntitySet="REQ_REQUERIMIENTO" />
@@ -765,10 +706,6 @@
           <AssociationSet Name="FK_SPO_SUBPROCESO_PRO_PROCESO" Association="SisPARModel.FK_SPO_SUBPROCESO_PRO_PROCESO">
             <End Role="PRO_PROCESO" EntitySet="PRO_PROCESO" />
             <End Role="SPO_SUBPROCESO" EntitySet="SPO_SUBPROCESO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR" Association="SisPARModel.FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR">
-            <End Role="PRV_PROOVEDOR" EntitySet="PRV_PROOVEDOR" />
-            <End Role="REQ_REQUERIMIENTO" EntitySet="REQ_REQUERIMIENTO" />
           </AssociationSet>
           <AssociationSet Name="FK_REQ_REQUERIMIENTO_RES_RESPONSABLE" Association="SisPARModel.FK_REQ_REQUERIMIENTO_RES_RESPONSABLE">
             <End Role="RES_RESPONSABLE" EntitySet="RES_RESPONSABLE" />
@@ -786,8 +723,8 @@
             <End Role="USU_USUARIO" EntitySet="USU_USUARIO" />
             <End Role="REQ_REQUERIMIENTO" EntitySet="REQ_REQUERIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK_RES_RESPONSABLE_TIP_TIPO" Association="SisPARModel.FK_RES_RESPONSABLE_TIP_TIPO">
-            <End Role="TIP_TIPO" EntitySet="TIP_TIPO" />
+          <AssociationSet Name="FK_RES_RESPONSABLE_ROL_ROL" Association="SisPARModel.FK_RES_RESPONSABLE_ROL_ROL">
+            <End Role="ROL_ROL" EntitySet="ROL_ROL" />
             <End Role="RES_RESPONSABLE" EntitySet="RES_RESPONSABLE" />
           </AssociationSet>
           <AssociationSet Name="FK_RES_RESPONSABLE_USU_USUARIO" Association="SisPARModel.FK_RES_RESPONSABLE_USU_USUARIO">
@@ -803,17 +740,17 @@
           <Key>
             <PropertyRef Name="DER_ID" />
           </Key>
-          <Property Name="DER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DER_FECHA" Type="DateTime" Nullable="false" />
-          <Property Name="DER_REQ_ID" Type="Int32" Nullable="false" />
-          <Property Name="DER_RESPONSABLE" Type="Int32" Nullable="false" />
-          <Property Name="DER_OBSERVACION" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="DER_ORIGEN_PRO" Type="Int32" Nullable="false" />
-          <Property Name="DER_ORIGEN_SPO" Type="Int32" Nullable="false" />
-          <Property Name="DER_ORIGEN_ANALISTA" Type="Int32" />
-          <Property Name="DER_DESTINO_PRO" Type="Int32" Nullable="false" />
-          <Property Name="DER_DESTINO_SPO" Type="Int32" Nullable="false" />
-          <Property Name="DER_DESTINO_ANALISTA" Type="Int32" />
+          <Property Type="Int32" Name="DER_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="DER_FECHA" Nullable="false" />
+          <Property Type="Int32" Name="DER_REQ_ID" Nullable="false" />
+          <Property Type="Int32" Name="DER_RESPONSABLE" Nullable="false" />
+          <Property Type="String" Name="DER_OBSERVACION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DER_ORIGEN_PRO" Nullable="false" />
+          <Property Type="Int32" Name="DER_ORIGEN_SPO" Nullable="false" />
+          <Property Type="Int32" Name="DER_ORIGEN_ANALISTA" />
+          <Property Type="Int32" Name="DER_DESTINO_PRO" Nullable="false" />
+          <Property Type="Int32" Name="DER_DESTINO_SPO" Nullable="false" />
+          <Property Type="Int32" Name="DER_DESTINO_ANALISTA" />
           <NavigationProperty Name="PRO_PROCESO" Relationship="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO" FromRole="DER_DERIVACION" ToRole="PRO_PROCESO" />
           <NavigationProperty Name="PRO_PROCESO1" Relationship="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO1" FromRole="DER_DERIVACION" ToRole="PRO_PROCESO" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_DER_DERIVACION_REQ_REQUERIMIENTO" FromRole="DER_DERIVACION" ToRole="REQ_REQUERIMIENTO" />
@@ -824,11 +761,11 @@
           <Key>
             <PropertyRef Name="EPR_ID" />
           </Key>
-          <Property Name="EPR_ID" Type="String" Nullable="false" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="EPR_RAZONSOCIAL" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="EPR_FONO" Type="Int32" Nullable="false" />
-          <Property Name="EPR_DIRECCION" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="EPR_SUCURSAL" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="EPR_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EPR_RAZONSOCIAL" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="EPR_FONO" Nullable="false" />
+          <Property Type="String" Name="EPR_DIRECCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EPR_SUCURSAL" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PRO_PROCESO" Relationship="SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA" FromRole="EPR_EMPRESA" ToRole="PRO_PROCESO" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_EPR_EMPRESA" FromRole="EPR_EMPRESA" ToRole="REQ_REQUERIMIENTO" />
           <NavigationProperty Name="USU_USUARIO" Relationship="SisPARModel.FK_USU_USUARIO_EPR_EMPRESA" FromRole="EPR_EMPRESA" ToRole="USU_USUARIO" />
@@ -837,9 +774,9 @@
           <Key>
             <PropertyRef Name="EST_ID" />
           </Key>
-          <Property Name="EST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EST_TIP" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="EST_OBS" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="EST_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EST_TIP" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EST_OBS" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EVE_EVENTO" Relationship="SisPARModel.FK_EVE_EVENTO_EST_ESTADOS" FromRole="EST_ESTADOS" ToRole="EVE_EVENTO" />
           <NavigationProperty Name="HRE_HISTORIAL_REQUERIMIENTO" Relationship="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_EST_ESTADOS" FromRole="EST_ESTADOS" ToRole="HRE_HISTORIAL_REQUERIMIENTO" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_EST_ESTADOS" FromRole="EST_ESTADOS" ToRole="REQ_REQUERIMIENTO" />
@@ -848,11 +785,11 @@
           <Key>
             <PropertyRef Name="EVA_ID" />
           </Key>
-          <Property Name="EVA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EVA_PRE_ID" Type="Int32" Nullable="false" />
-          <Property Name="EVA_REQ_ID" Type="Int32" Nullable="false" />
-          <Property Name="EVA_NOTA" Type="Int32" Nullable="false" />
-          <Property Name="EVA_DESC" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="EVA_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EVA_PRE_ID" Nullable="false" />
+          <Property Type="Int32" Name="EVA_REQ_ID" Nullable="false" />
+          <Property Type="Int32" Name="EVA_NOTA" Nullable="false" />
+          <Property Type="String" Name="EVA_DESC" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PRE_PREGUNTA" Relationship="SisPARModel.FK_EVA_EVALUACION_PRE_PREGUNTA" FromRole="EVA_EVALUACION" ToRole="PRE_PREGUNTA" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_EVA_EVALUACION_REQ_REQUERIMIENTO" FromRole="EVA_EVALUACION" ToRole="REQ_REQUERIMIENTO" />
         </EntityType>
@@ -860,13 +797,13 @@
           <Key>
             <PropertyRef Name="EVE_ID" />
           </Key>
-          <Property Name="EVE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EVE_REQ_ID" Type="Int32" Nullable="false" />
-          <Property Name="EVE_EST_ID" Type="Int32" Nullable="false" />
-          <Property Name="EVE_NOT_ID" Type="Int32" Nullable="false" />
-          <Property Name="EVE_RESPONSABLE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="EVE_DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="EVE_FECHA" Type="Int32" />
+          <Property Type="Int32" Name="EVE_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EVE_REQ_ID" Nullable="false" />
+          <Property Type="Int32" Name="EVE_EST_ID" Nullable="false" />
+          <Property Type="Int32" Name="EVE_NOT_ID" Nullable="false" />
+          <Property Type="String" Name="EVE_RESPONSABLE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EVE_DESCRIPCION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="EVE_FECHA" />
           <NavigationProperty Name="EST_ESTADOS" Relationship="SisPARModel.FK_EVE_EVENTO_EST_ESTADOS" FromRole="EVE_EVENTO" ToRole="EST_ESTADOS" />
           <NavigationProperty Name="NOT_NOTIFICACION" Relationship="SisPARModel.FK_EVE_EVENTO_NOT_NOTIFICACION" FromRole="EVE_EVENTO" ToRole="NOT_NOTIFICACION" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO" FromRole="EVE_EVENTO" ToRole="REQ_REQUERIMIENTO" />
@@ -875,11 +812,11 @@
           <Key>
             <PropertyRef Name="HRE_ID" />
           </Key>
-          <Property Name="HRE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HRE_REQ_ID" Type="Int32" Nullable="false" />
-          <Property Name="HRE_EST_ID" Type="Int32" Nullable="false" />
-          <Property Name="HRE_FECHA" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="HRE_RESPONSABLE_REQ" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Type="Int32" Name="HRE_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="HRE_REQ_ID" Nullable="false" />
+          <Property Type="Int32" Name="HRE_EST_ID" Nullable="false" />
+          <Property Type="String" Name="HRE_FECHA" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HRE_RESPONSABLE_REQ" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="EST_ESTADOS" Relationship="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_EST_ESTADOS" FromRole="HRE_HISTORIAL_REQUERIMIENTO" ToRole="EST_ESTADOS" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_REQ_REQUERIMIENTO" FromRole="HRE_HISTORIAL_REQUERIMIENTO" ToRole="REQ_REQUERIMIENTO" />
         </EntityType>
@@ -887,82 +824,69 @@
           <Key>
             <PropertyRef Name="NOT_ID" />
           </Key>
-          <Property Name="NOT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOT_NOMBRE" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="NOT_TITULO" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="NOT_ADJUNTO" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="NOT_ENCABEZADO" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="NOT_DESCRIPCION_EVENTO" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="NOT_ENVIAR_RDP" Type="Int32" Nullable="false" />
-          <Property Name="NOT_ENVIAR_ADR" Type="Int32" Nullable="false" />
-          <Property Name="NOT_ENVIAR_ANALISTA" Type="Int32" Nullable="false" />
-          <Property Name="NOT_ENVIAR_SOLICITANTE" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="NOT_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NOT_NOMBRE" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOT_TITULO" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOT_ADJUNTO" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOT_ENCABEZADO" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOT_DESCRIPCION_EVENTO" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="NOT_ENVIAR_RDP" Nullable="false" />
+          <Property Type="Int32" Name="NOT_ENVIAR_ADR" Nullable="false" />
+          <Property Type="Int32" Name="NOT_ENVIAR_ANALISTA" Nullable="false" />
+          <Property Type="Int32" Name="NOT_ENVIAR_SOLICITANTE" Nullable="false" />
           <NavigationProperty Name="EVE_EVENTO" Relationship="SisPARModel.FK_EVE_EVENTO_NOT_NOTIFICACION" FromRole="NOT_NOTIFICACION" ToRole="EVE_EVENTO" />
         </EntityType>
         <EntityType Name="PRE_PREGUNTA">
           <Key>
             <PropertyRef Name="PRE_ID" />
           </Key>
-          <Property Name="PRE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PRE_DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="PRE_SECUENCIA" Type="Int32" Nullable="false" />
-          <Property Name="PRE_ACTIVO" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="PRE_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PRE_DESCRIPCION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PRE_SECUENCIA" Nullable="false" />
+          <Property Type="Int32" Name="PRE_ACTIVO" Nullable="false" />
           <NavigationProperty Name="EVA_EVALUACION" Relationship="SisPARModel.FK_EVA_EVALUACION_PRE_PREGUNTA" FromRole="PRE_PREGUNTA" ToRole="EVA_EVALUACION" />
         </EntityType>
         <EntityType Name="PRO_PROCESO">
           <Key>
             <PropertyRef Name="PRO_ID" />
           </Key>
-          <Property Name="PRO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PRO_NOMBRE" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="PRO_TPR_ID" Type="Int32" Nullable="false" />
-          <Property Name="PRO_OBS" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="PRO_EPR_ID" Type="String" Nullable="false" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="PRO_RES_ID" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="PRO_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PRO_NOMBRE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PRO_DESCRIPCION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PRO_OBS" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PRO_EPR_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PRO_RES_ID" Nullable="false" />
           <NavigationProperty Name="DER_DERIVACION" Relationship="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO" FromRole="PRO_PROCESO" ToRole="DER_DERIVACION" />
           <NavigationProperty Name="DER_DERIVACION1" Relationship="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO1" FromRole="PRO_PROCESO" ToRole="DER_DERIVACION" />
           <NavigationProperty Name="EPR_EMPRESA" Relationship="SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA" FromRole="PRO_PROCESO" ToRole="EPR_EMPRESA" />
           <NavigationProperty Name="RES_RESPONSABLE" Relationship="SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE" FromRole="PRO_PROCESO" ToRole="RES_RESPONSABLE" />
-          <NavigationProperty Name="TPR_TIPO_PROCESO" Relationship="SisPARModel.FK_PRO_PROCESO_TPR_TIPO_PROCESO" FromRole="PRO_PROCESO" ToRole="TPR_TIPO_PROCESO" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_PRO_PROCESO" FromRole="PRO_PROCESO" ToRole="REQ_REQUERIMIENTO" />
           <NavigationProperty Name="SPO_SUBPROCESO" Relationship="SisPARModel.FK_SPO_SUBPROCESO_PRO_PROCESO" FromRole="PRO_PROCESO" ToRole="SPO_SUBPROCESO" />
-        </EntityType>
-        <EntityType Name="PRV_PROOVEDOR">
-          <Key>
-            <PropertyRef Name="PRV_ID" />
-          </Key>
-          <Property Name="PRV_ID" Type="String" Nullable="false" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="PRV_RAZ_SOCIAL" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="PRV_FONO" Type="Int32" Nullable="false" />
-          <Property Name="PRV_EMAIL" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="PRV_DIREC" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="PRV_TIPO" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR" FromRole="PRV_PROOVEDOR" ToRole="REQ_REQUERIMIENTO" />
         </EntityType>
         <EntityType Name="REQ_REQUERIMIENTO">
           <Key>
             <PropertyRef Name="REQ_ID" />
           </Key>
-          <Property Name="REQ_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="REQ_FECHA_ING" Type="DateTime" Nullable="false" />
-          <Property Name="REQ_FECHA_ASIGN" Type="DateTime" />
-          <Property Name="REQ_FECHA_DERIV" Type="DateTime" />
-          <Property Name="REQ_FECHA_PROV" Type="DateTime" />
-          <Property Name="REQ_FECHA_CIERRE_PRE" Type="DateTime" />
-          <Property Name="REQ_FECHA_CIERRE_DEF" Type="DateTime" />
-          <Property Name="REQ_TIPO_CIERRE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="REQ_GLOSA_USU" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="REQ_DESC_TEC" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="REQ_PLAZO_ATENC" Type="Int32" />
-          <Property Name="REQ_PRO_ID" Type="Int32" />
-          <Property Name="REQ_SPO_ID" Type="Int32" />
-          <Property Name="REQ_URG_ID" Type="Int32" />
-          <Property Name="REQ_EST_ID" Type="Int32" />
-          <Property Name="REQ_RES_ID" Type="Int32" />
-          <Property Name="REQ_PRV_ID" Type="String" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="REQ_EPR_ID" Type="String" Nullable="false" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="REQ_USU_ID" Type="String" Nullable="false" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="REQ_ARC_ADJUNTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Type="Int32" Name="REQ_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="REQ_FECHA_ING" Nullable="false" />
+          <Property Type="DateTime" Name="REQ_FECHA_ASIGN" />
+          <Property Type="DateTime" Name="REQ_FECHA_DERIV" />
+          <Property Type="DateTime" Name="REQ_FECHA_PROV" />
+          <Property Type="DateTime" Name="REQ_FECHA_CIERRE_PRE" />
+          <Property Type="DateTime" Name="REQ_FECHA_CIERRE_DEF" />
+          <Property Type="String" Name="REQ_TIPO_CIERRE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="REQ_GLOSA_USU" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="REQ_DESC_TEC" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="REQ_PLAZO_ATENC" />
+          <Property Type="Int32" Name="REQ_PRO_ID" />
+          <Property Type="Int32" Name="REQ_SPO_ID" />
+          <Property Type="Int32" Name="REQ_URG_ID" />
+          <Property Type="Int32" Name="REQ_EST_ID" />
+          <Property Type="Int32" Name="REQ_RES_ID" />
+          <Property Type="String" Name="REQ_PRV_ID" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="REQ_EPR_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="REQ_USU_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="REQ_ARC_ADJUNTO" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="DER_DERIVACION" Relationship="SisPARModel.FK_DER_DERIVACION_REQ_REQUERIMIENTO" FromRole="REQ_REQUERIMIENTO" ToRole="DER_DERIVACION" />
           <NavigationProperty Name="EPR_EMPRESA" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_EPR_EMPRESA" FromRole="REQ_REQUERIMIENTO" ToRole="EPR_EMPRESA" />
           <NavigationProperty Name="EST_ESTADOS" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_EST_ESTADOS" FromRole="REQ_REQUERIMIENTO" ToRole="EST_ESTADOS" />
@@ -970,7 +894,6 @@
           <NavigationProperty Name="EVE_EVENTO" Relationship="SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO" FromRole="REQ_REQUERIMIENTO" ToRole="EVE_EVENTO" />
           <NavigationProperty Name="HRE_HISTORIAL_REQUERIMIENTO" Relationship="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_REQ_REQUERIMIENTO" FromRole="REQ_REQUERIMIENTO" ToRole="HRE_HISTORIAL_REQUERIMIENTO" />
           <NavigationProperty Name="PRO_PROCESO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_PRO_PROCESO" FromRole="REQ_REQUERIMIENTO" ToRole="PRO_PROCESO" />
-          <NavigationProperty Name="PRV_PROOVEDOR" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR" FromRole="REQ_REQUERIMIENTO" ToRole="PRV_PROOVEDOR" />
           <NavigationProperty Name="RES_RESPONSABLE" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_RES_RESPONSABLE" FromRole="REQ_REQUERIMIENTO" ToRole="RES_RESPONSABLE" />
           <NavigationProperty Name="SPO_SUBPROCESO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_SPO_SUBPROCESO" FromRole="REQ_REQUERIMIENTO" ToRole="SPO_SUBPROCESO" />
           <NavigationProperty Name="URG_URGENCIA" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_URG_URGENCIA" FromRole="REQ_REQUERIMIENTO" ToRole="URG_URGENCIA" />
@@ -980,75 +903,67 @@
           <Key>
             <PropertyRef Name="RES_ID" />
           </Key>
-          <Property Name="RES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RES_TIPO_ID" Type="Int32" Nullable="false" />
-          <Property Name="RES_USU_ID" Type="String" Nullable="false" MaxLength="9" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="RES_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RES_TIPO_ID" Nullable="false" />
+          <Property Type="String" Name="RES_USU_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PRO_PROCESO" Relationship="SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE" FromRole="RES_RESPONSABLE" ToRole="PRO_PROCESO" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_RES_RESPONSABLE" FromRole="RES_RESPONSABLE" ToRole="REQ_REQUERIMIENTO" />
-          <NavigationProperty Name="TIP_TIPO" Relationship="SisPARModel.FK_RES_RESPONSABLE_TIP_TIPO" FromRole="RES_RESPONSABLE" ToRole="TIP_TIPO" />
+          <NavigationProperty Name="ROL_ROL" Relationship="SisPARModel.FK_RES_RESPONSABLE_ROL_ROL" FromRole="RES_RESPONSABLE" ToRole="ROL_ROL" />
           <NavigationProperty Name="USU_USUARIO" Relationship="SisPARModel.FK_RES_RESPONSABLE_USU_USUARIO" FromRole="RES_RESPONSABLE" ToRole="USU_USUARIO" />
           <NavigationProperty Name="SPO_SUBPROCESO" Relationship="SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE" FromRole="RES_RESPONSABLE" ToRole="SPO_SUBPROCESO" />
+        </EntityType>
+        <EntityType Name="ROL_ROL">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Type="Int32" Name="ROL_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ROL_DESCRIPCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RES_RESPONSABLE" Relationship="SisPARModel.FK_RES_RESPONSABLE_ROL_ROL" FromRole="ROL_ROL" ToRole="RES_RESPONSABLE" />
         </EntityType>
         <EntityType Name="SPO_SUBPROCESO">
           <Key>
             <PropertyRef Name="SPO_ID" />
           </Key>
-          <Property Name="SPO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SPO_NOMBRE" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="SPO_OBSERVACION" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="SPO_PRO_ID" Type="Int32" Nullable="false" />
-          <Property Name="SPO_RES_ID" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="SPO_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SPO_NOMBRE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SPO_OBSERVACION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SPO_PRO_ID" Nullable="false" />
+          <Property Type="Int32" Name="SPO_RES_ID" Nullable="false" />
           <NavigationProperty Name="DER_DERIVACION" Relationship="SisPARModel.FK_DER_DERIVACION_SPO_SUBPROCESO" FromRole="SPO_SUBPROCESO" ToRole="DER_DERIVACION" />
           <NavigationProperty Name="DER_DERIVACION1" Relationship="SisPARModel.FK_DER_DERIVACION_SPO_SUBPROCESO1" FromRole="SPO_SUBPROCESO" ToRole="DER_DERIVACION" />
           <NavigationProperty Name="PRO_PROCESO" Relationship="SisPARModel.FK_SPO_SUBPROCESO_PRO_PROCESO" FromRole="SPO_SUBPROCESO" ToRole="PRO_PROCESO" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_SPO_SUBPROCESO" FromRole="SPO_SUBPROCESO" ToRole="REQ_REQUERIMIENTO" />
           <NavigationProperty Name="RES_RESPONSABLE" Relationship="SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE" FromRole="SPO_SUBPROCESO" ToRole="RES_RESPONSABLE" />
         </EntityType>
-        <EntityType Name="TIP_TIPO">
-          <Key>
-            <PropertyRef Name="TIP_ID" />
-          </Key>
-          <Property Name="TIP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TIP_NOMBRE" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="RES_RESPONSABLE" Relationship="SisPARModel.FK_RES_RESPONSABLE_TIP_TIPO" FromRole="TIP_TIPO" ToRole="RES_RESPONSABLE" />
-        </EntityType>
-        <EntityType Name="TPR_TIPO_PROCESO">
-          <Key>
-            <PropertyRef Name="TPR_ID" />
-          </Key>
-          <Property Name="TPR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TPR_DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="PRO_PROCESO" Relationship="SisPARModel.FK_PRO_PROCESO_TPR_TIPO_PROCESO" FromRole="TPR_TIPO_PROCESO" ToRole="PRO_PROCESO" />
-        </EntityType>
         <EntityType Name="URG_URGENCIA">
           <Key>
             <PropertyRef Name="URG_ID" />
           </Key>
-          <Property Name="URG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="URG_TIPO" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="URG_OBS" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="URG_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="URG_TIPO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="URG_OBS" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_URG_URGENCIA" FromRole="URG_URGENCIA" ToRole="REQ_REQUERIMIENTO" />
         </EntityType>
         <EntityType Name="USU_USUARIO">
           <Key>
             <PropertyRef Name="USU_ID" />
           </Key>
-          <Property Name="USU_ID" Type="String" Nullable="false" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="USU_NOMBRE" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="USU_APELLIDO" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="USU_FONO" Type="Int32" Nullable="false" />
-          <Property Name="USU_DIRECCION" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="USU_CARGO" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="USU_CORREO" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="USU_EPR_ID" Type="String" Nullable="false" MaxLength="9" Unicode="true" FixedLength="false" />
-          <Property Name="USU_CLAVE" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="USU_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USU_NOMBRE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USU_APELLIDO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="USU_FONO" Nullable="false" />
+          <Property Type="String" Name="USU_DIRECCION" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USU_CARGO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USU_CORREO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USU_EPR_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USU_CLAVE" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPR_EMPRESA" Relationship="SisPARModel.FK_USU_USUARIO_EPR_EMPRESA" FromRole="USU_USUARIO" ToRole="EPR_EMPRESA" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_USU_USUARIO" FromRole="USU_USUARIO" ToRole="REQ_REQUERIMIENTO" />
           <NavigationProperty Name="RES_RESPONSABLE" Relationship="SisPARModel.FK_RES_RESPONSABLE_USU_USUARIO" FromRole="USU_USUARIO" ToRole="RES_RESPONSABLE" />
         </EntityType>
         <Association Name="FK_DER_DERIVACION_PRO_PROCESO">
-          <End Role="PRO_PROCESO" Type="SisPARModel.PRO_PROCESO" Multiplicity="1" />
-          <End Role="DER_DERIVACION" Type="SisPARModel.DER_DERIVACION" Multiplicity="*" />
+          <End Type="SisPARModel.PRO_PROCESO" Role="PRO_PROCESO" Multiplicity="1" />
+          <End Type="SisPARModel.DER_DERIVACION" Role="DER_DERIVACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRO_PROCESO">
               <PropertyRef Name="PRO_ID" />
@@ -1059,8 +974,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DER_DERIVACION_PRO_PROCESO1">
-          <End Role="PRO_PROCESO" Type="SisPARModel.PRO_PROCESO" Multiplicity="1" />
-          <End Role="DER_DERIVACION" Type="SisPARModel.DER_DERIVACION" Multiplicity="*" />
+          <End Type="SisPARModel.PRO_PROCESO" Role="PRO_PROCESO" Multiplicity="1" />
+          <End Type="SisPARModel.DER_DERIVACION" Role="DER_DERIVACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRO_PROCESO">
               <PropertyRef Name="PRO_ID" />
@@ -1071,8 +986,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DER_DERIVACION_REQ_REQUERIMIENTO">
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="1" />
-          <End Role="DER_DERIVACION" Type="SisPARModel.DER_DERIVACION" Multiplicity="*" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="1" />
+          <End Type="SisPARModel.DER_DERIVACION" Role="DER_DERIVACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REQ_REQUERIMIENTO">
               <PropertyRef Name="REQ_ID" />
@@ -1083,8 +998,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DER_DERIVACION_SPO_SUBPROCESO">
-          <End Role="SPO_SUBPROCESO" Type="SisPARModel.SPO_SUBPROCESO" Multiplicity="1" />
-          <End Role="DER_DERIVACION" Type="SisPARModel.DER_DERIVACION" Multiplicity="*" />
+          <End Type="SisPARModel.SPO_SUBPROCESO" Role="SPO_SUBPROCESO" Multiplicity="1" />
+          <End Type="SisPARModel.DER_DERIVACION" Role="DER_DERIVACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SPO_SUBPROCESO">
               <PropertyRef Name="SPO_ID" />
@@ -1095,8 +1010,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DER_DERIVACION_SPO_SUBPROCESO1">
-          <End Role="SPO_SUBPROCESO" Type="SisPARModel.SPO_SUBPROCESO" Multiplicity="1" />
-          <End Role="DER_DERIVACION" Type="SisPARModel.DER_DERIVACION" Multiplicity="*" />
+          <End Type="SisPARModel.SPO_SUBPROCESO" Role="SPO_SUBPROCESO" Multiplicity="1" />
+          <End Type="SisPARModel.DER_DERIVACION" Role="DER_DERIVACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SPO_SUBPROCESO">
               <PropertyRef Name="SPO_ID" />
@@ -1107,8 +1022,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRO_PROCESO_EPR_EMPRESA">
-          <End Role="EPR_EMPRESA" Type="SisPARModel.EPR_EMPRESA" Multiplicity="1" />
-          <End Role="PRO_PROCESO" Type="SisPARModel.PRO_PROCESO" Multiplicity="*" />
+          <End Type="SisPARModel.EPR_EMPRESA" Role="EPR_EMPRESA" Multiplicity="1" />
+          <End Type="SisPARModel.PRO_PROCESO" Role="PRO_PROCESO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EPR_EMPRESA">
               <PropertyRef Name="EPR_ID" />
@@ -1119,8 +1034,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REQ_REQUERIMIENTO_EPR_EMPRESA">
-          <End Role="EPR_EMPRESA" Type="SisPARModel.EPR_EMPRESA" Multiplicity="1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.EPR_EMPRESA" Role="EPR_EMPRESA" Multiplicity="1" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EPR_EMPRESA">
               <PropertyRef Name="EPR_ID" />
@@ -1131,8 +1046,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_USU_USUARIO_EPR_EMPRESA">
-          <End Role="EPR_EMPRESA" Type="SisPARModel.EPR_EMPRESA" Multiplicity="1" />
-          <End Role="USU_USUARIO" Type="SisPARModel.USU_USUARIO" Multiplicity="*" />
+          <End Type="SisPARModel.EPR_EMPRESA" Role="EPR_EMPRESA" Multiplicity="1" />
+          <End Type="SisPARModel.USU_USUARIO" Role="USU_USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EPR_EMPRESA">
               <PropertyRef Name="EPR_ID" />
@@ -1143,8 +1058,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EVE_EVENTO_EST_ESTADOS">
-          <End Role="EST_ESTADOS" Type="SisPARModel.EST_ESTADOS" Multiplicity="1" />
-          <End Role="EVE_EVENTO" Type="SisPARModel.EVE_EVENTO" Multiplicity="*" />
+          <End Type="SisPARModel.EST_ESTADOS" Role="EST_ESTADOS" Multiplicity="1" />
+          <End Type="SisPARModel.EVE_EVENTO" Role="EVE_EVENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EST_ESTADOS">
               <PropertyRef Name="EST_ID" />
@@ -1155,8 +1070,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HRE_HISTORIAL_REQUERIMIENTO_EST_ESTADOS">
-          <End Role="EST_ESTADOS" Type="SisPARModel.EST_ESTADOS" Multiplicity="1" />
-          <End Role="HRE_HISTORIAL_REQUERIMIENTO" Type="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.EST_ESTADOS" Role="EST_ESTADOS" Multiplicity="1" />
+          <End Type="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO" Role="HRE_HISTORIAL_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EST_ESTADOS">
               <PropertyRef Name="EST_ID" />
@@ -1167,8 +1082,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REQ_REQUERIMIENTO_EST_ESTADOS">
-          <End Role="EST_ESTADOS" Type="SisPARModel.EST_ESTADOS" Multiplicity="0..1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.EST_ESTADOS" Role="EST_ESTADOS" Multiplicity="0..1" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EST_ESTADOS">
               <PropertyRef Name="EST_ID" />
@@ -1179,8 +1094,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EVA_EVALUACION_PRE_PREGUNTA">
-          <End Role="PRE_PREGUNTA" Type="SisPARModel.PRE_PREGUNTA" Multiplicity="1" />
-          <End Role="EVA_EVALUACION" Type="SisPARModel.EVA_EVALUACION" Multiplicity="*" />
+          <End Type="SisPARModel.PRE_PREGUNTA" Role="PRE_PREGUNTA" Multiplicity="1" />
+          <End Type="SisPARModel.EVA_EVALUACION" Role="EVA_EVALUACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRE_PREGUNTA">
               <PropertyRef Name="PRE_ID" />
@@ -1191,8 +1106,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EVA_EVALUACION_REQ_REQUERIMIENTO">
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="1" />
-          <End Role="EVA_EVALUACION" Type="SisPARModel.EVA_EVALUACION" Multiplicity="*" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="1" />
+          <End Type="SisPARModel.EVA_EVALUACION" Role="EVA_EVALUACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REQ_REQUERIMIENTO">
               <PropertyRef Name="REQ_ID" />
@@ -1203,8 +1118,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EVE_EVENTO_NOT_NOTIFICACION">
-          <End Role="NOT_NOTIFICACION" Type="SisPARModel.NOT_NOTIFICACION" Multiplicity="1" />
-          <End Role="EVE_EVENTO" Type="SisPARModel.EVE_EVENTO" Multiplicity="*" />
+          <End Type="SisPARModel.NOT_NOTIFICACION" Role="NOT_NOTIFICACION" Multiplicity="1" />
+          <End Type="SisPARModel.EVE_EVENTO" Role="EVE_EVENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NOT_NOTIFICACION">
               <PropertyRef Name="NOT_ID" />
@@ -1215,8 +1130,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EVE_EVENTO_REQ_REQUERIMIENTO">
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="1" />
-          <End Role="EVE_EVENTO" Type="SisPARModel.EVE_EVENTO" Multiplicity="*" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="1" />
+          <End Type="SisPARModel.EVE_EVENTO" Role="EVE_EVENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REQ_REQUERIMIENTO">
               <PropertyRef Name="REQ_ID" />
@@ -1227,8 +1142,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HRE_HISTORIAL_REQUERIMIENTO_REQ_REQUERIMIENTO">
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="1" />
-          <End Role="HRE_HISTORIAL_REQUERIMIENTO" Type="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="1" />
+          <End Type="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO" Role="HRE_HISTORIAL_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REQ_REQUERIMIENTO">
               <PropertyRef Name="REQ_ID" />
@@ -1239,8 +1154,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRO_PROCESO_RES_RESPONSABLE">
-          <End Role="RES_RESPONSABLE" Type="SisPARModel.RES_RESPONSABLE" Multiplicity="1" />
-          <End Role="PRO_PROCESO" Type="SisPARModel.PRO_PROCESO" Multiplicity="*" />
+          <End Type="SisPARModel.RES_RESPONSABLE" Role="RES_RESPONSABLE" Multiplicity="1" />
+          <End Type="SisPARModel.PRO_PROCESO" Role="PRO_PROCESO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RES_RESPONSABLE">
               <PropertyRef Name="RES_ID" />
@@ -1250,21 +1165,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PRO_PROCESO_TPR_TIPO_PROCESO">
-          <End Role="TPR_TIPO_PROCESO" Type="SisPARModel.TPR_TIPO_PROCESO" Multiplicity="1" />
-          <End Role="PRO_PROCESO" Type="SisPARModel.PRO_PROCESO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TPR_TIPO_PROCESO">
-              <PropertyRef Name="TPR_ID" />
-            </Principal>
-            <Dependent Role="PRO_PROCESO">
-              <PropertyRef Name="PRO_TPR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_REQ_REQUERIMIENTO_PRO_PROCESO">
-          <End Role="PRO_PROCESO" Type="SisPARModel.PRO_PROCESO" Multiplicity="0..1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.PRO_PROCESO" Role="PRO_PROCESO" Multiplicity="0..1" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRO_PROCESO">
               <PropertyRef Name="PRO_ID" />
@@ -1275,8 +1178,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SPO_SUBPROCESO_PRO_PROCESO">
-          <End Role="PRO_PROCESO" Type="SisPARModel.PRO_PROCESO" Multiplicity="1" />
-          <End Role="SPO_SUBPROCESO" Type="SisPARModel.SPO_SUBPROCESO" Multiplicity="*" />
+          <End Type="SisPARModel.PRO_PROCESO" Role="PRO_PROCESO" Multiplicity="1" />
+          <End Type="SisPARModel.SPO_SUBPROCESO" Role="SPO_SUBPROCESO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRO_PROCESO">
               <PropertyRef Name="PRO_ID" />
@@ -1286,21 +1189,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR">
-          <End Role="PRV_PROOVEDOR" Type="SisPARModel.PRV_PROOVEDOR" Multiplicity="0..1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRV_PROOVEDOR">
-              <PropertyRef Name="PRV_ID" />
-            </Principal>
-            <Dependent Role="REQ_REQUERIMIENTO">
-              <PropertyRef Name="REQ_PRV_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_REQ_REQUERIMIENTO_RES_RESPONSABLE">
-          <End Role="RES_RESPONSABLE" Type="SisPARModel.RES_RESPONSABLE" Multiplicity="0..1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.RES_RESPONSABLE" Role="RES_RESPONSABLE" Multiplicity="0..1" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RES_RESPONSABLE">
               <PropertyRef Name="RES_ID" />
@@ -1311,8 +1202,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REQ_REQUERIMIENTO_SPO_SUBPROCESO">
-          <End Role="SPO_SUBPROCESO" Type="SisPARModel.SPO_SUBPROCESO" Multiplicity="0..1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.SPO_SUBPROCESO" Role="SPO_SUBPROCESO" Multiplicity="0..1" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SPO_SUBPROCESO">
               <PropertyRef Name="SPO_ID" />
@@ -1323,8 +1214,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REQ_REQUERIMIENTO_URG_URGENCIA">
-          <End Role="URG_URGENCIA" Type="SisPARModel.URG_URGENCIA" Multiplicity="0..1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.URG_URGENCIA" Role="URG_URGENCIA" Multiplicity="0..1" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="URG_URGENCIA">
               <PropertyRef Name="URG_ID" />
@@ -1335,8 +1226,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REQ_REQUERIMIENTO_USU_USUARIO">
-          <End Role="USU_USUARIO" Type="SisPARModel.USU_USUARIO" Multiplicity="1" />
-          <End Role="REQ_REQUERIMIENTO" Type="SisPARModel.REQ_REQUERIMIENTO" Multiplicity="*" />
+          <End Type="SisPARModel.USU_USUARIO" Role="USU_USUARIO" Multiplicity="1" />
+          <End Type="SisPARModel.REQ_REQUERIMIENTO" Role="REQ_REQUERIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USU_USUARIO">
               <PropertyRef Name="USU_ID" />
@@ -1346,12 +1237,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RES_RESPONSABLE_TIP_TIPO">
-          <End Role="TIP_TIPO" Type="SisPARModel.TIP_TIPO" Multiplicity="1" />
-          <End Role="RES_RESPONSABLE" Type="SisPARModel.RES_RESPONSABLE" Multiplicity="*" />
+        <Association Name="FK_RES_RESPONSABLE_ROL_ROL">
+          <End Type="SisPARModel.ROL_ROL" Role="ROL_ROL" Multiplicity="1" />
+          <End Type="SisPARModel.RES_RESPONSABLE" Role="RES_RESPONSABLE" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TIP_TIPO">
-              <PropertyRef Name="TIP_ID" />
+            <Principal Role="ROL_ROL">
+              <PropertyRef Name="ROL_ID" />
             </Principal>
             <Dependent Role="RES_RESPONSABLE">
               <PropertyRef Name="RES_TIPO_ID" />
@@ -1359,8 +1250,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RES_RESPONSABLE_USU_USUARIO">
-          <End Role="USU_USUARIO" Type="SisPARModel.USU_USUARIO" Multiplicity="1" />
-          <End Role="RES_RESPONSABLE" Type="SisPARModel.RES_RESPONSABLE" Multiplicity="*" />
+          <End Type="SisPARModel.USU_USUARIO" Role="USU_USUARIO" Multiplicity="1" />
+          <End Type="SisPARModel.RES_RESPONSABLE" Role="RES_RESPONSABLE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USU_USUARIO">
               <PropertyRef Name="USU_ID" />
@@ -1371,8 +1262,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SPO_SUBPROCESO_RES_RESPONSABLE">
-          <End Role="RES_RESPONSABLE" Type="SisPARModel.RES_RESPONSABLE" Multiplicity="1" />
-          <End Role="SPO_SUBPROCESO" Type="SisPARModel.SPO_SUBPROCESO" Multiplicity="*" />
+          <End Type="SisPARModel.RES_RESPONSABLE" Role="RES_RESPONSABLE" Multiplicity="1" />
+          <End Type="SisPARModel.SPO_SUBPROCESO" Role="SPO_SUBPROCESO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RES_RESPONSABLE">
               <PropertyRef Name="RES_ID" />
@@ -1382,7 +1273,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1391,208 +1282,188 @@
           <EntitySetMapping Name="DER_DERIVACION">
             <EntityTypeMapping TypeName="SisPARModel.DER_DERIVACION">
               <MappingFragment StoreEntitySet="DER_DERIVACION">
-                <ScalarProperty Name="DER_ID" ColumnName="DER_ID" />
-                <ScalarProperty Name="DER_FECHA" ColumnName="DER_FECHA" />
-                <ScalarProperty Name="DER_REQ_ID" ColumnName="DER_REQ_ID" />
-                <ScalarProperty Name="DER_RESPONSABLE" ColumnName="DER_RESPONSABLE" />
-                <ScalarProperty Name="DER_OBSERVACION" ColumnName="DER_OBSERVACION" />
-                <ScalarProperty Name="DER_ORIGEN_PRO" ColumnName="DER_ORIGEN_PRO" />
-                <ScalarProperty Name="DER_ORIGEN_SPO" ColumnName="DER_ORIGEN_SPO" />
-                <ScalarProperty Name="DER_ORIGEN_ANALISTA" ColumnName="DER_ORIGEN_ANALISTA" />
-                <ScalarProperty Name="DER_DESTINO_PRO" ColumnName="DER_DESTINO_PRO" />
-                <ScalarProperty Name="DER_DESTINO_SPO" ColumnName="DER_DESTINO_SPO" />
                 <ScalarProperty Name="DER_DESTINO_ANALISTA" ColumnName="DER_DESTINO_ANALISTA" />
+                <ScalarProperty Name="DER_DESTINO_SPO" ColumnName="DER_DESTINO_SPO" />
+                <ScalarProperty Name="DER_DESTINO_PRO" ColumnName="DER_DESTINO_PRO" />
+                <ScalarProperty Name="DER_ORIGEN_ANALISTA" ColumnName="DER_ORIGEN_ANALISTA" />
+                <ScalarProperty Name="DER_ORIGEN_SPO" ColumnName="DER_ORIGEN_SPO" />
+                <ScalarProperty Name="DER_ORIGEN_PRO" ColumnName="DER_ORIGEN_PRO" />
+                <ScalarProperty Name="DER_OBSERVACION" ColumnName="DER_OBSERVACION" />
+                <ScalarProperty Name="DER_RESPONSABLE" ColumnName="DER_RESPONSABLE" />
+                <ScalarProperty Name="DER_REQ_ID" ColumnName="DER_REQ_ID" />
+                <ScalarProperty Name="DER_FECHA" ColumnName="DER_FECHA" />
+                <ScalarProperty Name="DER_ID" ColumnName="DER_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EPR_EMPRESA">
             <EntityTypeMapping TypeName="SisPARModel.EPR_EMPRESA">
               <MappingFragment StoreEntitySet="EPR_EMPRESA">
-                <ScalarProperty Name="EPR_ID" ColumnName="EPR_ID" />
-                <ScalarProperty Name="EPR_RAZONSOCIAL" ColumnName="EPR_RAZONSOCIAL" />
-                <ScalarProperty Name="EPR_FONO" ColumnName="EPR_FONO" />
-                <ScalarProperty Name="EPR_DIRECCION" ColumnName="EPR_DIRECCION" />
                 <ScalarProperty Name="EPR_SUCURSAL" ColumnName="EPR_SUCURSAL" />
+                <ScalarProperty Name="EPR_DIRECCION" ColumnName="EPR_DIRECCION" />
+                <ScalarProperty Name="EPR_FONO" ColumnName="EPR_FONO" />
+                <ScalarProperty Name="EPR_RAZONSOCIAL" ColumnName="EPR_RAZONSOCIAL" />
+                <ScalarProperty Name="EPR_ID" ColumnName="EPR_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EST_ESTADOS">
             <EntityTypeMapping TypeName="SisPARModel.EST_ESTADOS">
               <MappingFragment StoreEntitySet="EST_ESTADOS">
-                <ScalarProperty Name="EST_ID" ColumnName="EST_ID" />
-                <ScalarProperty Name="EST_TIP" ColumnName="EST_TIP" />
                 <ScalarProperty Name="EST_OBS" ColumnName="EST_OBS" />
+                <ScalarProperty Name="EST_TIP" ColumnName="EST_TIP" />
+                <ScalarProperty Name="EST_ID" ColumnName="EST_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EVA_EVALUACION">
             <EntityTypeMapping TypeName="SisPARModel.EVA_EVALUACION">
               <MappingFragment StoreEntitySet="EVA_EVALUACION">
-                <ScalarProperty Name="EVA_ID" ColumnName="EVA_ID" />
-                <ScalarProperty Name="EVA_PRE_ID" ColumnName="EVA_PRE_ID" />
-                <ScalarProperty Name="EVA_REQ_ID" ColumnName="EVA_REQ_ID" />
-                <ScalarProperty Name="EVA_NOTA" ColumnName="EVA_NOTA" />
                 <ScalarProperty Name="EVA_DESC" ColumnName="EVA_DESC" />
+                <ScalarProperty Name="EVA_NOTA" ColumnName="EVA_NOTA" />
+                <ScalarProperty Name="EVA_REQ_ID" ColumnName="EVA_REQ_ID" />
+                <ScalarProperty Name="EVA_PRE_ID" ColumnName="EVA_PRE_ID" />
+                <ScalarProperty Name="EVA_ID" ColumnName="EVA_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EVE_EVENTO">
             <EntityTypeMapping TypeName="SisPARModel.EVE_EVENTO">
               <MappingFragment StoreEntitySet="EVE_EVENTO">
-                <ScalarProperty Name="EVE_ID" ColumnName="EVE_ID" />
-                <ScalarProperty Name="EVE_REQ_ID" ColumnName="EVE_REQ_ID" />
-                <ScalarProperty Name="EVE_EST_ID" ColumnName="EVE_EST_ID" />
-                <ScalarProperty Name="EVE_NOT_ID" ColumnName="EVE_NOT_ID" />
-                <ScalarProperty Name="EVE_RESPONSABLE" ColumnName="EVE_RESPONSABLE" />
-                <ScalarProperty Name="EVE_DESCRIPCION" ColumnName="EVE_DESCRIPCION" />
                 <ScalarProperty Name="EVE_FECHA" ColumnName="EVE_FECHA" />
+                <ScalarProperty Name="EVE_DESCRIPCION" ColumnName="EVE_DESCRIPCION" />
+                <ScalarProperty Name="EVE_RESPONSABLE" ColumnName="EVE_RESPONSABLE" />
+                <ScalarProperty Name="EVE_NOT_ID" ColumnName="EVE_NOT_ID" />
+                <ScalarProperty Name="EVE_EST_ID" ColumnName="EVE_EST_ID" />
+                <ScalarProperty Name="EVE_REQ_ID" ColumnName="EVE_REQ_ID" />
+                <ScalarProperty Name="EVE_ID" ColumnName="EVE_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HRE_HISTORIAL_REQUERIMIENTO">
             <EntityTypeMapping TypeName="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO">
               <MappingFragment StoreEntitySet="HRE_HISTORIAL_REQUERIMIENTO">
-                <ScalarProperty Name="HRE_ID" ColumnName="HRE_ID" />
-                <ScalarProperty Name="HRE_REQ_ID" ColumnName="HRE_REQ_ID" />
-                <ScalarProperty Name="HRE_EST_ID" ColumnName="HRE_EST_ID" />
-                <ScalarProperty Name="HRE_FECHA" ColumnName="HRE_FECHA" />
                 <ScalarProperty Name="HRE_RESPONSABLE_REQ" ColumnName="HRE_RESPONSABLE_REQ" />
+                <ScalarProperty Name="HRE_FECHA" ColumnName="HRE_FECHA" />
+                <ScalarProperty Name="HRE_EST_ID" ColumnName="HRE_EST_ID" />
+                <ScalarProperty Name="HRE_REQ_ID" ColumnName="HRE_REQ_ID" />
+                <ScalarProperty Name="HRE_ID" ColumnName="HRE_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NOT_NOTIFICACION">
             <EntityTypeMapping TypeName="SisPARModel.NOT_NOTIFICACION">
               <MappingFragment StoreEntitySet="NOT_NOTIFICACION">
-                <ScalarProperty Name="NOT_ID" ColumnName="NOT_ID" />
-                <ScalarProperty Name="NOT_NOMBRE" ColumnName="NOT_NOMBRE" />
-                <ScalarProperty Name="NOT_TITULO" ColumnName="NOT_TITULO" />
-                <ScalarProperty Name="NOT_ADJUNTO" ColumnName="NOT_ADJUNTO" />
-                <ScalarProperty Name="NOT_ENCABEZADO" ColumnName="NOT_ENCABEZADO" />
-                <ScalarProperty Name="NOT_DESCRIPCION_EVENTO" ColumnName="NOT_DESCRIPCION_EVENTO" />
-                <ScalarProperty Name="NOT_ENVIAR_RDP" ColumnName="NOT_ENVIAR_RDP" />
-                <ScalarProperty Name="NOT_ENVIAR_ADR" ColumnName="NOT_ENVIAR_ADR" />
-                <ScalarProperty Name="NOT_ENVIAR_ANALISTA" ColumnName="NOT_ENVIAR_ANALISTA" />
                 <ScalarProperty Name="NOT_ENVIAR_SOLICITANTE" ColumnName="NOT_ENVIAR_SOLICITANTE" />
+                <ScalarProperty Name="NOT_ENVIAR_ANALISTA" ColumnName="NOT_ENVIAR_ANALISTA" />
+                <ScalarProperty Name="NOT_ENVIAR_ADR" ColumnName="NOT_ENVIAR_ADR" />
+                <ScalarProperty Name="NOT_ENVIAR_RDP" ColumnName="NOT_ENVIAR_RDP" />
+                <ScalarProperty Name="NOT_DESCRIPCION_EVENTO" ColumnName="NOT_DESCRIPCION_EVENTO" />
+                <ScalarProperty Name="NOT_ENCABEZADO" ColumnName="NOT_ENCABEZADO" />
+                <ScalarProperty Name="NOT_ADJUNTO" ColumnName="NOT_ADJUNTO" />
+                <ScalarProperty Name="NOT_TITULO" ColumnName="NOT_TITULO" />
+                <ScalarProperty Name="NOT_NOMBRE" ColumnName="NOT_NOMBRE" />
+                <ScalarProperty Name="NOT_ID" ColumnName="NOT_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRE_PREGUNTA">
             <EntityTypeMapping TypeName="SisPARModel.PRE_PREGUNTA">
               <MappingFragment StoreEntitySet="PRE_PREGUNTA">
-                <ScalarProperty Name="PRE_ID" ColumnName="PRE_ID" />
-                <ScalarProperty Name="PRE_DESCRIPCION" ColumnName="PRE_DESCRIPCION" />
-                <ScalarProperty Name="PRE_SECUENCIA" ColumnName="PRE_SECUENCIA" />
                 <ScalarProperty Name="PRE_ACTIVO" ColumnName="PRE_ACTIVO" />
+                <ScalarProperty Name="PRE_SECUENCIA" ColumnName="PRE_SECUENCIA" />
+                <ScalarProperty Name="PRE_DESCRIPCION" ColumnName="PRE_DESCRIPCION" />
+                <ScalarProperty Name="PRE_ID" ColumnName="PRE_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRO_PROCESO">
             <EntityTypeMapping TypeName="SisPARModel.PRO_PROCESO">
               <MappingFragment StoreEntitySet="PRO_PROCESO">
-                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
-                <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
-                <ScalarProperty Name="PRO_TPR_ID" ColumnName="PRO_TPR_ID" />
-                <ScalarProperty Name="PRO_OBS" ColumnName="PRO_OBS" />
-                <ScalarProperty Name="PRO_EPR_ID" ColumnName="PRO_EPR_ID" />
                 <ScalarProperty Name="PRO_RES_ID" ColumnName="PRO_RES_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PRV_PROOVEDOR">
-            <EntityTypeMapping TypeName="SisPARModel.PRV_PROOVEDOR">
-              <MappingFragment StoreEntitySet="PRV_PROOVEDOR">
-                <ScalarProperty Name="PRV_ID" ColumnName="PRV_ID" />
-                <ScalarProperty Name="PRV_RAZ_SOCIAL" ColumnName="PRV_RAZ_SOCIAL" />
-                <ScalarProperty Name="PRV_FONO" ColumnName="PRV_FONO" />
-                <ScalarProperty Name="PRV_EMAIL" ColumnName="PRV_EMAIL" />
-                <ScalarProperty Name="PRV_DIREC" ColumnName="PRV_DIREC" />
-                <ScalarProperty Name="PRV_TIPO" ColumnName="PRV_TIPO" />
+                <ScalarProperty Name="PRO_EPR_ID" ColumnName="PRO_EPR_ID" />
+                <ScalarProperty Name="PRO_OBS" ColumnName="PRO_OBS" />
+                <ScalarProperty Name="PRO_DESCRIPCION" ColumnName="PRO_DESCRIPCION" />
+                <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
+                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REQ_REQUERIMIENTO">
             <EntityTypeMapping TypeName="SisPARModel.REQ_REQUERIMIENTO">
               <MappingFragment StoreEntitySet="REQ_REQUERIMIENTO">
-                <ScalarProperty Name="REQ_ID" ColumnName="REQ_ID" />
-                <ScalarProperty Name="REQ_FECHA_ING" ColumnName="REQ_FECHA_ING" />
-                <ScalarProperty Name="REQ_FECHA_ASIGN" ColumnName="REQ_FECHA_ASIGN" />
-                <ScalarProperty Name="REQ_FECHA_DERIV" ColumnName="REQ_FECHA_DERIV" />
-                <ScalarProperty Name="REQ_FECHA_PROV" ColumnName="REQ_FECHA_PROV" />
-                <ScalarProperty Name="REQ_FECHA_CIERRE_PRE" ColumnName="REQ_FECHA_CIERRE_PRE" />
-                <ScalarProperty Name="REQ_FECHA_CIERRE_DEF" ColumnName="REQ_FECHA_CIERRE_DEF" />
-                <ScalarProperty Name="REQ_TIPO_CIERRE" ColumnName="REQ_TIPO_CIERRE" />
-                <ScalarProperty Name="REQ_GLOSA_USU" ColumnName="REQ_GLOSA_USU" />
-                <ScalarProperty Name="REQ_DESC_TEC" ColumnName="REQ_DESC_TEC" />
-                <ScalarProperty Name="REQ_PLAZO_ATENC" ColumnName="REQ_PLAZO_ATENC" />
-                <ScalarProperty Name="REQ_PRO_ID" ColumnName="REQ_PRO_ID" />
-                <ScalarProperty Name="REQ_SPO_ID" ColumnName="REQ_SPO_ID" />
-                <ScalarProperty Name="REQ_URG_ID" ColumnName="REQ_URG_ID" />
-                <ScalarProperty Name="REQ_EST_ID" ColumnName="REQ_EST_ID" />
-                <ScalarProperty Name="REQ_RES_ID" ColumnName="REQ_RES_ID" />
-                <ScalarProperty Name="REQ_PRV_ID" ColumnName="REQ_PRV_ID" />
-                <ScalarProperty Name="REQ_EPR_ID" ColumnName="REQ_EPR_ID" />
-                <ScalarProperty Name="REQ_USU_ID" ColumnName="REQ_USU_ID" />
                 <ScalarProperty Name="REQ_ARC_ADJUNTO" ColumnName="REQ_ARC_ADJUNTO" />
+                <ScalarProperty Name="REQ_USU_ID" ColumnName="REQ_USU_ID" />
+                <ScalarProperty Name="REQ_EPR_ID" ColumnName="REQ_EPR_ID" />
+                <ScalarProperty Name="REQ_PRV_ID" ColumnName="REQ_PRV_ID" />
+                <ScalarProperty Name="REQ_RES_ID" ColumnName="REQ_RES_ID" />
+                <ScalarProperty Name="REQ_EST_ID" ColumnName="REQ_EST_ID" />
+                <ScalarProperty Name="REQ_URG_ID" ColumnName="REQ_URG_ID" />
+                <ScalarProperty Name="REQ_SPO_ID" ColumnName="REQ_SPO_ID" />
+                <ScalarProperty Name="REQ_PRO_ID" ColumnName="REQ_PRO_ID" />
+                <ScalarProperty Name="REQ_PLAZO_ATENC" ColumnName="REQ_PLAZO_ATENC" />
+                <ScalarProperty Name="REQ_DESC_TEC" ColumnName="REQ_DESC_TEC" />
+                <ScalarProperty Name="REQ_GLOSA_USU" ColumnName="REQ_GLOSA_USU" />
+                <ScalarProperty Name="REQ_TIPO_CIERRE" ColumnName="REQ_TIPO_CIERRE" />
+                <ScalarProperty Name="REQ_FECHA_CIERRE_DEF" ColumnName="REQ_FECHA_CIERRE_DEF" />
+                <ScalarProperty Name="REQ_FECHA_CIERRE_PRE" ColumnName="REQ_FECHA_CIERRE_PRE" />
+                <ScalarProperty Name="REQ_FECHA_PROV" ColumnName="REQ_FECHA_PROV" />
+                <ScalarProperty Name="REQ_FECHA_DERIV" ColumnName="REQ_FECHA_DERIV" />
+                <ScalarProperty Name="REQ_FECHA_ASIGN" ColumnName="REQ_FECHA_ASIGN" />
+                <ScalarProperty Name="REQ_FECHA_ING" ColumnName="REQ_FECHA_ING" />
+                <ScalarProperty Name="REQ_ID" ColumnName="REQ_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RES_RESPONSABLE">
             <EntityTypeMapping TypeName="SisPARModel.RES_RESPONSABLE">
               <MappingFragment StoreEntitySet="RES_RESPONSABLE">
-                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
-                <ScalarProperty Name="RES_TIPO_ID" ColumnName="RES_TIPO_ID" />
                 <ScalarProperty Name="RES_USU_ID" ColumnName="RES_USU_ID" />
+                <ScalarProperty Name="RES_TIPO_ID" ColumnName="RES_TIPO_ID" />
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL_ROL">
+            <EntityTypeMapping TypeName="SisPARModel.ROL_ROL">
+              <MappingFragment StoreEntitySet="ROL_ROL">
+                <ScalarProperty Name="ROL_DESCRIPCION" ColumnName="ROL_DESCRIPCION" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SPO_SUBPROCESO">
             <EntityTypeMapping TypeName="SisPARModel.SPO_SUBPROCESO">
               <MappingFragment StoreEntitySet="SPO_SUBPROCESO">
-                <ScalarProperty Name="SPO_ID" ColumnName="SPO_ID" />
-                <ScalarProperty Name="SPO_NOMBRE" ColumnName="SPO_NOMBRE" />
-                <ScalarProperty Name="SPO_OBSERVACION" ColumnName="SPO_OBSERVACION" />
-                <ScalarProperty Name="SPO_PRO_ID" ColumnName="SPO_PRO_ID" />
                 <ScalarProperty Name="SPO_RES_ID" ColumnName="SPO_RES_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TIP_TIPO">
-            <EntityTypeMapping TypeName="SisPARModel.TIP_TIPO">
-              <MappingFragment StoreEntitySet="TIP_TIPO">
-                <ScalarProperty Name="TIP_ID" ColumnName="TIP_ID" />
-                <ScalarProperty Name="TIP_NOMBRE" ColumnName="TIP_NOMBRE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TPR_TIPO_PROCESO">
-            <EntityTypeMapping TypeName="SisPARModel.TPR_TIPO_PROCESO">
-              <MappingFragment StoreEntitySet="TPR_TIPO_PROCESO">
-                <ScalarProperty Name="TPR_ID" ColumnName="TPR_ID" />
-                <ScalarProperty Name="TPR_DESCRIPCION" ColumnName="TPR_DESCRIPCION" />
+                <ScalarProperty Name="SPO_PRO_ID" ColumnName="SPO_PRO_ID" />
+                <ScalarProperty Name="SPO_OBSERVACION" ColumnName="SPO_OBSERVACION" />
+                <ScalarProperty Name="SPO_NOMBRE" ColumnName="SPO_NOMBRE" />
+                <ScalarProperty Name="SPO_ID" ColumnName="SPO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="URG_URGENCIA">
             <EntityTypeMapping TypeName="SisPARModel.URG_URGENCIA">
               <MappingFragment StoreEntitySet="URG_URGENCIA">
-                <ScalarProperty Name="URG_ID" ColumnName="URG_ID" />
-                <ScalarProperty Name="URG_TIPO" ColumnName="URG_TIPO" />
                 <ScalarProperty Name="URG_OBS" ColumnName="URG_OBS" />
+                <ScalarProperty Name="URG_TIPO" ColumnName="URG_TIPO" />
+                <ScalarProperty Name="URG_ID" ColumnName="URG_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USU_USUARIO">
             <EntityTypeMapping TypeName="SisPARModel.USU_USUARIO">
               <MappingFragment StoreEntitySet="USU_USUARIO">
-                <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
-                <ScalarProperty Name="USU_NOMBRE" ColumnName="USU_NOMBRE" />
-                <ScalarProperty Name="USU_APELLIDO" ColumnName="USU_APELLIDO" />
-                <ScalarProperty Name="USU_FONO" ColumnName="USU_FONO" />
-                <ScalarProperty Name="USU_DIRECCION" ColumnName="USU_DIRECCION" />
-                <ScalarProperty Name="USU_CARGO" ColumnName="USU_CARGO" />
-                <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
-                <ScalarProperty Name="USU_EPR_ID" ColumnName="USU_EPR_ID" />
                 <ScalarProperty Name="USU_CLAVE" ColumnName="USU_CLAVE" />
+                <ScalarProperty Name="USU_EPR_ID" ColumnName="USU_EPR_ID" />
+                <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
+                <ScalarProperty Name="USU_CARGO" ColumnName="USU_CARGO" />
+                <ScalarProperty Name="USU_DIRECCION" ColumnName="USU_DIRECCION" />
+                <ScalarProperty Name="USU_FONO" ColumnName="USU_FONO" />
+                <ScalarProperty Name="USU_APELLIDO" ColumnName="USU_APELLIDO" />
+                <ScalarProperty Name="USU_NOMBRE" ColumnName="USU_NOMBRE" />
+                <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1617,243 +1488,223 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="SisPAR" ZoomLevel="47">
-        <EntityTypeShape EntityType="SisPARModel.DER_DERIVACION" Width="1.5" PointX="5.25" PointY="10.75" Height="4.0956022135416639" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.EPR_EMPRESA" Width="1.5" PointX="0.75" PointY="11.5" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.EST_ESTADOS" Width="1.5" PointX="5.25" PointY="7" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.EVA_EVALUACION" Width="1.5" PointX="12.75" PointY="13.75" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.EVE_EVENTO" Width="1.5" PointX="9.75" PointY="9.375" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO" Width="1.5" PointX="9.75" PointY="17.75" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.NOT_NOTIFICACION" Width="1.5" PointX="7.5" PointY="7.375" Height="3.1340950520833317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.PRE_PREGUNTA" Width="1.5" PointX="10.5" PointY="20.875" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.PRO_PROCESO" Width="1.5" PointX="3" PointY="11" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.PRV_PROOVEDOR" Width="1.5" PointX="5.25" PointY="19.875" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.REQ_REQUERIMIENTO" Width="1.5" PointX="7.5" PointY="11.25" Height="7.1724251302083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.RES_RESPONSABLE" Width="1.5" PointX="5.25" PointY="15.75" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.SPO_SUBPROCESO" Width="1.5" PointX="10.5" PointY="13.25" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.TIP_TIPO" Width="1.5" PointX="3" PointY="20.25" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.TPR_TIPO_PROCESO" Width="1.5" PointX="0.75" PointY="8.875" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.URG_URGENCIA" Width="1.5" PointX="5.25" PointY="23" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SisPARModel.USU_USUARIO" Width="1.5" PointX="3" PointY="15.375" Height="3.3263964843750031" IsExpanded="true" />
-        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="12.759348958333334" />
-          <ConnectorPoint PointX="5.25" PointY="12.759348958333334" />
+        <EntityTypeShape EntityType="SisPARModel.DER_DERIVACION" Width="1.5" PointX="5.25" PointY="10.75" Height="4.0956022135416674" />
+        <EntityTypeShape EntityType="SisPARModel.EPR_EMPRESA" Width="1.5" PointX="0.75" PointY="11.5" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="SisPARModel.EST_ESTADOS" Width="1.5" PointX="5.25" PointY="7.5" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="SisPARModel.EVA_EVALUACION" Width="1.5" PointX="12.75" PointY="13.625" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="SisPARModel.EVE_EVENTO" Width="1.5" PointX="9.75" PointY="9.375" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO" Width="1.5" PointX="9.75" PointY="17.625" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="SisPARModel.NOT_NOTIFICACION" Width="1.5" PointX="7.5" PointY="7.25" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="SisPARModel.PRE_PREGUNTA" Width="1.5" PointX="10.5" PointY="20.875" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="SisPARModel.PRO_PROCESO" Width="1.5" PointX="3" PointY="11.125" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="SisPARModel.REQ_REQUERIMIENTO" Width="1.5" PointX="7.5" PointY="11.375" Height="6.9801236979166674" />
+        <EntityTypeShape EntityType="SisPARModel.RES_RESPONSABLE" Width="1.5" PointX="5.25" PointY="15.625" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="SisPARModel.ROL_ROL" Width="1.5" PointX="3" PointY="20.125" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="SisPARModel.SPO_SUBPROCESO" Width="1.5" PointX="10.5" PointY="13.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SisPARModel.URG_URGENCIA" Width="1.5" PointX="5.25" PointY="19.375" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SisPARModel.USU_USUARIO" Width="1.5" PointX="3" PointY="15.25" Height="3.3263964843750102" />
+        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO" >
+          <ConnectorPoint PointX="4.5" PointY="12.788198242187505" />
+          <ConnectorPoint PointX="5.25" PointY="12.788198242187505" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO1" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.817174479166667" />
-          <ConnectorPoint PointX="5.25" PointY="11.817174479166667" />
+        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO1" >
+          <ConnectorPoint PointX="4.5" PointY="11.894099121093753" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="11.894099121093753" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="11.894099121093753" />
+          <ConnectorPoint PointX="5.25" PointY="11.894099121093753" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_REQ_REQUERIMIENTO" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="13.047801106770832" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="13.04780110677083" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="13.047801106770832" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="13.047801106770832" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="13.047801106770832" />
-          <ConnectorPoint PointX="6.75" PointY="13.047801106770832" />
+        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_REQ_REQUERIMIENTO" >
+          <ConnectorPoint PointX="7.5" PointY="13.110301106770834" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="13.110301106770832" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="13.110301106770834" />
+          <ConnectorPoint PointX="6.75" PointY="13.110301106770834" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_SPO_SUBPROCESO" ManuallyRouted="false">
-          <ConnectorPoint PointX="11.25" PointY="13.25" />
-          <ConnectorPoint PointX="11.25" PointY="12.797801106770832" />
-          <ConnectorPoint PointX="9.7083333333333339" PointY="12.79780110677083" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="12.797801106770832" />
-          <ConnectorPoint PointX="9.25" PointY="12.797801106770832" />
-          <ConnectorPoint PointX="9.25" PointY="11" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="10.999999999999998" />
-          <ConnectorPoint PointX="7.166666666666667" PointY="11" />
-          <ConnectorPoint PointX="7.125" PointY="11" />
-          <ConnectorPoint PointX="7.125" PointY="11.867648553385415" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="11.867648553385415" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="11.867648553385415" />
-          <ConnectorPoint PointX="6.75" PointY="11.867648553385415" />
+        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_SPO_SUBPROCESO" >
+          <ConnectorPoint PointX="11.25" PointY="13.125" />
+          <ConnectorPoint PointX="11.25" PointY="12.797801106770834" />
+          <ConnectorPoint PointX="9.5833333333333339" PointY="12.797801106770834" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="12.797801106770834" />
+          <ConnectorPoint PointX="9.25" PointY="12.797801106770834" />
+          <ConnectorPoint PointX="9.25" PointY="11.125" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="11.124999999999998" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="11.125" />
+          <ConnectorPoint PointX="7.125" PointY="11.125" />
+          <ConnectorPoint PointX="7.125" PointY="11.898898553385422" />
+          <ConnectorPoint PointX="6.75" PointY="11.898898553385422" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_SPO_SUBPROCESO1" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.843748" PointY="13.25" />
-          <ConnectorPoint PointX="10.843748" PointY="12.922801106770832" />
-          <ConnectorPoint PointX="9.7083333333333339" PointY="12.922801106770832" />
-          <ConnectorPoint PointX="9.5416666666666661" PointY="12.922801106770832" />
-          <ConnectorPoint PointX="9.5" PointY="12.922801106770832" />
-          <ConnectorPoint PointX="9.5" PointY="10.75" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="10.75" />
-          <ConnectorPoint PointX="7.260416666666667" PointY="10.75" />
-          <ConnectorPoint PointX="7.25" PointY="10.75" />
-          <ConnectorPoint PointX="7.25" PointY="13.977953660156249" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="13.977953660156249" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="13.977953660156249" />
-          <ConnectorPoint PointX="6.75" PointY="13.977953660156249" />
+        <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_SPO_SUBPROCESO1" >
+          <ConnectorPoint PointX="10.843748" PointY="13.125" />
+          <ConnectorPoint PointX="10.843748" PointY="12.922801106770834" />
+          <ConnectorPoint PointX="9.5" PointY="12.922801106770834" />
+          <ConnectorPoint PointX="9.5" PointY="10.875" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="10.875" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="10.875" />
+          <ConnectorPoint PointX="7.25" PointY="10.875" />
+          <ConnectorPoint PointX="7.25" PointY="14.009203660156246" />
+          <ConnectorPoint PointX="6.75" PointY="14.009203660156246" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="12.778595377604166" />
-          <ConnectorPoint PointX="3" PointY="12.778595377604166" />
+        <AssociationConnector Association="SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA" >
+          <ConnectorPoint PointX="2.25" PointY="12.778595377604169" />
+          <ConnectorPoint PointX="3" PointY="12.778595377604169" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_EPR_EMPRESA" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="14.057190755208332" />
-          <ConnectorPoint PointX="1.5" PointY="15.110301106770832" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="15.110301106770832" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="15.110301106770832" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="15.110301106770832" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="15.110301106770832" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="15.110301106770832" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="15.110301106770832" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="15.11030110677083" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="15.110301106770832" />
-          <ConnectorPoint PointX="7.5" PointY="15.110301106770832" />
+        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_EPR_EMPRESA" >
+          <ConnectorPoint PointX="1.5" PointY="14.057190755208339" />
+          <ConnectorPoint PointX="1.5" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="15.047801106770832" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="7.5" PointY="15.047801106770834" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_USU_USUARIO_EPR_EMPRESA" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.9062525" PointY="14.057190755208332" />
-          <ConnectorPoint PointX="1.9062525" PointY="17.0381982421875" />
-          <ConnectorPoint PointX="3" PointY="17.0381982421875" />
+        <AssociationConnector Association="SisPARModel.FK_USU_USUARIO_EPR_EMPRESA" >
+          <ConnectorPoint PointX="1.9062525" PointY="14.057190755208339" />
+          <ConnectorPoint PointX="1.9062525" PointY="16.913198242187505" />
+          <ConnectorPoint PointX="3" PointY="16.913198242187505" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_EST_ESTADOS" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="7.15625" />
-          <ConnectorPoint PointX="10.5" PointY="7.15625" />
-          <ConnectorPoint PointX="10.5" PointY="9.375" />
+        <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_EST_ESTADOS" >
+          <ConnectorPoint PointX="6" PointY="9.6725878906250031" />
+          <ConnectorPoint PointX="6" PointY="10.5" />
+          <ConnectorPoint PointX="7" PointY="10.5" />
+          <ConnectorPoint PointX="7" PointY="10.660797526041662" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="10.660797526041661" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="10.660797526041662" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="10.660797526041662" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="10.660797526041662" />
+          <ConnectorPoint PointX="9.75" PointY="10.660797526041662" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_EST_ESTADOS" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.72576923076923" PointY="9.172587890625" />
-          <ConnectorPoint PointX="7.1875" PointY="9.6343186598557686" />
-          <ConnectorPoint PointX="7.1875" PointY="19.299906726562497" />
-          <ConnectorPoint PointX="7.8081575512820516" PointY="19.299906726562497" />
-          <ConnectorPoint PointX="7.9748242179487177" PointY="19.299906726562497" />
-          <ConnectorPoint PointX="8.1984955897435885" PointY="19.299906726562497" />
-          <ConnectorPoint PointX="8.3651622564102563" PointY="19.299906726562497" />
-          <ConnectorPoint PointX="9.75" PointY="19.299906726562497" />
+        <AssociationConnector Association="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_EST_ESTADOS" >
+          <ConnectorPoint PointX="6.72576923076923" PointY="9.6725878906250031" />
+          <ConnectorPoint PointX="7.1875" PointY="10.134318659855772" />
+          <ConnectorPoint PointX="7.1875" PointY="19.203756010416669" />
+          <ConnectorPoint PointX="8.1984955897435885" PointY="19.203756010416669" />
+          <ConnectorPoint PointX="8.3651622564102563" PointY="19.203756010416669" />
+          <ConnectorPoint PointX="9.75" PointY="19.203756010416669" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_EST_ESTADOS" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="9.116048429086538" />
-          <ConnectorPoint PointX="7.34375" PointY="9.709798429086538" />
-          <ConnectorPoint PointX="7.34375" PointY="16.797615118489574" />
-          <ConnectorPoint PointX="7.5" PointY="16.797615118489574" />
+        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_EST_ESTADOS" >
+          <ConnectorPoint PointX="6.75" PointY="9.6160484290865416" />
+          <ConnectorPoint PointX="7.34375" PointY="10.209798429086542" />
+          <ConnectorPoint PointX="7.34375" PointY="16.732714402343746" />
+          <ConnectorPoint PointX="7.5" PointY="16.732714402343746" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_EVA_EVALUACION_PRE_PREGUNTA" ManuallyRouted="false">
-          <ConnectorPoint PointX="12" PointY="21.865143229166666" />
-          <ConnectorPoint PointX="13.5" PointY="21.865143229166666" />
-          <ConnectorPoint PointX="13.5" PointY="16.114889322916667" />
+        <AssociationConnector Association="SisPARModel.FK_EVA_EVALUACION_PRE_PREGUNTA" >
+          <ConnectorPoint PointX="12" PointY="21.865143229166662" />
+          <ConnectorPoint PointX="13.5" PointY="21.865143229166662" />
+          <ConnectorPoint PointX="13.5" PointY="15.989889322916667" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_EVA_EVALUACION_REQ_REQUERIMIENTO" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="16.970896809895834" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="16.970896809895834" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="16.970896809895834" />
-          <ConnectorPoint PointX="13.0937475" PointY="16.970896809895834" />
-          <ConnectorPoint PointX="13.0937475" PointY="16.114889322916667" />
+        <AssociationConnector Association="SisPARModel.FK_EVA_EVALUACION_REQ_REQUERIMIENTO" >
+          <ConnectorPoint PointX="9" PointY="16.845896809895834" />
+          <ConnectorPoint PointX="11.166666666666666" PointY="16.845896809895834" />
+          <ConnectorPoint PointX="11.333333333333334" PointY="16.845896809895834" />
+          <ConnectorPoint PointX="13.0937475" PointY="16.845896809895834" />
+          <ConnectorPoint PointX="13.0937475" PointY="15.989889322916667" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_NOT_NOTIFICACION" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="9.9420475260416659" />
-          <ConnectorPoint PointX="9.75" PointY="9.9420475260416659" />
+        <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_NOT_NOTIFICACION" >
+          <ConnectorPoint PointX="9" PointY="9.8795475260416623" />
+          <ConnectorPoint PointX="9.75" PointY="9.8795475260416623" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="11.783396809895834" />
-          <ConnectorPoint PointX="9.1666666666666661" PointY="11.783396809895834" />
-          <ConnectorPoint PointX="9.3333333333333339" PointY="11.783396809895834" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="11.783396809895832" />
-          <ConnectorPoint PointX="9.7083333333333339" PointY="11.783396809895834" />
-          <ConnectorPoint PointX="9.75" PointY="11.783396809895834" />
+        <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO" >
+          <ConnectorPoint PointX="9" PointY="11.845896809895834" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="11.845896809895834" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="11.845896809895834" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="11.845896809895832" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="11.845896809895834" />
+          <ConnectorPoint PointX="9.75" PointY="11.845896809895834" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_REQ_REQUERIMIENTO" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="18.086212565104166" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="18.086212565104166" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="18.086212565104166" />
-          <ConnectorPoint PointX="9.75" PointY="18.086212565104166" />
+        <AssociationConnector Association="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_REQ_REQUERIMIENTO" >
+          <ConnectorPoint PointX="9" PointY="17.990061848958334" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="17.990061848958334" />
+          <ConnectorPoint PointX="9.5833333333333339" PointY="17.990061848958334" />
+          <ConnectorPoint PointX="9.75" PointY="17.990061848958334" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.2511528461538459" PointY="15.75" />
-          <ConnectorPoint PointX="5.1214255650988791" PointY="15.620272718945033" />
-          <ConnectorPoint PointX="5.0035744349011209" PointY="15.502421588747277" />
-          <ConnectorPoint PointX="4.875" PointY="15.373847153846153" />
-          <ConnectorPoint PointX="4.875" PointY="13.670275437500003" />
-          <ConnectorPoint PointX="4.5" PointY="13.670275437500003" />
+        <AssociationConnector Association="SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE" >
+          <ConnectorPoint PointX="5.2511528461538459" PointY="15.625" />
+          <ConnectorPoint PointX="5.1214255650988791" PointY="15.495272718945033" />
+          <ConnectorPoint PointX="5.0035744349011209" PointY="15.377421588747277" />
+          <ConnectorPoint PointX="4.875" PointY="15.248847153846153" />
+          <ConnectorPoint PointX="4.875" PointY="13.651049363281253" />
+          <ConnectorPoint PointX="4.5" PointY="13.651049363281253" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_PRO_PROCESO_TPR_TIPO_PROCESO" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.6728417968750016" />
-          <ConnectorPoint PointX="3.75" PointY="9.6728417968750016" />
-          <ConnectorPoint PointX="3.75" PointY="11" />
+        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_PRO_PROCESO" >
+          <ConnectorPoint PointX="4.5" PointY="14.389087792067318" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="14.705162226968438" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="14.823013357166197" />
+          <ConnectorPoint PointX="5.0625" PointY="14.951587792067318" />
+          <ConnectorPoint PointX="5.0625" PointY="18.730123697916667" />
+          <ConnectorPoint PointX="7.1261528461538468" PointY="18.730123697916667" />
+          <ConnectorPoint PointX="7.1285744349011209" PointY="18.727702109169392" />
+          <ConnectorPoint PointX="7.2464255650988791" PointY="18.609850978971636" />
+          <ConnectorPoint PointX="7.5011528461538459" PointY="18.355123697916667" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_PRO_PROCESO" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="14.456389224358976" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="14.772463659260096" />
-          <ConnectorPoint PointX="4.9339255650988791" PointY="14.890314789457854" />
-          <ConnectorPoint PointX="5.0625" PointY="15.018889224358976" />
-          <ConnectorPoint PointX="5.0625" PointY="18.797425130208332" />
-          <ConnectorPoint PointX="7.1261528461538468" PointY="18.797425130208332" />
-          <ConnectorPoint PointX="7.1285744349011209" PointY="18.795003541461057" />
-          <ConnectorPoint PointX="7.2464255650988791" PointY="18.6771524112633" />
-          <ConnectorPoint PointX="7.5011528461538459" PointY="18.422425130208332" />
+        <AssociationConnector Association="SisPARModel.FK_SPO_SUBPROCESO_PRO_PROCESO" >
+          <ConnectorPoint PointX="4.5" PointY="12.341148681640629" />
+          <ConnectorPoint PointX="5" PointY="12.341148681640629" />
+          <ConnectorPoint PointX="5" PointY="10.25" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="10.25" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="10.25" />
+          <ConnectorPoint PointX="6.875" PointY="10.25" />
+          <ConnectorPoint PointX="6.875" PointY="10.571595052083325" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="10.571595052083323" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="10.571595052083325" />
+          <ConnectorPoint PointX="9.625" PointY="10.571595052083325" />
+          <ConnectorPoint PointX="9.625" PointY="12.566793619791667" />
+          <ConnectorPoint PointX="11.656252" PointY="12.566793619791667" />
+          <ConnectorPoint PointX="11.656252" PointY="13.125" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_SPO_SUBPROCESO_PRO_PROCESO" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="14.518697916666667" />
-          <ConnectorPoint PointX="3.75" PointY="14.970602213541664" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="14.970602213541664" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="14.970602213541664" />
-          <ConnectorPoint PointX="7" PointY="14.970602213541664" />
-          <ConnectorPoint PointX="7" PointY="11.125" />
-          <ConnectorPoint PointX="7.041666666666667" PointY="11.124999999999998" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="11.125" />
-          <ConnectorPoint PointX="9.1666666666666661" PointY="11.125" />
-          <ConnectorPoint PointX="9.3333333333333339" PointY="11.125" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="11.125" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="11.125" />
-          <ConnectorPoint PointX="9.625" PointY="11.125" />
-          <ConnectorPoint PointX="9.625" PointY="14.720896809895834" />
-          <ConnectorPoint PointX="10.5" PointY="14.720896809895834" />
+        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_RES_RESPONSABLE" >
+          <ConnectorPoint PointX="6.75" PointY="17.519952578776042" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="17.519952578776042" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="17.519952578776042" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="17.519952578776042" />
+          <ConnectorPoint PointX="7.270833333333333" PointY="17.519952578776042" />
+          <ConnectorPoint PointX="7.5" PointY="17.519952578776042" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_PRV_PROOVEDOR" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="21.057444661458334" />
-          <ConnectorPoint PointX="7.8081575512820516" PointY="21.057444661458334" />
-          <ConnectorPoint PointX="7.9748242179487177" PointY="21.057444661458334" />
-          <ConnectorPoint PointX="8.2818289230769224" PointY="21.057444661458334" />
-          <ConnectorPoint PointX="8.2818289230769224" PointY="18.422425130208332" />
+        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_SPO_SUBPROCESO" >
+          <ConnectorPoint PointX="10.5" PointY="14.595896809895834" />
+          <ConnectorPoint PointX="9" PointY="14.595896809895834" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_RES_RESPONSABLE" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="17.614902936848953" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="17.614902936848953" />
-          <ConnectorPoint PointX="7.270833333333333" PointY="17.614902936848953" />
-          <ConnectorPoint PointX="7.5" PointY="17.614902936848953" />
+        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_URG_URGENCIA" >
+          <ConnectorPoint PointX="6.75" PointY="20.268992513020834" />
+          <ConnectorPoint PointX="8.2818289230769224" PointY="20.268992513020834" />
+          <ConnectorPoint PointX="8.2818289230769224" PointY="18.355123697916667" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_SPO_SUBPROCESO" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.5" PointY="13.922948404947917" />
-          <ConnectorPoint PointX="9.7083333333333339" PointY="13.922948404947917" />
-          <ConnectorPoint PointX="9.5416666666666661" PointY="13.922948404947917" />
-          <ConnectorPoint PointX="9" PointY="13.922948404947917" />
+        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_USU_USUARIO" >
+          <ConnectorPoint PointX="4.5" PointY="15.40625" />
+          <ConnectorPoint PointX="4.949069512820512" PointY="15.40625" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="15.40625" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="15.406249999999998" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="15.40625" />
+          <ConnectorPoint PointX="7.5" PointY="15.40625" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_URG_URGENCIA" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="23.893992513020834" />
-          <ConnectorPoint PointX="7.8914908846153846" PointY="23.893992513020834" />
-          <ConnectorPoint PointX="7.8914908846153846" PointY="18.422425130208332" />
+        <AssociationConnector Association="SisPARModel.FK_RES_RESPONSABLE_ROL_ROL" >
+          <ConnectorPoint PointX="4.5" PointY="20.126152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="19.751152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="16.903595377604169" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="16.903595377604169" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="16.903595377604169" />
+          <ConnectorPoint PointX="5.25" PointY="16.903595377604169" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_USU_USUARIO" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="15.53125" />
-          <ConnectorPoint PointX="4.949069512820512" PointY="15.53125" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="15.53125" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="15.531249999999998" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="15.53125" />
-          <ConnectorPoint PointX="7.5" PointY="15.53125" />
+        <AssociationConnector Association="SisPARModel.FK_RES_RESPONSABLE_USU_USUARIO" >
+          <ConnectorPoint PointX="4.5" PointY="16.201797688802085" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="16.201797688802085" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="16.201797688802085" />
+          <ConnectorPoint PointX="5.25" PointY="16.201797688802085" />
         </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_RES_RESPONSABLE_TIP_TIPO" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="20.251152846153843" />
-          <ConnectorPoint PointX="4.875" PointY="19.876152846153843" />
-          <ConnectorPoint PointX="4.875" PointY="17.028595377604166" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="17.028595377604166" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="17.028595377604166" />
-          <ConnectorPoint PointX="5.25" PointY="17.028595377604166" />
-        </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_RES_RESPONSABLE_USU_USUARIO" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="16.326797688802081" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="16.326797688802081" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="16.326797688802081" />
-          <ConnectorPoint PointX="5.25" PointY="16.326797688802081" />
-        </AssociationConnector>
-        <AssociationConnector Association="SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE" ManuallyRouted="false">
-          <ConnectorPoint PointX="6" PointY="18.307190755208332" />
-          <ConnectorPoint PointX="6" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="7.270833333333333" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="7.2830538878205138" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="7.44972055448718" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="7.8081575512820516" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="7.9748242179487177" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="8.1984955897435885" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="8.3651622564102563" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="9.5" PointY="18.557190755208332" />
-          <ConnectorPoint PointX="9.5" PointY="15.487597214843751" />
-          <ConnectorPoint PointX="10.5" PointY="15.487597214843751" />
+        <AssociationConnector Association="SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE" >
+          <ConnectorPoint PointX="6.75" PointY="16.541224289388026" />
+          <ConnectorPoint PointX="7" PointY="16.541224289388026" />
+          <ConnectorPoint PointX="7" PointY="18.605123697916667" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="18.605123697916667" />
+          <ConnectorPoint PointX="7.33448617948718" PointY="18.605123697916667" />
+          <ConnectorPoint PointX="8.1984955897435885" PointY="18.605123697916667" />
+          <ConnectorPoint PointX="8.3651622564102563" PointY="18.605123697916667" />
+          <ConnectorPoint PointX="9.5" PointY="18.605123697916667" />
+          <ConnectorPoint PointX="9.5" PointY="17.375" />
+          <ConnectorPoint PointX="11.25" PointY="17.375" />
+          <ConnectorPoint PointX="11.25" PointY="16.066793619791667" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
