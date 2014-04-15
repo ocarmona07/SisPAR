@@ -33,17 +33,17 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TipoProcesosBo.cs" />
+    <Compile Include="DerivarionesBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SisPAR.Datos\SisPAR.Datos.csproj">
+      <Project>{E0933C3F-9B2B-40BA-BBB6-8B9EC360B7D2}</Project>
+      <Name>SisPAR.Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SisPAR.Entidades\SisPAR.Entidades.csproj">
       <Project>{CDF781D6-D430-4D79-8758-E0E05E4A820F}</Project>
       <Name>SisPAR.Entidades</Name>

@@ -1,4 +1,16 @@
-USE master
+EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'SisPAR'
+GO
+
+USE [master]
+GO
+
+ALTER DATABASE [SisPAR] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
+
+USE [master]
+GO
+
+DROP DATABASE [SisPAR]
 GO
 
 CREATE DATABASE SisPAR
@@ -34,8 +46,10 @@ go
 /*==============================================================*/
 CREATE TABLE dbo.EPR_EMPRESA
     (
-      EPR_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
-                        NOT NULL ,
+      EPR_ID INT IDENTITY(1, 1) ,
+      EPR_RUT INT NOT NULL ,
+      EPR_RUT_DV VARCHAR(1) COLLATE Modern_Spanish_CI_AS
+                            NOT NULL ,
       EPR_RAZONSOCIAL VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                                   NOT NULL ,
       EPR_FONO INT NOT NULL ,
@@ -167,8 +181,7 @@ CREATE TABLE dbo.PRO_PROCESO
                                    NOT NULL ,
       PRO_OBS VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
                            NOT NULL ,
-      PRO_EPR_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
-                            NOT NULL ,
+      PRO_EPR_ID INT NOT NULL ,
       PRO_RES_ID INT NOT NULL ,
       CONSTRAINT PK_PRO_PROCESO PRIMARY KEY ( PRO_ID ) ON "PRIMARY"
     )
@@ -201,10 +214,8 @@ CREATE TABLE dbo.REQ_REQUERIMIENTO
       REQ_RES_ID INT NULL ,
       REQ_PRV_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
                             NULL ,
-      REQ_EPR_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
-                            NOT NULL ,
-      REQ_USU_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
-                            NOT NULL ,
+      REQ_EPR_ID INT NOT NULL ,
+      REQ_USU_ID INT NOT NULL ,
       REQ_ARC_ADJUNTO IMAGE NULL ,
       CONSTRAINT PK_REQ_REQUERIMIENTO PRIMARY KEY ( REQ_ID ) ON "PRIMARY"
     )
@@ -218,8 +229,7 @@ CREATE TABLE dbo.RES_RESPONSABLE
     (
       RES_ID INT IDENTITY(1, 1) ,
       RES_TIPO_ID INT NOT NULL ,
-      RES_USU_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
-                            NOT NULL ,
+      RES_USU_ID INT NOT NULL ,
       CONSTRAINT PK_RES_RESPONSABLE PRIMARY KEY ( RES_ID ) ON "PRIMARY"
     )
 ON  "PRIMARY"
@@ -248,8 +258,10 @@ go
 CREATE TABLE dbo.ROL_ROL
     (
       ROL_ID INT IDENTITY(1, 1) ,
-      ROL_DESCRIPCION VARCHAR(50) COLLATE Modern_Spanish_CI_AS
-                                  NOT NULL ,
+      ROL_NOMBRE VARCHAR(25) COLLATE Modern_Spanish_CI_AS
+                             NOT NULL ,
+      ROL_DESCRIPCION VARCHAR(MAX) COLLATE Modern_Spanish_CI_AS
+                                   NOT NULL ,
       CONSTRAINT PK_ROL_ROL PRIMARY KEY ( ROL_ID ) ON "PRIMARY"
     )
 ON  "PRIMARY"
@@ -275,8 +287,10 @@ go
 /*==============================================================*/
 CREATE TABLE dbo.USU_USUARIO
     (
-      USU_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
-                        NOT NULL ,
+      USU_ID INT IDENTITY(1, 1) ,
+      USU_RUT INT NOT NULL ,
+      USU_RUT_DV VARCHAR(1) COLLATE Modern_Spanish_CI_AS
+                            NOT NULL ,
       USU_NOMBRE VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                              NOT NULL ,
       USU_APELLIDO VARCHAR(50) COLLATE Modern_Spanish_CI_AS
@@ -288,8 +302,7 @@ CREATE TABLE dbo.USU_USUARIO
                             NOT NULL ,
       USU_CORREO VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                              NULL ,
-      USU_EPR_ID VARCHAR(9) COLLATE Modern_Spanish_CI_AS
-                            NOT NULL ,
+      USU_EPR_ID INT NOT NULL ,
       USU_CLAVE VARCHAR(15) COLLATE Modern_Spanish_CI_AS
                             NULL ,
       CONSTRAINT PK_USU_USUARIO PRIMARY KEY ( USU_ID ) ON "PRIMARY"

@@ -23,17 +23,18 @@
         <asp:TableRow>
             <asp:TableCell>
                 <br />
-                <asp:Table runat="server" ID="tblInicio" HorizontalAlign="Left">
+                <asp:Table runat="server" ID="tblInicio" HorizontalAlign="Center" Width="930px">
                     <asp:TableRow runat="server">
-                        <asp:TableCell runat="server" RowSpan="2">
+                        <asp:TableCell runat="server" RowSpan="2" Width="220px">
                                 <asp:Image runat="server" ImageUrl="~/images/LogoAguasNuevas.jpg" />
                         </asp:TableCell>
-                        <asp:TableCell runat="server">B</asp:TableCell>
+                        <asp:TableCell runat="server" HorizontalAlign="Right">Login</asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
-                        <asp:TableCell runat="server">A</asp:TableCell>
+                        <asp:TableCell runat="server" HorizontalAlign="Center">Menú</asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
+                <br />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -43,9 +44,9 @@
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell>
+            <asp:TableCell runat="server" Width="40px">
                 <div class="copyright">
-                    <asp:Label runat="server" ID="lblCopyright" Text="© Aguas Nuevas S.A. 2014 - Todos los derechos reservados." />
+                    <asp:Label runat="server" ID="lblCopyright" />
                 </div>
             </asp:TableCell>
         </asp:TableRow>

@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
@@ -337,7 +336,6 @@ namespace SisPAR.Entidades
         private ObjectSet<USU_USUARIO> _USU_USUARIO;
 
         #endregion
-
         #region Métodos AddTo
     
         /// <summary>
@@ -461,11 +459,11 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entidades
     
     /// <summary>
@@ -506,7 +504,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -777,7 +774,6 @@ namespace SisPAR.Entidades
         partial void OnDER_DESTINO_ANALISTAChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -972,7 +968,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -989,14 +984,18 @@ namespace SisPAR.Entidades
         /// Crear un nuevo objeto EPR_EMPRESA.
         /// </summary>
         /// <param name="ePR_ID">Valor inicial de la propiedad EPR_ID.</param>
+        /// <param name="ePR_RUT">Valor inicial de la propiedad EPR_RUT.</param>
+        /// <param name="ePR_RUT_DV">Valor inicial de la propiedad EPR_RUT_DV.</param>
         /// <param name="ePR_RAZONSOCIAL">Valor inicial de la propiedad EPR_RAZONSOCIAL.</param>
         /// <param name="ePR_FONO">Valor inicial de la propiedad EPR_FONO.</param>
         /// <param name="ePR_DIRECCION">Valor inicial de la propiedad EPR_DIRECCION.</param>
         /// <param name="ePR_SUCURSAL">Valor inicial de la propiedad EPR_SUCURSAL.</param>
-        public static EPR_EMPRESA CreateEPR_EMPRESA(global::System.String ePR_ID, global::System.String ePR_RAZONSOCIAL, global::System.Int32 ePR_FONO, global::System.String ePR_DIRECCION, global::System.String ePR_SUCURSAL)
+        public static EPR_EMPRESA CreateEPR_EMPRESA(global::System.Int32 ePR_ID, global::System.Int32 ePR_RUT, global::System.String ePR_RUT_DV, global::System.String ePR_RAZONSOCIAL, global::System.Int32 ePR_FONO, global::System.String ePR_DIRECCION, global::System.String ePR_SUCURSAL)
         {
             EPR_EMPRESA ePR_EMPRESA = new EPR_EMPRESA();
             ePR_EMPRESA.EPR_ID = ePR_ID;
+            ePR_EMPRESA.EPR_RUT = ePR_RUT;
+            ePR_EMPRESA.EPR_RUT_DV = ePR_RUT_DV;
             ePR_EMPRESA.EPR_RAZONSOCIAL = ePR_RAZONSOCIAL;
             ePR_EMPRESA.EPR_FONO = ePR_FONO;
             ePR_EMPRESA.EPR_DIRECCION = ePR_DIRECCION;
@@ -1005,7 +1004,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1013,7 +1011,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String EPR_ID
+        public global::System.Int32 EPR_ID
         {
             get
             {
@@ -1025,15 +1023,63 @@ namespace SisPAR.Entidades
                 {
                     OnEPR_IDChanging(value);
                     ReportPropertyChanging("EPR_ID");
-                    _EPR_ID = StructuralObject.SetValidValue(value, false);
+                    _EPR_ID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("EPR_ID");
                     OnEPR_IDChanged();
                 }
             }
         }
-        private global::System.String _EPR_ID;
-        partial void OnEPR_IDChanging(global::System.String value);
+        private global::System.Int32 _EPR_ID;
+        partial void OnEPR_IDChanging(global::System.Int32 value);
         partial void OnEPR_IDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EPR_RUT
+        {
+            get
+            {
+                return _EPR_RUT;
+            }
+            set
+            {
+                OnEPR_RUTChanging(value);
+                ReportPropertyChanging("EPR_RUT");
+                _EPR_RUT = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EPR_RUT");
+                OnEPR_RUTChanged();
+            }
+        }
+        private global::System.Int32 _EPR_RUT;
+        partial void OnEPR_RUTChanging(global::System.Int32 value);
+        partial void OnEPR_RUTChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String EPR_RUT_DV
+        {
+            get
+            {
+                return _EPR_RUT_DV;
+            }
+            set
+            {
+                OnEPR_RUT_DVChanging(value);
+                ReportPropertyChanging("EPR_RUT_DV");
+                _EPR_RUT_DV = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("EPR_RUT_DV");
+                OnEPR_RUT_DVChanged();
+            }
+        }
+        private global::System.String _EPR_RUT_DV;
+        partial void OnEPR_RUT_DVChanging(global::System.String value);
+        partial void OnEPR_RUT_DVChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -1132,7 +1178,6 @@ namespace SisPAR.Entidades
         partial void OnEPR_SUCURSALChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1203,7 +1248,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1232,7 +1276,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1311,7 +1354,6 @@ namespace SisPAR.Entidades
         partial void OnEST_OBSChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1382,7 +1424,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1413,7 +1454,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1540,7 +1580,6 @@ namespace SisPAR.Entidades
         partial void OnEVA_DESCChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1621,7 +1660,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1654,7 +1692,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1829,7 +1866,6 @@ namespace SisPAR.Entidades
         partial void OnEVE_FECHAChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1948,7 +1984,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1979,7 +2014,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -2106,7 +2140,6 @@ namespace SisPAR.Entidades
         partial void OnHRE_RESPONSABLE_REQChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -2187,7 +2220,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2230,7 +2262,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -2477,7 +2508,6 @@ namespace SisPAR.Entidades
         partial void OnNOT_ENVIAR_SOLICITANTEChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -2504,7 +2534,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2535,7 +2564,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -2638,7 +2666,6 @@ namespace SisPAR.Entidades
         partial void OnPRE_ACTIVOChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -2665,7 +2692,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2687,7 +2713,7 @@ namespace SisPAR.Entidades
         /// <param name="pRO_OBS">Valor inicial de la propiedad PRO_OBS.</param>
         /// <param name="pRO_EPR_ID">Valor inicial de la propiedad PRO_EPR_ID.</param>
         /// <param name="pRO_RES_ID">Valor inicial de la propiedad PRO_RES_ID.</param>
-        public static PRO_PROCESO CreatePRO_PROCESO(global::System.Int32 pRO_ID, global::System.String pRO_NOMBRE, global::System.String pRO_DESCRIPCION, global::System.String pRO_OBS, global::System.String pRO_EPR_ID, global::System.Int32 pRO_RES_ID)
+        public static PRO_PROCESO CreatePRO_PROCESO(global::System.Int32 pRO_ID, global::System.String pRO_NOMBRE, global::System.String pRO_DESCRIPCION, global::System.String pRO_OBS, global::System.Int32 pRO_EPR_ID, global::System.Int32 pRO_RES_ID)
         {
             PRO_PROCESO pRO_PROCESO = new PRO_PROCESO();
             pRO_PROCESO.PRO_ID = pRO_ID;
@@ -2700,7 +2726,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -2807,7 +2832,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String PRO_EPR_ID
+        public global::System.Int32 PRO_EPR_ID
         {
             get
             {
@@ -2817,13 +2842,13 @@ namespace SisPAR.Entidades
             {
                 OnPRO_EPR_IDChanging(value);
                 ReportPropertyChanging("PRO_EPR_ID");
-                _PRO_EPR_ID = StructuralObject.SetValidValue(value, false);
+                _PRO_EPR_ID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("PRO_EPR_ID");
                 OnPRO_EPR_IDChanged();
             }
         }
-        private global::System.String _PRO_EPR_ID;
-        partial void OnPRO_EPR_IDChanging(global::System.String value);
+        private global::System.Int32 _PRO_EPR_ID;
+        partial void OnPRO_EPR_IDChanging(global::System.Int32 value);
         partial void OnPRO_EPR_IDChanged();
     
         /// <summary>
@@ -2851,7 +2876,6 @@ namespace SisPAR.Entidades
         partial void OnPRO_RES_IDChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -3020,7 +3044,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -3041,7 +3064,7 @@ namespace SisPAR.Entidades
         /// <param name="rEQ_GLOSA_USU">Valor inicial de la propiedad REQ_GLOSA_USU.</param>
         /// <param name="rEQ_EPR_ID">Valor inicial de la propiedad REQ_EPR_ID.</param>
         /// <param name="rEQ_USU_ID">Valor inicial de la propiedad REQ_USU_ID.</param>
-        public static REQ_REQUERIMIENTO CreateREQ_REQUERIMIENTO(global::System.Int32 rEQ_ID, global::System.DateTime rEQ_FECHA_ING, global::System.String rEQ_GLOSA_USU, global::System.String rEQ_EPR_ID, global::System.String rEQ_USU_ID)
+        public static REQ_REQUERIMIENTO CreateREQ_REQUERIMIENTO(global::System.Int32 rEQ_ID, global::System.DateTime rEQ_FECHA_ING, global::System.String rEQ_GLOSA_USU, global::System.Int32 rEQ_EPR_ID, global::System.Int32 rEQ_USU_ID)
         {
             REQ_REQUERIMIENTO rEQ_REQUERIMIENTO = new REQ_REQUERIMIENTO();
             rEQ_REQUERIMIENTO.REQ_ID = rEQ_ID;
@@ -3053,7 +3076,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -3472,7 +3494,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String REQ_EPR_ID
+        public global::System.Int32 REQ_EPR_ID
         {
             get
             {
@@ -3482,13 +3504,13 @@ namespace SisPAR.Entidades
             {
                 OnREQ_EPR_IDChanging(value);
                 ReportPropertyChanging("REQ_EPR_ID");
-                _REQ_EPR_ID = StructuralObject.SetValidValue(value, false);
+                _REQ_EPR_ID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("REQ_EPR_ID");
                 OnREQ_EPR_IDChanged();
             }
         }
-        private global::System.String _REQ_EPR_ID;
-        partial void OnREQ_EPR_IDChanging(global::System.String value);
+        private global::System.Int32 _REQ_EPR_ID;
+        partial void OnREQ_EPR_IDChanging(global::System.Int32 value);
         partial void OnREQ_EPR_IDChanged();
     
         /// <summary>
@@ -3496,7 +3518,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String REQ_USU_ID
+        public global::System.Int32 REQ_USU_ID
         {
             get
             {
@@ -3506,13 +3528,13 @@ namespace SisPAR.Entidades
             {
                 OnREQ_USU_IDChanging(value);
                 ReportPropertyChanging("REQ_USU_ID");
-                _REQ_USU_ID = StructuralObject.SetValidValue(value, false);
+                _REQ_USU_ID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("REQ_USU_ID");
                 OnREQ_USU_IDChanged();
             }
         }
-        private global::System.String _REQ_USU_ID;
-        partial void OnREQ_USU_IDChanging(global::System.String value);
+        private global::System.Int32 _REQ_USU_ID;
+        partial void OnREQ_USU_IDChanging(global::System.Int32 value);
         partial void OnREQ_USU_IDChanged();
     
         /// <summary>
@@ -3540,7 +3562,6 @@ namespace SisPAR.Entidades
         partial void OnREQ_ARC_ADJUNTOChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -3899,7 +3920,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -3918,7 +3938,7 @@ namespace SisPAR.Entidades
         /// <param name="rES_ID">Valor inicial de la propiedad RES_ID.</param>
         /// <param name="rES_TIPO_ID">Valor inicial de la propiedad RES_TIPO_ID.</param>
         /// <param name="rES_USU_ID">Valor inicial de la propiedad RES_USU_ID.</param>
-        public static RES_RESPONSABLE CreateRES_RESPONSABLE(global::System.Int32 rES_ID, global::System.Int32 rES_TIPO_ID, global::System.String rES_USU_ID)
+        public static RES_RESPONSABLE CreateRES_RESPONSABLE(global::System.Int32 rES_ID, global::System.Int32 rES_TIPO_ID, global::System.Int32 rES_USU_ID)
         {
             RES_RESPONSABLE rES_RESPONSABLE = new RES_RESPONSABLE();
             rES_RESPONSABLE.RES_ID = rES_ID;
@@ -3928,7 +3948,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -3987,7 +4006,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String RES_USU_ID
+        public global::System.Int32 RES_USU_ID
         {
             get
             {
@@ -3997,17 +4016,16 @@ namespace SisPAR.Entidades
             {
                 OnRES_USU_IDChanging(value);
                 ReportPropertyChanging("RES_USU_ID");
-                _RES_USU_ID = StructuralObject.SetValidValue(value, false);
+                _RES_USU_ID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("RES_USU_ID");
                 OnRES_USU_IDChanged();
             }
         }
-        private global::System.String _RES_USU_ID;
-        partial void OnRES_USU_IDChanging(global::System.String value);
+        private global::System.Int32 _RES_USU_ID;
+        partial void OnRES_USU_IDChanging(global::System.Int32 value);
         partial void OnRES_USU_IDChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -4154,7 +4172,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -4171,17 +4188,18 @@ namespace SisPAR.Entidades
         /// Crear un nuevo objeto ROL_ROL.
         /// </summary>
         /// <param name="rOL_ID">Valor inicial de la propiedad ROL_ID.</param>
+        /// <param name="rOL_NOMBRE">Valor inicial de la propiedad ROL_NOMBRE.</param>
         /// <param name="rOL_DESCRIPCION">Valor inicial de la propiedad ROL_DESCRIPCION.</param>
-        public static ROL_ROL CreateROL_ROL(global::System.Int32 rOL_ID, global::System.String rOL_DESCRIPCION)
+        public static ROL_ROL CreateROL_ROL(global::System.Int32 rOL_ID, global::System.String rOL_NOMBRE, global::System.String rOL_DESCRIPCION)
         {
             ROL_ROL rOL_ROL = new ROL_ROL();
             rOL_ROL.ROL_ID = rOL_ID;
+            rOL_ROL.ROL_NOMBRE = rOL_NOMBRE;
             rOL_ROL.ROL_DESCRIPCION = rOL_DESCRIPCION;
             return rOL_ROL;
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -4216,6 +4234,30 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.String ROL_NOMBRE
+        {
+            get
+            {
+                return _ROL_NOMBRE;
+            }
+            set
+            {
+                OnROL_NOMBREChanging(value);
+                ReportPropertyChanging("ROL_NOMBRE");
+                _ROL_NOMBRE = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ROL_NOMBRE");
+                OnROL_NOMBREChanged();
+            }
+        }
+        private global::System.String _ROL_NOMBRE;
+        partial void OnROL_NOMBREChanging(global::System.String value);
+        partial void OnROL_NOMBREChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.String ROL_DESCRIPCION
         {
             get
@@ -4236,7 +4278,6 @@ namespace SisPAR.Entidades
         partial void OnROL_DESCRIPCIONChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -4263,7 +4304,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -4296,7 +4336,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -4423,7 +4462,6 @@ namespace SisPAR.Entidades
         partial void OnSPO_RES_IDChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -4570,7 +4608,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -4599,7 +4636,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -4678,7 +4714,6 @@ namespace SisPAR.Entidades
         partial void OnURG_OBSChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -4705,7 +4740,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -4722,16 +4756,20 @@ namespace SisPAR.Entidades
         /// Crear un nuevo objeto USU_USUARIO.
         /// </summary>
         /// <param name="uSU_ID">Valor inicial de la propiedad USU_ID.</param>
+        /// <param name="uSU_RUT">Valor inicial de la propiedad USU_RUT.</param>
+        /// <param name="uSU_RUT_DV">Valor inicial de la propiedad USU_RUT_DV.</param>
         /// <param name="uSU_NOMBRE">Valor inicial de la propiedad USU_NOMBRE.</param>
         /// <param name="uSU_APELLIDO">Valor inicial de la propiedad USU_APELLIDO.</param>
         /// <param name="uSU_FONO">Valor inicial de la propiedad USU_FONO.</param>
         /// <param name="uSU_DIRECCION">Valor inicial de la propiedad USU_DIRECCION.</param>
         /// <param name="uSU_CARGO">Valor inicial de la propiedad USU_CARGO.</param>
         /// <param name="uSU_EPR_ID">Valor inicial de la propiedad USU_EPR_ID.</param>
-        public static USU_USUARIO CreateUSU_USUARIO(global::System.String uSU_ID, global::System.String uSU_NOMBRE, global::System.String uSU_APELLIDO, global::System.Int32 uSU_FONO, global::System.String uSU_DIRECCION, global::System.String uSU_CARGO, global::System.String uSU_EPR_ID)
+        public static USU_USUARIO CreateUSU_USUARIO(global::System.Int32 uSU_ID, global::System.Int32 uSU_RUT, global::System.String uSU_RUT_DV, global::System.String uSU_NOMBRE, global::System.String uSU_APELLIDO, global::System.Int32 uSU_FONO, global::System.String uSU_DIRECCION, global::System.String uSU_CARGO, global::System.Int32 uSU_EPR_ID)
         {
             USU_USUARIO uSU_USUARIO = new USU_USUARIO();
             uSU_USUARIO.USU_ID = uSU_ID;
+            uSU_USUARIO.USU_RUT = uSU_RUT;
+            uSU_USUARIO.USU_RUT_DV = uSU_RUT_DV;
             uSU_USUARIO.USU_NOMBRE = uSU_NOMBRE;
             uSU_USUARIO.USU_APELLIDO = uSU_APELLIDO;
             uSU_USUARIO.USU_FONO = uSU_FONO;
@@ -4742,7 +4780,6 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -4750,7 +4787,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String USU_ID
+        public global::System.Int32 USU_ID
         {
             get
             {
@@ -4762,15 +4799,63 @@ namespace SisPAR.Entidades
                 {
                     OnUSU_IDChanging(value);
                     ReportPropertyChanging("USU_ID");
-                    _USU_ID = StructuralObject.SetValidValue(value, false);
+                    _USU_ID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("USU_ID");
                     OnUSU_IDChanged();
                 }
             }
         }
-        private global::System.String _USU_ID;
-        partial void OnUSU_IDChanging(global::System.String value);
+        private global::System.Int32 _USU_ID;
+        partial void OnUSU_IDChanging(global::System.Int32 value);
         partial void OnUSU_IDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 USU_RUT
+        {
+            get
+            {
+                return _USU_RUT;
+            }
+            set
+            {
+                OnUSU_RUTChanging(value);
+                ReportPropertyChanging("USU_RUT");
+                _USU_RUT = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("USU_RUT");
+                OnUSU_RUTChanged();
+            }
+        }
+        private global::System.Int32 _USU_RUT;
+        partial void OnUSU_RUTChanging(global::System.Int32 value);
+        partial void OnUSU_RUTChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USU_RUT_DV
+        {
+            get
+            {
+                return _USU_RUT_DV;
+            }
+            set
+            {
+                OnUSU_RUT_DVChanging(value);
+                ReportPropertyChanging("USU_RUT_DV");
+                _USU_RUT_DV = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USU_RUT_DV");
+                OnUSU_RUT_DVChanged();
+            }
+        }
+        private global::System.String _USU_RUT_DV;
+        partial void OnUSU_RUT_DVChanging(global::System.String value);
+        partial void OnUSU_RUT_DVChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -4921,7 +5006,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String USU_EPR_ID
+        public global::System.Int32 USU_EPR_ID
         {
             get
             {
@@ -4931,13 +5016,13 @@ namespace SisPAR.Entidades
             {
                 OnUSU_EPR_IDChanging(value);
                 ReportPropertyChanging("USU_EPR_ID");
-                _USU_EPR_ID = StructuralObject.SetValidValue(value, false);
+                _USU_EPR_ID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("USU_EPR_ID");
                 OnUSU_EPR_IDChanged();
             }
         }
-        private global::System.String _USU_EPR_ID;
-        partial void OnUSU_EPR_IDChanging(global::System.String value);
+        private global::System.Int32 _USU_EPR_ID;
+        partial void OnUSU_EPR_IDChanging(global::System.Int32 value);
         partial void OnUSU_EPR_IDChanged();
     
         /// <summary>
@@ -4965,7 +5050,6 @@ namespace SisPAR.Entidades
         partial void OnUSU_CLAVEChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -5052,10 +5136,8 @@ namespace SisPAR.Entidades
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }

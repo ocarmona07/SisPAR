@@ -146,7 +146,9 @@
           <Key>
             <PropertyRef Name="EPR_ID" />
           </Key>
-          <Property Name="EPR_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="EPR_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EPR_RUT" Type="int" Nullable="false" />
+          <Property Name="EPR_RUT_DV" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="EPR_RAZONSOCIAL" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="EPR_FONO" Type="int" Nullable="false" />
           <Property Name="EPR_DIRECCION" Type="varchar" Nullable="false" MaxLength="50" />
@@ -224,7 +226,7 @@
           <Property Name="PRO_NOMBRE" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="PRO_DESCRIPCION" Type="varchar(max)" Nullable="false" />
           <Property Name="PRO_OBS" Type="varchar(max)" Nullable="false" />
-          <Property Name="PRO_EPR_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="PRO_EPR_ID" Type="int" Nullable="false" />
           <Property Name="PRO_RES_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="REQ_REQUERIMIENTO">
@@ -248,8 +250,8 @@
           <Property Name="REQ_EST_ID" Type="int" />
           <Property Name="REQ_RES_ID" Type="int" />
           <Property Name="REQ_PRV_ID" Type="varchar" MaxLength="9" />
-          <Property Name="REQ_EPR_ID" Type="varchar" Nullable="false" MaxLength="9" />
-          <Property Name="REQ_USU_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="REQ_EPR_ID" Type="int" Nullable="false" />
+          <Property Name="REQ_USU_ID" Type="int" Nullable="false" />
           <Property Name="REQ_ARC_ADJUNTO" Type="image" />
         </EntityType>
         <EntityType Name="RES_RESPONSABLE">
@@ -258,14 +260,15 @@
           </Key>
           <Property Name="RES_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="RES_TIPO_ID" Type="int" Nullable="false" />
-          <Property Name="RES_USU_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="RES_USU_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ROL_ROL">
           <Key>
             <PropertyRef Name="ROL_ID" />
           </Key>
           <Property Name="ROL_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ROL_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ROL_NOMBRE" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="ROL_DESCRIPCION" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="SPO_SUBPROCESO">
           <Key>
@@ -289,14 +292,16 @@
           <Key>
             <PropertyRef Name="USU_ID" />
           </Key>
-          <Property Name="USU_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="USU_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="USU_RUT" Type="int" Nullable="false" />
+          <Property Name="USU_RUT_DV" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="USU_NOMBRE" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="USU_APELLIDO" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="USU_FONO" Type="int" Nullable="false" />
           <Property Name="USU_DIRECCION" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="USU_CARGO" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="USU_CORREO" Type="varchar" MaxLength="50" />
-          <Property Name="USU_EPR_ID" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="USU_EPR_ID" Type="int" Nullable="false" />
           <Property Name="USU_CLAVE" Type="varchar" MaxLength="15" />
         </EntityType>
         <Association Name="FK_DER_DERIVACION_PRO_PROCESO">
@@ -761,7 +766,9 @@
           <Key>
             <PropertyRef Name="EPR_ID" />
           </Key>
-          <Property Type="String" Name="EPR_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="EPR_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EPR_RUT" Nullable="false" />
+          <Property Type="String" Name="EPR_RUT_DV" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="EPR_RAZONSOCIAL" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="EPR_FONO" Nullable="false" />
           <Property Type="String" Name="EPR_DIRECCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -854,7 +861,7 @@
           <Property Type="String" Name="PRO_NOMBRE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="PRO_DESCRIPCION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="PRO_OBS" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="PRO_EPR_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PRO_EPR_ID" Nullable="false" />
           <Property Type="Int32" Name="PRO_RES_ID" Nullable="false" />
           <NavigationProperty Name="DER_DERIVACION" Relationship="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO" FromRole="PRO_PROCESO" ToRole="DER_DERIVACION" />
           <NavigationProperty Name="DER_DERIVACION1" Relationship="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO1" FromRole="PRO_PROCESO" ToRole="DER_DERIVACION" />
@@ -884,8 +891,8 @@
           <Property Type="Int32" Name="REQ_EST_ID" />
           <Property Type="Int32" Name="REQ_RES_ID" />
           <Property Type="String" Name="REQ_PRV_ID" MaxLength="9" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="REQ_EPR_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="REQ_USU_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="REQ_EPR_ID" Nullable="false" />
+          <Property Type="Int32" Name="REQ_USU_ID" Nullable="false" />
           <Property Type="Binary" Name="REQ_ARC_ADJUNTO" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="DER_DERIVACION" Relationship="SisPARModel.FK_DER_DERIVACION_REQ_REQUERIMIENTO" FromRole="REQ_REQUERIMIENTO" ToRole="DER_DERIVACION" />
           <NavigationProperty Name="EPR_EMPRESA" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_EPR_EMPRESA" FromRole="REQ_REQUERIMIENTO" ToRole="EPR_EMPRESA" />
@@ -905,7 +912,7 @@
           </Key>
           <Property Type="Int32" Name="RES_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="RES_TIPO_ID" Nullable="false" />
-          <Property Type="String" Name="RES_USU_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="RES_USU_ID" Nullable="false" />
           <NavigationProperty Name="PRO_PROCESO" Relationship="SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE" FromRole="RES_RESPONSABLE" ToRole="PRO_PROCESO" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_RES_RESPONSABLE" FromRole="RES_RESPONSABLE" ToRole="REQ_REQUERIMIENTO" />
           <NavigationProperty Name="ROL_ROL" Relationship="SisPARModel.FK_RES_RESPONSABLE_ROL_ROL" FromRole="RES_RESPONSABLE" ToRole="ROL_ROL" />
@@ -917,7 +924,8 @@
             <PropertyRef Name="ROL_ID" />
           </Key>
           <Property Type="Int32" Name="ROL_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="ROL_DESCRIPCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ROL_NOMBRE" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ROL_DESCRIPCION" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="RES_RESPONSABLE" Relationship="SisPARModel.FK_RES_RESPONSABLE_ROL_ROL" FromRole="ROL_ROL" ToRole="RES_RESPONSABLE" />
         </EntityType>
         <EntityType Name="SPO_SUBPROCESO">
@@ -948,14 +956,16 @@
           <Key>
             <PropertyRef Name="USU_ID" />
           </Key>
-          <Property Type="String" Name="USU_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="USU_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="USU_RUT" Nullable="false" />
+          <Property Type="String" Name="USU_RUT_DV" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="USU_NOMBRE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="USU_APELLIDO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="USU_FONO" Nullable="false" />
           <Property Type="String" Name="USU_DIRECCION" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="USU_CARGO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="USU_CORREO" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="USU_EPR_ID" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="USU_EPR_ID" Nullable="false" />
           <Property Type="String" Name="USU_CLAVE" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPR_EMPRESA" Relationship="SisPARModel.FK_USU_USUARIO_EPR_EMPRESA" FromRole="USU_USUARIO" ToRole="EPR_EMPRESA" />
           <NavigationProperty Name="REQ_REQUERIMIENTO" Relationship="SisPARModel.FK_REQ_REQUERIMIENTO_USU_USUARIO" FromRole="USU_USUARIO" ToRole="REQ_REQUERIMIENTO" />
@@ -1303,6 +1313,8 @@
                 <ScalarProperty Name="EPR_DIRECCION" ColumnName="EPR_DIRECCION" />
                 <ScalarProperty Name="EPR_FONO" ColumnName="EPR_FONO" />
                 <ScalarProperty Name="EPR_RAZONSOCIAL" ColumnName="EPR_RAZONSOCIAL" />
+                <ScalarProperty Name="EPR_RUT_DV" ColumnName="EPR_RUT_DV" />
+                <ScalarProperty Name="EPR_RUT" ColumnName="EPR_RUT" />
                 <ScalarProperty Name="EPR_ID" ColumnName="EPR_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1428,6 +1440,7 @@
             <EntityTypeMapping TypeName="SisPARModel.ROL_ROL">
               <MappingFragment StoreEntitySet="ROL_ROL">
                 <ScalarProperty Name="ROL_DESCRIPCION" ColumnName="ROL_DESCRIPCION" />
+                <ScalarProperty Name="ROL_NOMBRE" ColumnName="ROL_NOMBRE" />
                 <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1463,6 +1476,8 @@
                 <ScalarProperty Name="USU_FONO" ColumnName="USU_FONO" />
                 <ScalarProperty Name="USU_APELLIDO" ColumnName="USU_APELLIDO" />
                 <ScalarProperty Name="USU_NOMBRE" ColumnName="USU_NOMBRE" />
+                <ScalarProperty Name="USU_RUT_DV" ColumnName="USU_RUT_DV" />
+                <ScalarProperty Name="USU_RUT" ColumnName="USU_RUT" />
                 <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1487,224 +1502,218 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="SisPAR" ZoomLevel="47">
-        <EntityTypeShape EntityType="SisPARModel.DER_DERIVACION" Width="1.5" PointX="5.25" PointY="10.75" Height="4.0956022135416674" />
-        <EntityTypeShape EntityType="SisPARModel.EPR_EMPRESA" Width="1.5" PointX="0.75" PointY="11.5" Height="2.5571907552083388" />
-        <EntityTypeShape EntityType="SisPARModel.EST_ESTADOS" Width="1.5" PointX="5.25" PointY="7.5" Height="2.1725878906250031" />
-        <EntityTypeShape EntityType="SisPARModel.EVA_EVALUACION" Width="1.5" PointX="12.75" PointY="13.625" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="SisPARModel.EVE_EVENTO" Width="1.5" PointX="9.75" PointY="9.375" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO" Width="1.5" PointX="9.75" PointY="17.625" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="SisPARModel.NOT_NOTIFICACION" Width="1.5" PointX="7.5" PointY="7.25" Height="3.1340950520833246" />
-        <EntityTypeShape EntityType="SisPARModel.PRE_PREGUNTA" Width="1.5" PointX="10.5" PointY="20.875" Height="1.9802864583333246" />
-        <EntityTypeShape EntityType="SisPARModel.PRO_PROCESO" Width="1.5" PointX="3" PointY="11.125" Height="3.3263964843750102" />
-        <EntityTypeShape EntityType="SisPARModel.REQ_REQUERIMIENTO" Width="1.5" PointX="7.5" PointY="11.375" Height="6.9801236979166674" />
-        <EntityTypeShape EntityType="SisPARModel.RES_RESPONSABLE" Width="1.5" PointX="5.25" PointY="15.625" Height="2.5571907552083388" />
-        <EntityTypeShape EntityType="SisPARModel.ROL_ROL" Width="1.5" PointX="3" PointY="20.125" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="SisPARModel.SPO_SUBPROCESO" Width="1.5" PointX="10.5" PointY="13.125" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="SisPARModel.URG_URGENCIA" Width="1.5" PointX="5.25" PointY="19.375" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="SisPARModel.USU_USUARIO" Width="1.5" PointX="3" PointY="15.25" Height="3.3263964843750102" />
+      <Diagram Name="SisPAR" ZoomLevel="77">
+        <EntityTypeShape EntityType="SisPARModel.DER_DERIVACION" Width="1.5" PointX="5.25" PointY="10" Height="4.0956022135416674" />
+        <EntityTypeShape EntityType="SisPARModel.EPR_EMPRESA" Width="1.5" PointX="0.75" PointY="11.5" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SisPARModel.EST_ESTADOS" Width="1.5" PointX="5.25" PointY="6.25" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="SisPARModel.EVA_EVALUACION" Width="1.5" PointX="12.75" PointY="13.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="SisPARModel.EVE_EVENTO" Width="1.5" PointX="9.75" PointY="9.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SisPARModel.HRE_HISTORIAL_REQUERIMIENTO" Width="1.5" PointX="9.75" PointY="17.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="SisPARModel.NOT_NOTIFICACION" Width="1.5" PointX="7.5" PointY="7.125" Height="3.1340950520833282" />
+        <EntityTypeShape EntityType="SisPARModel.PRE_PREGUNTA" Width="1.5" PointX="10.5" PointY="20.625" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="SisPARModel.PRO_PROCESO" Width="1.5" PointX="3" PointY="10.375" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="SisPARModel.REQ_REQUERIMIENTO" Width="1.5" PointX="7.5" PointY="11.125" Height="6.9801236979166674" />
+        <EntityTypeShape EntityType="SisPARModel.RES_RESPONSABLE" Width="1.5" PointX="5.25" PointY="15.875" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="SisPARModel.ROL_ROL" Width="1.5" PointX="3" PointY="20.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SisPARModel.SPO_SUBPROCESO" Width="1.5" PointX="10.5" PointY="12.875" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SisPARModel.URG_URGENCIA" Width="1.5" PointX="5.25" PointY="19.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SisPARModel.USU_USUARIO" Width="1.5" PointX="3" PointY="15.25" Height="3.7109993489583246" />
         <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO" >
-          <ConnectorPoint PointX="4.5" PointY="12.788198242187505" />
-          <ConnectorPoint PointX="5.25" PointY="12.788198242187505" />
+          <ConnectorPoint PointX="4.5" PointY="12.038198242187505" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="12.038198242187505" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="12.038198242187505" />
+          <ConnectorPoint PointX="5.25" PointY="12.038198242187505" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_PRO_PROCESO1" >
-          <ConnectorPoint PointX="4.5" PointY="11.894099121093753" />
-          <ConnectorPoint PointX="4.916666666666667" PointY="11.894099121093753" />
-          <ConnectorPoint PointX="5.083333333333333" PointY="11.894099121093753" />
-          <ConnectorPoint PointX="5.25" PointY="11.894099121093753" />
+          <ConnectorPoint PointX="4.5" PointY="11.144099121093753" />
+          <ConnectorPoint PointX="5.25" PointY="11.144099121093753" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_REQ_REQUERIMIENTO" >
-          <ConnectorPoint PointX="7.5" PointY="13.110301106770834" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="13.110301106770832" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="13.110301106770834" />
-          <ConnectorPoint PointX="6.75" PointY="13.110301106770834" />
+          <ConnectorPoint PointX="7.5" PointY="12.610301106770834" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="12.610301106770832" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="12.610301106770834" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="12.610301106770834" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="12.610301106770834" />
+          <ConnectorPoint PointX="6.75" PointY="12.610301106770834" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_SPO_SUBPROCESO" >
-          <ConnectorPoint PointX="11.25" PointY="13.125" />
-          <ConnectorPoint PointX="11.25" PointY="12.797801106770834" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="12.797801106770834" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="12.797801106770834" />
-          <ConnectorPoint PointX="9.25" PointY="12.797801106770834" />
-          <ConnectorPoint PointX="9.25" PointY="11.125" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="11.124999999999998" />
-          <ConnectorPoint PointX="7.166666666666667" PointY="11.125" />
-          <ConnectorPoint PointX="7.125" PointY="11.125" />
-          <ConnectorPoint PointX="7.125" PointY="11.898898553385422" />
-          <ConnectorPoint PointX="6.75" PointY="11.898898553385422" />
+          <ConnectorPoint PointX="11.25" PointY="12.875" />
+          <ConnectorPoint PointX="11.25" PointY="12.316793619791667" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="12.316793619791666" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="12.316793619791667" />
+          <ConnectorPoint PointX="9.25" PointY="12.316793619791667" />
+          <ConnectorPoint PointX="9.25" PointY="10.875" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="10.874999999999998" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="10.875" />
+          <ConnectorPoint PointX="7.125" PointY="10.875" />
+          <ConnectorPoint PointX="7.125" PointY="11.273898553385422" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="11.273898553385422" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="11.273898553385422" />
+          <ConnectorPoint PointX="6.75" PointY="11.273898553385422" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_DER_DERIVACION_SPO_SUBPROCESO1" >
-          <ConnectorPoint PointX="10.843748" PointY="13.125" />
-          <ConnectorPoint PointX="10.843748" PointY="12.922801106770834" />
-          <ConnectorPoint PointX="9.5" PointY="12.922801106770834" />
-          <ConnectorPoint PointX="9.5" PointY="10.875" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="10.875" />
-          <ConnectorPoint PointX="7.260416666666667" PointY="10.875" />
-          <ConnectorPoint PointX="7.25" PointY="10.875" />
-          <ConnectorPoint PointX="7.25" PointY="14.009203660156246" />
-          <ConnectorPoint PointX="6.75" PointY="14.009203660156246" />
+          <ConnectorPoint PointX="10.843748" PointY="12.875" />
+          <ConnectorPoint PointX="10.843748" PointY="12.566793619791667" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="12.566793619791667" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="12.566793619791667" />
+          <ConnectorPoint PointX="9.5" PointY="12.566793619791667" />
+          <ConnectorPoint PointX="9.5" PointY="10.625" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="10.625" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="10.625" />
+          <ConnectorPoint PointX="7.25" PointY="10.625" />
+          <ConnectorPoint PointX="7.25" PointY="13.384203660156246" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="13.384203660156246" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="13.384203660156246" />
+          <ConnectorPoint PointX="6.75" PointY="13.384203660156246" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA" >
-          <ConnectorPoint PointX="2.25" PointY="12.778595377604169" />
-          <ConnectorPoint PointX="3" PointY="12.778595377604169" />
+          <ConnectorPoint PointX="2.25" PointY="12.600698242187505" />
+          <ConnectorPoint PointX="3" PointY="12.600698242187505" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_EPR_EMPRESA" >
-          <ConnectorPoint PointX="1.5" PointY="14.057190755208339" />
-          <ConnectorPoint PointX="1.5" PointY="15.047801106770834" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="15.047801106770834" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="15.047801106770834" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="15.047801106770834" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="15.047801106770834" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="15.047801106770834" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="15.047801106770834" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="15.047801106770832" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="15.047801106770834" />
-          <ConnectorPoint PointX="7.5" PointY="15.047801106770834" />
+          <ConnectorPoint PointX="2.25" PointY="14.299947916666667" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="14.299947916666667" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="14.299947916666667" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="14.299947916666666" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="14.299947916666667" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="14.299947916666667" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="14.299947916666667" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="14.299947916666666" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="14.299947916666667" />
+          <ConnectorPoint PointX="7.5" PointY="14.299947916666667" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_USU_USUARIO_EPR_EMPRESA" >
-          <ConnectorPoint PointX="1.9062525" PointY="14.057190755208339" />
-          <ConnectorPoint PointX="1.9062525" PointY="16.913198242187505" />
-          <ConnectorPoint PointX="3" PointY="16.913198242187505" />
+          <ConnectorPoint PointX="1.5" PointY="14.441793619791667" />
+          <ConnectorPoint PointX="1.5" PointY="17.105499674479162" />
+          <ConnectorPoint PointX="3" PointY="17.105499674479162" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_EST_ESTADOS" >
-          <ConnectorPoint PointX="6" PointY="9.6725878906250031" />
-          <ConnectorPoint PointX="6" PointY="10.5" />
-          <ConnectorPoint PointX="7" PointY="10.5" />
-          <ConnectorPoint PointX="7" PointY="10.660797526041662" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="10.660797526041661" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="10.660797526041662" />
-          <ConnectorPoint PointX="9.5416666666666661" PointY="10.660797526041662" />
-          <ConnectorPoint PointX="9.7083333333333339" PointY="10.660797526041662" />
-          <ConnectorPoint PointX="9.75" PointY="10.660797526041662" />
+          <ConnectorPoint PointX="6.75" PointY="6.65625" />
+          <ConnectorPoint PointX="10.5" PointY="6.65625" />
+          <ConnectorPoint PointX="10.5" PointY="9.125" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_EST_ESTADOS" >
-          <ConnectorPoint PointX="6.72576923076923" PointY="9.6725878906250031" />
-          <ConnectorPoint PointX="7.1875" PointY="10.134318659855772" />
-          <ConnectorPoint PointX="7.1875" PointY="19.203756010416669" />
-          <ConnectorPoint PointX="8.1984955897435885" PointY="19.203756010416669" />
-          <ConnectorPoint PointX="8.3651622564102563" PointY="19.203756010416669" />
-          <ConnectorPoint PointX="9.75" PointY="19.203756010416669" />
+          <ConnectorPoint PointX="6.72576923076923" PointY="8.4225878906250031" />
+          <ConnectorPoint PointX="7.1875" PointY="8.8843186598557722" />
+          <ConnectorPoint PointX="7.1875" PointY="19.016256010416669" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="19.016256010416669" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="19.016256010416669" />
+          <ConnectorPoint PointX="9.75" PointY="19.016256010416669" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_EST_ESTADOS" >
-          <ConnectorPoint PointX="6.75" PointY="9.6160484290865416" />
-          <ConnectorPoint PointX="7.34375" PointY="10.209798429086542" />
-          <ConnectorPoint PointX="7.34375" PointY="16.732714402343746" />
-          <ConnectorPoint PointX="7.5" PointY="16.732714402343746" />
+          <ConnectorPoint PointX="6.75" PointY="8.3660484290865416" />
+          <ConnectorPoint PointX="7.34375" PointY="8.9597984290865416" />
+          <ConnectorPoint PointX="7.34375" PointY="16.233787807291662" />
+          <ConnectorPoint PointX="7.5" PointY="16.233787807291662" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_EVA_EVALUACION_PRE_PREGUNTA" >
-          <ConnectorPoint PointX="12" PointY="21.865143229166662" />
-          <ConnectorPoint PointX="13.5" PointY="21.865143229166662" />
-          <ConnectorPoint PointX="13.5" PointY="15.989889322916667" />
+          <ConnectorPoint PointX="12" PointY="21.615143229166662" />
+          <ConnectorPoint PointX="13.5" PointY="21.615143229166662" />
+          <ConnectorPoint PointX="13.5" PointY="15.864889322916667" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_EVA_EVALUACION_REQ_REQUERIMIENTO" >
-          <ConnectorPoint PointX="9" PointY="16.845896809895834" />
-          <ConnectorPoint PointX="11.166666666666666" PointY="16.845896809895834" />
-          <ConnectorPoint PointX="11.333333333333334" PointY="16.845896809895834" />
-          <ConnectorPoint PointX="13.0937475" PointY="16.845896809895834" />
-          <ConnectorPoint PointX="13.0937475" PointY="15.989889322916667" />
+          <ConnectorPoint PointX="9" PointY="16.682447161458327" />
+          <ConnectorPoint PointX="11.166666666666666" PointY="16.682447161458327" />
+          <ConnectorPoint PointX="11.333333333333334" PointY="16.682447161458327" />
+          <ConnectorPoint PointX="13.0937475" PointY="16.682447161458327" />
+          <ConnectorPoint PointX="13.0937475" PointY="15.864889322916667" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_NOT_NOTIFICACION" >
-          <ConnectorPoint PointX="9" PointY="9.8795475260416623" />
-          <ConnectorPoint PointX="9.75" PointY="9.8795475260416623" />
+          <ConnectorPoint PointX="9" PointY="9.6920475260416641" />
+          <ConnectorPoint PointX="9.75" PointY="9.6920475260416641" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO" >
-          <ConnectorPoint PointX="9" PointY="11.845896809895834" />
-          <ConnectorPoint PointX="9.1666666666666661" PointY="11.845896809895834" />
-          <ConnectorPoint PointX="9.3333333333333339" PointY="11.845896809895834" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="11.845896809895832" />
-          <ConnectorPoint PointX="9.7083333333333339" PointY="11.845896809895834" />
-          <ConnectorPoint PointX="9.75" PointY="11.845896809895834" />
+          <ConnectorPoint PointX="9" PointY="11.595896809895834" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="11.595896809895834" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="11.595896809895834" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="11.595896809895832" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="11.595896809895834" />
+          <ConnectorPoint PointX="9.75" PointY="11.595896809895834" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_HRE_HISTORIAL_REQUERIMIENTO_REQ_REQUERIMIENTO" >
-          <ConnectorPoint PointX="9" PointY="17.990061848958334" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="17.990061848958334" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="17.990061848958334" />
-          <ConnectorPoint PointX="9.75" PointY="17.990061848958334" />
+          <ConnectorPoint PointX="9" PointY="17.802561848958334" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="17.802561848958334" />
+          <ConnectorPoint PointX="9.5833333333333339" PointY="17.802561848958334" />
+          <ConnectorPoint PointX="9.75" PointY="17.802561848958334" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE" >
-          <ConnectorPoint PointX="5.2511528461538459" PointY="15.625" />
-          <ConnectorPoint PointX="5.1214255650988791" PointY="15.495272718945033" />
-          <ConnectorPoint PointX="5.0035744349011209" PointY="15.377421588747277" />
-          <ConnectorPoint PointX="4.875" PointY="15.248847153846153" />
-          <ConnectorPoint PointX="4.875" PointY="13.651049363281253" />
-          <ConnectorPoint PointX="4.5" PointY="13.651049363281253" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="15.875" />
+          <ConnectorPoint PointX="4.875" PointY="15.498847153846153" />
+          <ConnectorPoint PointX="4.875" PointY="12.901049363281253" />
+          <ConnectorPoint PointX="4.5" PointY="12.901049363281253" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_PRO_PROCESO" >
-          <ConnectorPoint PointX="4.5" PointY="14.389087792067318" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="14.705162226968438" />
-          <ConnectorPoint PointX="4.9339255650988791" PointY="14.823013357166197" />
-          <ConnectorPoint PointX="5.0625" PointY="14.951587792067318" />
-          <ConnectorPoint PointX="5.0625" PointY="18.730123697916667" />
-          <ConnectorPoint PointX="7.1261528461538468" PointY="18.730123697916667" />
-          <ConnectorPoint PointX="7.1285744349011209" PointY="18.727702109169392" />
-          <ConnectorPoint PointX="7.2464255650988791" PointY="18.609850978971636" />
-          <ConnectorPoint PointX="7.5011528461538459" PointY="18.355123697916667" />
+          <ConnectorPoint PointX="4.5" PointY="11.591148681640629" />
+          <ConnectorPoint PointX="5" PointY="11.591148681640629" />
+          <ConnectorPoint PointX="5" PointY="15.087476458333327" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="15.087476458333326" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="15.087476458333327" />
+          <ConnectorPoint PointX="7.5" PointY="15.087476458333327" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_SPO_SUBPROCESO_PRO_PROCESO" >
-          <ConnectorPoint PointX="4.5" PointY="12.341148681640629" />
-          <ConnectorPoint PointX="5" PointY="12.341148681640629" />
-          <ConnectorPoint PointX="5" PointY="10.25" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="10.25" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="10.25" />
-          <ConnectorPoint PointX="6.875" PointY="10.25" />
-          <ConnectorPoint PointX="6.875" PointY="10.571595052083325" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="10.571595052083323" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="10.571595052083325" />
-          <ConnectorPoint PointX="9.625" PointY="10.571595052083325" />
-          <ConnectorPoint PointX="9.625" PointY="12.566793619791667" />
-          <ConnectorPoint PointX="11.656252" PointY="12.566793619791667" />
-          <ConnectorPoint PointX="11.656252" PointY="13.125" />
+          <ConnectorPoint PointX="3.75" PointY="13.70139648437501" />
+          <ConnectorPoint PointX="3.75" PointY="14.595896809895834" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="14.595896809895832" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="14.595896809895834" />
+          <ConnectorPoint PointX="7" PointY="14.595896809895834" />
+          <ConnectorPoint PointX="7" PointY="11" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="10.999999999999998" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="11" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="11" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="11" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="11" />
+          <ConnectorPoint PointX="9.5833333333333339" PointY="11" />
+          <ConnectorPoint PointX="9.625" PointY="11" />
+          <ConnectorPoint PointX="9.625" PointY="14.345896809895834" />
+          <ConnectorPoint PointX="10.5" PointY="14.345896809895834" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_RES_RESPONSABLE" >
-          <ConnectorPoint PointX="6.75" PointY="17.519952578776042" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="17.519952578776042" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="17.519952578776042" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="17.519952578776042" />
-          <ConnectorPoint PointX="7.270833333333333" PointY="17.519952578776042" />
-          <ConnectorPoint PointX="7.5" PointY="17.519952578776042" />
+          <ConnectorPoint PointX="6.75" PointY="17.231955752604165" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="17.231955752604165" />
+          <ConnectorPoint PointX="7.270833333333333" PointY="17.231955752604165" />
+          <ConnectorPoint PointX="7.291666666666667" PointY="17.231955752604165" />
+          <ConnectorPoint PointX="7.458333333333333" PointY="17.231955752604165" />
+          <ConnectorPoint PointX="7.5" PointY="17.231955752604165" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_SPO_SUBPROCESO" >
-          <ConnectorPoint PointX="10.5" PointY="14.595896809895834" />
-          <ConnectorPoint PointX="9" PointY="14.595896809895834" />
+          <ConnectorPoint PointX="10.5" PointY="13.547948404947917" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="13.547948404947917" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="13.547948404947917" />
+          <ConnectorPoint PointX="9" PointY="13.547948404947917" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_URG_URGENCIA" >
-          <ConnectorPoint PointX="6.75" PointY="20.268992513020834" />
-          <ConnectorPoint PointX="8.2818289230769224" PointY="20.268992513020834" />
-          <ConnectorPoint PointX="8.2818289230769224" PointY="18.355123697916667" />
+          <ConnectorPoint PointX="6.75" PointY="20.143992513020834" />
+          <ConnectorPoint PointX="8.25" PointY="20.143992513020834" />
+          <ConnectorPoint PointX="8.25" PointY="18.105123697916667" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_REQ_REQUERIMIENTO_USU_USUARIO" >
-          <ConnectorPoint PointX="4.5" PointY="15.40625" />
-          <ConnectorPoint PointX="4.949069512820512" PointY="15.40625" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="15.40625" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="15.406249999999998" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="15.40625" />
-          <ConnectorPoint PointX="7.5" PointY="15.40625" />
+          <ConnectorPoint PointX="4.5" PointY="15.53125" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="15.531249999999998" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="15.53125" />
+          <ConnectorPoint PointX="7.5" PointY="15.53125" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_RES_RESPONSABLE_ROL_ROL" >
-          <ConnectorPoint PointX="4.5" PointY="20.126152846153843" />
-          <ConnectorPoint PointX="4.875" PointY="19.751152846153843" />
-          <ConnectorPoint PointX="4.875" PointY="16.903595377604169" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="16.903595377604169" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="16.903595377604169" />
-          <ConnectorPoint PointX="5.25" PointY="16.903595377604169" />
+          <ConnectorPoint PointX="4.5" PointY="20.251152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="19.876152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="17.153595377604169" />
+          <ConnectorPoint PointX="5.25" PointY="17.153595377604169" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_RES_RESPONSABLE_USU_USUARIO" >
-          <ConnectorPoint PointX="4.5" PointY="16.201797688802085" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="16.201797688802085" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="16.201797688802085" />
-          <ConnectorPoint PointX="5.25" PointY="16.201797688802085" />
+          <ConnectorPoint PointX="4.5" PointY="16.451797688802085" />
+          <ConnectorPoint PointX="5.25" PointY="16.451797688802085" />
         </AssociationConnector>
         <AssociationConnector Association="SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE" >
-          <ConnectorPoint PointX="6.75" PointY="16.541224289388026" />
-          <ConnectorPoint PointX="7" PointY="16.541224289388026" />
-          <ConnectorPoint PointX="7" PointY="18.605123697916667" />
-          <ConnectorPoint PointX="7.104166666666667" PointY="18.605123697916667" />
-          <ConnectorPoint PointX="7.33448617948718" PointY="18.605123697916667" />
-          <ConnectorPoint PointX="8.1984955897435885" PointY="18.605123697916667" />
-          <ConnectorPoint PointX="8.3651622564102563" PointY="18.605123697916667" />
-          <ConnectorPoint PointX="9.5" PointY="18.605123697916667" />
-          <ConnectorPoint PointX="9.5" PointY="17.375" />
-          <ConnectorPoint PointX="11.25" PointY="17.375" />
-          <ConnectorPoint PointX="11.25" PointY="16.066793619791667" />
+          <ConnectorPoint PointX="6.75" PointY="16.522225876302087" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="16.522225876302087" />
+          <ConnectorPoint PointX="7.270833333333333" PointY="16.522225876302087" />
+          <ConnectorPoint PointX="7.375" PointY="16.522225876302087" />
+          <ConnectorPoint PointX="7.375" PointY="18.355123697916667" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="18.355123697916667" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="18.355123697916667" />
+          <ConnectorPoint PointX="9.5" PointY="18.355123697916667" />
+          <ConnectorPoint PointX="9.5" PointY="17.25" />
+          <ConnectorPoint PointX="11.25" PointY="17.25" />
+          <ConnectorPoint PointX="11.25" PointY="15.816793619791667" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
