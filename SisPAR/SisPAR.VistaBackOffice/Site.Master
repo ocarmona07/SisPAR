@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SisPAR.VistaBackOffice.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SisPAR</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="http://fonts.googleapis.com/css?family=Varela" rel="stylesheet" />
+    <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="frmPrincipal" runat="server">
+    <br />
+    <asp:Table runat="server" Width="990px" HorizontalAlign="Center" CaptionAlign="Top">
+        <asp:TableRow>
+            <asp:TableCell Width="2px" BackColor="#3ADF00" />
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <br />
+                <asp:Table runat="server" ID="tblInicio" HorizontalAlign="Center" Width="930px">
+                    <asp:TableRow runat="server">
+                        <asp:TableCell runat="server" RowSpan="2" Width="220px">
+                            <asp:Image runat="server" ImageUrl="~/images/LogoAguasNuevas.jpg" />
+                        </asp:TableCell>
+                        <asp:TableCell runat="server" HorizontalAlign="Right">
+                            <asp:Label runat="server" Text="Usuario conectado: " />
+                            <asp:Label ID="lblUsuarioConectado" runat="server" Font-Bold="True" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                        <asp:TableCell runat="server" HorizontalAlign="Right">
+                            <asp:Menu ID="mnuPrincipal" runat="server" Orientation="Horizontal" CssClass="Menu"
+                                OnMenuItemClick="MenuItemClick">
+                                <Items>
+                                    <asp:MenuItem Text="Soporte" Value="soporte">
+                                        <asp:MenuItem Text="Solicitud Requerimientos" Value="solicitudReq" />
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Sistemas" Value="sistemas">
+                                        <asp:MenuItem Text="New Item" Value="New Item" />
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Informes" Value="informes">
+                                        <asp:MenuItem Text="New Item" Value="New Item" />
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Finalizar" Value="finalizar" />
+                                </Items>
+                            </asp:Menu>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <br />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:ContentPlaceHolder ID="cphPrincipal" runat="server">
+                </asp:ContentPlaceHolder>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell runat="server" Width="40px">
+                <div class="copyright">
+                    <asp:Label runat="server" ID="lblCopyright" />
+                </div>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+    </form>
+</body>
+</html>
