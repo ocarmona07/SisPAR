@@ -303,8 +303,10 @@ CREATE TABLE dbo.USU_USUARIO
       USU_CORREO VARCHAR(50) COLLATE Modern_Spanish_CI_AS
                              NULL ,
       USU_EPR_ID INT NOT NULL ,
-      USU_CLAVE VARCHAR(15) COLLATE Modern_Spanish_CI_AS
-                            NULL ,
+      USU_USERNAME VARCHAR(15) COLLATE Modern_Spanish_CI_AS
+                               NULL ,
+      USU_PASSWORD VARCHAR(15) COLLATE Modern_Spanish_CI_AS
+                               NULL ,
       CONSTRAINT PK_USU_USUARIO PRIMARY KEY ( USU_ID ) ON "PRIMARY"
     )
 ON  "PRIMARY"
