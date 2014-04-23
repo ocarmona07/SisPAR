@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private EstadosDa()
+        public EstadosDa()
         {
             if (_dbSisParEntities == null)
             {

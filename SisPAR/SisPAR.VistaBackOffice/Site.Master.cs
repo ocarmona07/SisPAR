@@ -18,7 +18,9 @@ namespace SisPAR.VistaBackOffice
         protected void Page_Load(object sender, EventArgs e)
         {
             lblCopyright.Text = ConfigurationManager.AppSettings["Copyright"];
-            lblUsuarioConectado.Text = "Usuario Test";
+            if (Session["Usuario"] == null) Response.Redirect("Home.aspx");
+            if (String.IsNullOrEmpty(Session["Usuario"].ToString())) Response.Redirect("Home.aspx");
+            lblUsuarioConectado.Text = Session["Usuario"].ToString();
         }
 
         /// <summary>
@@ -38,6 +40,9 @@ namespace SisPAR.VistaBackOffice
                     Response.Redirect("Home.aspx");
                     break;
 
+                case "test":
+                    Session["Usuario"] = "";
+                    break;
             }
         }
     }

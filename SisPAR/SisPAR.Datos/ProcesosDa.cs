@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private ProcesosDa()
+        public ProcesosDa()
         {
             if (_dbSisParEntities == null)
             {

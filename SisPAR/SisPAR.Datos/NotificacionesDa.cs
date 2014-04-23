@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private NotificacionesDa()
+        public NotificacionesDa()
         {
             if (_dbSisParEntities == null)
             {

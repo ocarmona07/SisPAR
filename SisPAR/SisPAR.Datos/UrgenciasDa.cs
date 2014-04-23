@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private UrgenciasDa()
+        public UrgenciasDa()
         {
             if (_dbSisParEntities == null)
             {

@@ -37,7 +37,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DerivarionesBo.cs" />
+    <Compile Include="EmpresasBo.cs" />
+    <Compile Include="EstadosBo.cs" />
+    <Compile Include="EvaluacionesBo.cs" />
+    <Compile Include="EventosBo.cs" />
+    <Compile Include="HistorialReqBo.cs" />
+    <Compile Include="NotificacionesBo.cs" />
+    <Compile Include="PreguntasBo.cs" />
+    <Compile Include="ProcesosBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequerimientosBo.cs" />
+    <Compile Include="ResponsablesBo.cs" />
+    <Compile Include="RolesBo.cs" />
+    <Compile Include="SubprocesosBo.cs" />
+    <Compile Include="UrgenciasBo.cs" />
+    <Compile Include="UsuariosBo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SisPAR.Datos\SisPAR.Datos.csproj">

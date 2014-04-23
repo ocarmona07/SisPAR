@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private ResponsablesDa()
+        public ResponsablesDa()
         {
             if (_dbSisParEntities == null)
             {

@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private PreguntasDa()
+        public PreguntasDa()
         {
             if (_dbSisParEntities == null)
             {

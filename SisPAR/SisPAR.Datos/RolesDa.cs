@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private RolesDa()
+        public RolesDa()
         {
             if (_dbSisParEntities == null)
             {

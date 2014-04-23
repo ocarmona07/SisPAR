@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private SubprocesosDa()
+        public SubprocesosDa()
         {
             if (_dbSisParEntities == null)
             {

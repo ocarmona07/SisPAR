@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private HistorialReqDa()
+        public HistorialReqDa()
         {
             if (_dbSisParEntities == null)
             {

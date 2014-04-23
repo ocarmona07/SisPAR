@@ -46,7 +46,7 @@
                         <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Middle" ColumnSpan="2"
                             Height="40px">
                             <asp:Button ID="btnEntrar" runat="server" Width="120px" Height="30px" Text="Entrar"
-                                CausesValidation="True" />
+                                CausesValidation="True" OnClick="EntrarOnClick" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>

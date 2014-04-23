@@ -42,7 +42,7 @@
                                         <asp:MenuItem Text="Solicitud Requerimientos" Value="solicitudReq" />
                                     </asp:MenuItem>
                                     <asp:MenuItem Text="Sistemas" Value="sistemas">
-                                        <asp:MenuItem Text="New Item" Value="New Item" />
+                                        <asp:MenuItem Text="Test Session" Value="test" />
                                     </asp:MenuItem>
                                     <asp:MenuItem Text="Informes" Value="informes">
                                         <asp:MenuItem Text="New Item" Value="New Item" />

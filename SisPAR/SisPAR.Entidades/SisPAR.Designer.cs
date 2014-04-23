@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
@@ -336,6 +337,7 @@ namespace SisPAR.Entidades
         private ObjectSet<USU_USUARIO> _USU_USUARIO;
 
         #endregion
+
         #region Métodos AddTo
     
         /// <summary>
@@ -459,11 +461,11 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entidades
     
     /// <summary>
@@ -504,6 +506,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -774,6 +777,7 @@ namespace SisPAR.Entidades
         partial void OnDER_DESTINO_ANALISTAChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -968,6 +972,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1004,6 +1009,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1178,6 +1184,7 @@ namespace SisPAR.Entidades
         partial void OnEPR_SUCURSALChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -1248,6 +1255,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1276,6 +1284,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1354,6 +1363,7 @@ namespace SisPAR.Entidades
         partial void OnEST_OBSChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -1424,6 +1434,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1454,6 +1465,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1580,6 +1592,7 @@ namespace SisPAR.Entidades
         partial void OnEVA_DESCChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -1660,6 +1673,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1692,6 +1706,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1846,7 +1861,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> EVE_FECHA
+        public Nullable<global::System.DateTime> EVE_FECHA
         {
             get
             {
@@ -1861,11 +1876,12 @@ namespace SisPAR.Entidades
                 OnEVE_FECHAChanged();
             }
         }
-        private Nullable<global::System.Int32> _EVE_FECHA;
-        partial void OnEVE_FECHAChanging(Nullable<global::System.Int32> value);
+        private Nullable<global::System.DateTime> _EVE_FECHA;
+        partial void OnEVE_FECHAChanging(Nullable<global::System.DateTime> value);
         partial void OnEVE_FECHAChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -1984,6 +2000,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2003,7 +2020,7 @@ namespace SisPAR.Entidades
         /// <param name="hRE_REQ_ID">Valor inicial de la propiedad HRE_REQ_ID.</param>
         /// <param name="hRE_EST_ID">Valor inicial de la propiedad HRE_EST_ID.</param>
         /// <param name="hRE_FECHA">Valor inicial de la propiedad HRE_FECHA.</param>
-        public static HRE_HISTORIAL_REQUERIMIENTO CreateHRE_HISTORIAL_REQUERIMIENTO(global::System.Int32 hRE_ID, global::System.Int32 hRE_REQ_ID, global::System.Int32 hRE_EST_ID, global::System.String hRE_FECHA)
+        public static HRE_HISTORIAL_REQUERIMIENTO CreateHRE_HISTORIAL_REQUERIMIENTO(global::System.Int32 hRE_ID, global::System.Int32 hRE_REQ_ID, global::System.Int32 hRE_EST_ID, global::System.DateTime hRE_FECHA)
         {
             HRE_HISTORIAL_REQUERIMIENTO hRE_HISTORIAL_REQUERIMIENTO = new HRE_HISTORIAL_REQUERIMIENTO();
             hRE_HISTORIAL_REQUERIMIENTO.HRE_ID = hRE_ID;
@@ -2014,6 +2031,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -2096,7 +2114,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String HRE_FECHA
+        public global::System.DateTime HRE_FECHA
         {
             get
             {
@@ -2106,13 +2124,13 @@ namespace SisPAR.Entidades
             {
                 OnHRE_FECHAChanging(value);
                 ReportPropertyChanging("HRE_FECHA");
-                _HRE_FECHA = StructuralObject.SetValidValue(value, false);
+                _HRE_FECHA = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("HRE_FECHA");
                 OnHRE_FECHAChanged();
             }
         }
-        private global::System.String _HRE_FECHA;
-        partial void OnHRE_FECHAChanging(global::System.String value);
+        private global::System.DateTime _HRE_FECHA;
+        partial void OnHRE_FECHAChanging(global::System.DateTime value);
         partial void OnHRE_FECHAChanged();
     
         /// <summary>
@@ -2140,6 +2158,7 @@ namespace SisPAR.Entidades
         partial void OnHRE_RESPONSABLE_REQChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -2220,6 +2239,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2262,6 +2282,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -2508,6 +2529,7 @@ namespace SisPAR.Entidades
         partial void OnNOT_ENVIAR_SOLICITANTEChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -2534,6 +2556,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2564,6 +2587,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -2666,6 +2690,7 @@ namespace SisPAR.Entidades
         partial void OnPRE_ACTIVOChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -2692,6 +2717,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2726,6 +2752,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -2876,6 +2903,7 @@ namespace SisPAR.Entidades
         partial void OnPRO_RES_IDChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -3044,6 +3072,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3076,6 +3105,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -3562,6 +3592,7 @@ namespace SisPAR.Entidades
         partial void OnREQ_ARC_ADJUNTOChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -3920,6 +3951,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3948,6 +3980,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -4026,6 +4059,7 @@ namespace SisPAR.Entidades
         partial void OnRES_USU_IDChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -4172,6 +4206,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -4200,6 +4235,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -4278,6 +4314,7 @@ namespace SisPAR.Entidades
         partial void OnROL_DESCRIPCIONChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -4304,6 +4341,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -4336,6 +4374,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -4462,6 +4501,7 @@ namespace SisPAR.Entidades
         partial void OnSPO_RES_IDChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -4608,6 +4648,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -4636,6 +4677,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -4714,6 +4756,7 @@ namespace SisPAR.Entidades
         partial void OnURG_OBSChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -4740,6 +4783,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -4780,6 +4824,7 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -5030,26 +5075,51 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String USU_CLAVE
+        public global::System.String USU_USERNAME
         {
             get
             {
-                return _USU_CLAVE;
+                return _USU_USERNAME;
             }
             set
             {
-                OnUSU_CLAVEChanging(value);
-                ReportPropertyChanging("USU_CLAVE");
-                _USU_CLAVE = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("USU_CLAVE");
-                OnUSU_CLAVEChanged();
+                OnUSU_USERNAMEChanging(value);
+                ReportPropertyChanging("USU_USERNAME");
+                _USU_USERNAME = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("USU_USERNAME");
+                OnUSU_USERNAMEChanged();
             }
         }
-        private global::System.String _USU_CLAVE;
-        partial void OnUSU_CLAVEChanging(global::System.String value);
-        partial void OnUSU_CLAVEChanged();
+        private global::System.String _USU_USERNAME;
+        partial void OnUSU_USERNAMEChanging(global::System.String value);
+        partial void OnUSU_USERNAMEChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String USU_PASSWORD
+        {
+            get
+            {
+                return _USU_PASSWORD;
+            }
+            set
+            {
+                OnUSU_PASSWORDChanging(value);
+                ReportPropertyChanging("USU_PASSWORD");
+                _USU_PASSWORD = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("USU_PASSWORD");
+                OnUSU_PASSWORDChanged();
+            }
+        }
+        private global::System.String _USU_PASSWORD;
+        partial void OnUSU_PASSWORDChanging(global::System.String value);
+        partial void OnUSU_PASSWORDChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -5136,8 +5206,10 @@ namespace SisPAR.Entidades
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

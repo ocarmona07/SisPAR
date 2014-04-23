@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private EventosDa()
+        public EventosDa()
         {
             if (_dbSisParEntities == null)
             {

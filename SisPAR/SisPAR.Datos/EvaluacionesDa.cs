@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que obtiene las entidades de SisPAR
         /// </summary>
-        private EvaluacionesDa()
+        public EvaluacionesDa()
         {
             if (_dbSisParEntities == null)
             {
