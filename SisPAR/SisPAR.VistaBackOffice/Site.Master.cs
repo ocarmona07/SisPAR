@@ -18,16 +18,17 @@ namespace SisPAR.VistaBackOffice
         protected void Page_Load(object sender, EventArgs e)
         {
             lblCopyright.Text = ConfigurationManager.AppSettings["Copyright"];
-            if (Session["Usuario"] == null) Response.Redirect("Home.aspx");
-            if (String.IsNullOrEmpty(Session["Usuario"].ToString())) Response.Redirect("Home.aspx");
-            lblUsuarioConectado.Text = Session["Usuario"].ToString();
+
+            //if (Session["Usuario"] == null) Response.Redirect("Home.aspx");
+            //if (String.IsNullOrEmpty(Session["Usuario"].ToString())) Response.Redirect("Home.aspx");
+            lblUsuarioConectado.Text = "Yo"; //Session["Usuario"].ToString();
         }
 
         /// <summary>
-        /// 
+        /// Método que redirecciona los botones del menú
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Objeto del evento</param>
+        /// <param name="e">Argumentos del evento</param>
         protected void MenuItemClick(object sender, MenuEventArgs e)
         {
             switch (e.Item.Value)

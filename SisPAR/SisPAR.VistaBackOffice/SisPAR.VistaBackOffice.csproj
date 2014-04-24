@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AtencionRequerimientos.aspx" />
     <Content Include="css\default.css" />
     <Content Include="css\fonts.css" />
+    <Content Include="GestionSolicitudes.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="images\banner.png" />
     <Content Include="images\LogoAguasNuevas.jpg" />
@@ -74,12 +76,26 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AtencionRequerimientos.aspx.cs">
+      <DependentUpon>AtencionRequerimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AtencionRequerimientos.aspx.designer.cs">
+      <DependentUpon>AtencionRequerimientos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionSolicitudes.aspx.cs">
+      <DependentUpon>GestionSolicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionSolicitudes.aspx.designer.cs">
+      <DependentUpon>GestionSolicitudes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

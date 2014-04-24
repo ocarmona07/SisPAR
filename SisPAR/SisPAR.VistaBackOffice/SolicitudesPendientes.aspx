@@ -6,10 +6,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPrincipal" runat="server">
     <asp:Table runat="server" HorizontalAlign="Center">
         <asp:TableRow runat="server">
+            <asp:TableCell runat="server" HorizontalAlign="Center" Text="Solicitudes Pendientes"
+                CssClass="subtitulo" />
+        </asp:TableRow>
+        <asp:TableRow runat="server">
             <asp:TableCell runat="server">
-                <asp:GridView ID="gvSolicitudes" runat="server" AutoGenerateColumns="False" OnDataBound="SolicitudesDataBound">
+                <asp:GridView ID="gvSolicitudes" runat="server" AutoGenerateColumns="False">
                     <Columns>
                         <asp:TemplateField HeaderText="Sistema">
+                            <ItemTemplate>
+                                <asp:Label ID="lblSistema" runat="server" Text="" />
+                            </ItemTemplate>
                             <HeaderStyle Width="150px" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Responsable">
@@ -27,6 +34,9 @@
                     </Columns>
                 </asp:GridView>
             </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server" Height="70px" />
         </asp:TableRow>
     </asp:Table>
 </asp:Content>

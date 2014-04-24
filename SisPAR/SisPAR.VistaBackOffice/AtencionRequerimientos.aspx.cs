@@ -1,12 +1,14 @@
 ﻿namespace SisPAR.VistaBackOffice
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
 
     /// <summary>
-    /// Clase principal de Solicitudes Pendientes
+    /// Clase principal de Atención de Requerimientos
     /// </summary>
-    public partial class SolicitudesPendientes : System.Web.UI.Page
+    public partial class AtencionRequerimientos : System.Web.UI.Page
     {
         /// <summary>
         /// Método que se ejecuta al iniciar la vista
@@ -23,8 +25,8 @@
 
             dataTest.Rows.Add("SisQ", "Omar Carmona", 2, 0);
 
-            gvSolicitudes.DataSource = dataTest;
-            gvSolicitudes.DataBind();
+            gvRequerimientos.DataSource = dataTest;
+            gvRequerimientos.DataBind();
         }
     }
 }
