@@ -114,16 +114,19 @@
                 <asp:Table runat="server" Width="700px" HorizontalAlign="Center">
                     <asp:TableRow runat="server">
                         <asp:TableCell runat="server" Height="50px" HorizontalAlign="Center" VerticalAlign="Bottom">
-                            <asp:Button ID="btnModificar" runat="server" Width="120px" Height="30px" Text="Modificar" />
+                            <asp:Button ID="btnSolicitudModificar" runat="server" Width="120px" Height="30px"
+                                Text="Modificar" />
                         </asp:TableCell>
                         <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Bottom">
-                            <asp:Button ID="btnRestablecer" runat="server" Width="120px" Height="30px" Text="Restablecer" />
+                            <asp:Button ID="btnSolicitudRestablecer" runat="server" Width="120px" Height="30px"
+                                Text="Restablecer" />
                         </asp:TableCell>
                         <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Bottom">
-                            <asp:Button ID="btnImprimir" runat="server" Width="120px" Height="30px" Text="Imprimir" />
+                            <asp:Button ID="btnSolicitudImprimir" runat="server" Width="120px" Height="30px"
+                                Text="Imprimir" />
                         </asp:TableCell>
                         <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Bottom">
-                            <asp:Button ID="btnAtras" runat="server" Width="120px" Height="30px" Text="Atrás" />
+                            <asp:Button ID="btnSolicitudAtras" runat="server" Width="120px" Height="30px" Text="Atrás" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
@@ -139,7 +142,7 @@
                     Height="25px" />
             </asp:TableCell>
             <asp:TableCell runat="server" Width="434px" HorizontalAlign="Center" VerticalAlign="Middle">
-                <asp:Button ID="btnAtras2" runat="server" Text="Atrás" Width="100px" Height="25px" />
+                <asp:Button ID="btnEventoAtras" runat="server" Text="Atrás" Width="100px" Height="25px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow ID="tbrGrillaEventos" runat="server">
@@ -175,6 +178,66 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow ID="tbcCrearEvento" runat="server" Visible="True">
+            <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Middle" ColumnSpan="2"
+                Style="padding-top: 30px;">
+                <asp:Table runat="server" HorizontalAlign="Center" BorderWidth="1px" CellPadding="5">
+                    <asp:TableRow runat="server">
+                        <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
+                            <asp:Label runat="server" Text=" Nuevo Evento " Width="110px" BackColor="white" Style="margin-top: -15px; padding-left: 10px; display: block;" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                        <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Requerimiento: "
+                            Width="200px" />
+                        <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle" Width="500px">
+                            <asp:DropDownList ID="ddlEventoRequerimiento" runat="server" Width="210px" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                        <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Estado: " />
+                        <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
+                            <asp:TextBox ID="tbEventoEstado" runat="server" Width="100px" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server" Visible="True">
+                        <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Nombre Responsable: " />
+                        <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
+                            <asp:TextBox ID="tbEventoNombreResponsable" runat="server" Width="200px" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server" Visible="True">
+                        <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Descripción: " />
+                        <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
+                            <asp:TextBox ID="tbEventoDescripcion" runat="server" Width="400px" Height="60px" TextMode="MultiLine" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server" Visible="True">
+                        <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Fecha: " />
+                        <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
+                            <asp:TextBox ID="tbEventoFecha" runat="server" Width="100px" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server" Visible="True">
+                        <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Middle" ColumnSpan="2">
+                            <asp:Table runat="server" HorizontalAlign="Center" CellPadding="20">
+                                <asp:TableRow runat="server">
+                                    <asp:TableCell runat="server">
+                                        <asp:Button ID="btnEventoCrear" runat="server" Text="Crear" Width="100px" Height="25px" />
+                                    </asp:TableCell>
+                                    <asp:TableCell runat="server">
+                                        <asp:Button ID="btnEventoLimpiar" runat="server" Text="Limpiar" Width="100px" Height="25px" />
+                                    </asp:TableCell>
+                                    <asp:TableCell runat="server">
+                                        <asp:Button ID="btnEventoCancelar" runat="server" Text="Cancelar" Width="100px" Height="25px" />
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>

@@ -193,40 +193,40 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.DropDownList ddlSubtipo;
         
         /// <summary>
-        /// Control btnModificar.
+        /// Control btnSolicitudModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
+        protected global::System.Web.UI.WebControls.Button btnSolicitudModificar;
         
         /// <summary>
-        /// Control btnRestablecer.
+        /// Control btnSolicitudRestablecer.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRestablecer;
+        protected global::System.Web.UI.WebControls.Button btnSolicitudRestablecer;
         
         /// <summary>
-        /// Control btnImprimir.
+        /// Control btnSolicitudImprimir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnImprimir;
+        protected global::System.Web.UI.WebControls.Button btnSolicitudImprimir;
         
         /// <summary>
-        /// Control btnAtras.
+        /// Control btnSolicitudAtras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras;
+        protected global::System.Web.UI.WebControls.Button btnSolicitudAtras;
         
         /// <summary>
         /// Control tblEvento.
@@ -247,13 +247,13 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.Button btnCrearEvento;
         
         /// <summary>
-        /// Control btnAtras2.
+        /// Control btnEventoAtras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras2;
+        protected global::System.Web.UI.WebControls.Button btnEventoAtras;
         
         /// <summary>
         /// Control tbrGrillaEventos.
@@ -272,5 +272,86 @@ namespace SisPAR.VistaBackOffice {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvEventos;
+        
+        /// <summary>
+        /// Control tbcCrearEvento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow tbcCrearEvento;
+        
+        /// <summary>
+        /// Control ddlEventoRequerimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEventoRequerimiento;
+        
+        /// <summary>
+        /// Control tbEventoEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbEventoEstado;
+        
+        /// <summary>
+        /// Control tbEventoNombreResponsable.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbEventoNombreResponsable;
+        
+        /// <summary>
+        /// Control tbEventoDescripcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbEventoDescripcion;
+        
+        /// <summary>
+        /// Control tbEventoFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbEventoFecha;
+        
+        /// <summary>
+        /// Control btnEventoCrear.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEventoCrear;
+        
+        /// <summary>
+        /// Control btnEventoLimpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEventoLimpiar;
+        
+        /// <summary>
+        /// Control btnEventoCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEventoCancelar;
     }
 }
