@@ -7,7 +7,6 @@
     <title>SisPAR - Sistema Plataforma de Atención de Requerimientos</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <link href="http://fonts.googleapis.com/css?family=Varela" rel="stylesheet" />
     <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
     <asp:ContentPlaceHolder ID="head" runat="server">

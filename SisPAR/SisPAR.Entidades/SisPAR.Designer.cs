@@ -19,12 +19,14 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
 
+[assembly: EdmRelationshipAttribute("SisPARModel", "FK_ANA_ANALISTAS_SPO_SUBPROCESO", "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.SPO_SUBPROCESO), "ANA_ANALISTAS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.ANA_ANALISTAS), true)]
+[assembly: EdmRelationshipAttribute("SisPARModel", "FK_ANA_ANALISTAS_USU_USUARIO", "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.USU_USUARIO), "ANA_ANALISTAS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.ANA_ANALISTAS), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_DER_DERIVACION_PRO_PROCESO", "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.PRO_PROCESO), "DER_DERIVACION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.DER_DERIVACION), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_DER_DERIVACION_PRO_PROCESO1", "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.PRO_PROCESO), "DER_DERIVACION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.DER_DERIVACION), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_DER_DERIVACION_REQ_REQUERIMIENTO", "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), "DER_DERIVACION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.DER_DERIVACION), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_DER_DERIVACION_SPO_SUBPROCESO", "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.SPO_SUBPROCESO), "DER_DERIVACION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.DER_DERIVACION), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_DER_DERIVACION_SPO_SUBPROCESO1", "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.SPO_SUBPROCESO), "DER_DERIVACION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.DER_DERIVACION), true)]
-[assembly: EdmRelationshipAttribute("SisPARModel", "FK_PRO_PROCESO_EPR_EMPRESA", "EPR_EMPRESA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EPR_EMPRESA), "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.PRO_PROCESO), true)]
+[assembly: EdmRelationshipAttribute("SisPARModel", "FK_EPR_EMPRESA_PRO_PROCESO", "EPR_EMPRESA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EPR_EMPRESA), "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.PRO_PROCESO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_EPR_EMPRESA", "EPR_EMPRESA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EPR_EMPRESA), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_USU_USUARIO_EPR_EMPRESA", "EPR_EMPRESA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EPR_EMPRESA), "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.USU_USUARIO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVE_EVENTO_EST_ESTADOS", "EST_ESTADOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EST_ESTADOS), "EVE_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVE_EVENTO), true)]
@@ -35,16 +37,17 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVE_EVENTO_NOT_NOTIFICACION", "NOT_NOTIFICACION", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.NOT_NOTIFICACION), "EVE_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVE_EVENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVE_EVENTO_REQ_REQUERIMIENTO", "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), "EVE_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVE_EVENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_HRE_HISTORIAL_REQUERIMIENTO_REQ_REQUERIMIENTO", "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), "HRE_HISTORIAL_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.HRE_HISTORIAL_REQUERIMIENTO), true)]
-[assembly: EdmRelationshipAttribute("SisPARModel", "FK_PRO_PROCESO_RES_RESPONSABLE", "RES_RESPONSABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.RES_RESPONSABLE), "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.PRO_PROCESO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_PRO_PROCESO", "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SisPAR.Entidades.PRO_PROCESO), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_SPO_SUBPROCESO_PRO_PROCESO", "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.PRO_PROCESO), "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.SPO_SUBPROCESO), true)]
+[assembly: EdmRelationshipAttribute("SisPARModel", "FK_TIP_TIPO_PROCESO_PRO_PROCESO", "TIP_TIPO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.TIP_TIPO_PROCESO), "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.PRO_PROCESO), true)]
+[assembly: EdmRelationshipAttribute("SisPARModel", "FK_USU_USUARIO_PRO_PROCESO", "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.USU_USUARIO), "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.PRO_PROCESO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_RES_RESPONSABLE", "RES_RESPONSABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SisPAR.Entidades.RES_RESPONSABLE), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_SPO_SUBPROCESO", "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SisPAR.Entidades.SPO_SUBPROCESO), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_URG_URGENCIA", "URG_URGENCIA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SisPAR.Entidades.URG_URGENCIA), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_USU_USUARIO", "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.USU_USUARIO), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_RES_RESPONSABLE_ROL_ROL", "ROL_ROL", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.ROL_ROL), "RES_RESPONSABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.RES_RESPONSABLE), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_RES_RESPONSABLE_USU_USUARIO", "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.USU_USUARIO), "RES_RESPONSABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.RES_RESPONSABLE), true)]
-[assembly: EdmRelationshipAttribute("SisPARModel", "FK_SPO_SUBPROCESO_RES_RESPONSABLE", "RES_RESPONSABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.RES_RESPONSABLE), "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.SPO_SUBPROCESO), true)]
+[assembly: EdmRelationshipAttribute("SisPARModel", "FK_SPO_SUBPROCESO_USU_USUARIO", "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.USU_USUARIO), "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.SPO_SUBPROCESO), true)]
 
 #endregion
 
@@ -95,6 +98,22 @@ namespace SisPAR.Entidades
         #endregion
     
         #region Propiedades de ObjectSet
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<ANA_ANALISTAS> ANA_ANALISTAS
+        {
+            get
+            {
+                if ((_ANA_ANALISTAS == null))
+                {
+                    _ANA_ANALISTAS = base.CreateObjectSet<ANA_ANALISTAS>("ANA_ANALISTAS");
+                }
+                return _ANA_ANALISTAS;
+            }
+        }
+        private ObjectSet<ANA_ANALISTAS> _ANA_ANALISTAS;
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -307,6 +326,22 @@ namespace SisPAR.Entidades
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
+        public ObjectSet<TIP_TIPO_PROCESO> TIP_TIPO_PROCESO
+        {
+            get
+            {
+                if ((_TIP_TIPO_PROCESO == null))
+                {
+                    _TIP_TIPO_PROCESO = base.CreateObjectSet<TIP_TIPO_PROCESO>("TIP_TIPO_PROCESO");
+                }
+                return _TIP_TIPO_PROCESO;
+            }
+        }
+        private ObjectSet<TIP_TIPO_PROCESO> _TIP_TIPO_PROCESO;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
         public ObjectSet<URG_URGENCIA> URG_URGENCIA
         {
             get
@@ -339,6 +374,14 @@ namespace SisPAR.Entidades
         #endregion
 
         #region Métodos AddTo
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet ANA_ANALISTAS. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToANA_ANALISTAS(ANA_ANALISTAS aNA_ANALISTAS)
+        {
+            base.AddObject("ANA_ANALISTAS", aNA_ANALISTAS);
+        }
     
         /// <summary>
         /// Método desusado para agregar un nuevo objeto al EntitySet DER_DERIVACION. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
@@ -445,6 +488,14 @@ namespace SisPAR.Entidades
         }
     
         /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet TIP_TIPO_PROCESO. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToTIP_TIPO_PROCESO(TIP_TIPO_PROCESO tIP_TIPO_PROCESO)
+        {
+            base.AddObject("TIP_TIPO_PROCESO", tIP_TIPO_PROCESO);
+        }
+    
+        /// <summary>
         /// Método desusado para agregar un nuevo objeto al EntitySet URG_URGENCIA. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
         /// </summary>
         public void AddToURG_URGENCIA(URG_URGENCIA uRG_URGENCIA)
@@ -467,6 +518,221 @@ namespace SisPAR.Entidades
     #endregion
 
     #region Entidades
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SisPARModel", Name="ANA_ANALISTAS")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ANA_ANALISTAS : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto ANA_ANALISTAS.
+        /// </summary>
+        /// <param name="aNA_ID">Valor inicial de la propiedad ANA_ID.</param>
+        /// <param name="aNA_SPO_ID">Valor inicial de la propiedad ANA_SPO_ID.</param>
+        /// <param name="aNA_USU_ID">Valor inicial de la propiedad ANA_USU_ID.</param>
+        /// <param name="aNA_OBS">Valor inicial de la propiedad ANA_OBS.</param>
+        public static ANA_ANALISTAS CreateANA_ANALISTAS(global::System.Int32 aNA_ID, global::System.Int32 aNA_SPO_ID, global::System.Int32 aNA_USU_ID, global::System.String aNA_OBS)
+        {
+            ANA_ANALISTAS aNA_ANALISTAS = new ANA_ANALISTAS();
+            aNA_ANALISTAS.ANA_ID = aNA_ID;
+            aNA_ANALISTAS.ANA_SPO_ID = aNA_SPO_ID;
+            aNA_ANALISTAS.ANA_USU_ID = aNA_USU_ID;
+            aNA_ANALISTAS.ANA_OBS = aNA_OBS;
+            return aNA_ANALISTAS;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ANA_ID
+        {
+            get
+            {
+                return _ANA_ID;
+            }
+            set
+            {
+                if (_ANA_ID != value)
+                {
+                    OnANA_IDChanging(value);
+                    ReportPropertyChanging("ANA_ID");
+                    _ANA_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ANA_ID");
+                    OnANA_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ANA_ID;
+        partial void OnANA_IDChanging(global::System.Int32 value);
+        partial void OnANA_IDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ANA_SPO_ID
+        {
+            get
+            {
+                return _ANA_SPO_ID;
+            }
+            set
+            {
+                OnANA_SPO_IDChanging(value);
+                ReportPropertyChanging("ANA_SPO_ID");
+                _ANA_SPO_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ANA_SPO_ID");
+                OnANA_SPO_IDChanged();
+            }
+        }
+        private global::System.Int32 _ANA_SPO_ID;
+        partial void OnANA_SPO_IDChanging(global::System.Int32 value);
+        partial void OnANA_SPO_IDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ANA_USU_ID
+        {
+            get
+            {
+                return _ANA_USU_ID;
+            }
+            set
+            {
+                OnANA_USU_IDChanging(value);
+                ReportPropertyChanging("ANA_USU_ID");
+                _ANA_USU_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ANA_USU_ID");
+                OnANA_USU_IDChanged();
+            }
+        }
+        private global::System.Int32 _ANA_USU_ID;
+        partial void OnANA_USU_IDChanging(global::System.Int32 value);
+        partial void OnANA_USU_IDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ANA_OBS
+        {
+            get
+            {
+                return _ANA_OBS;
+            }
+            set
+            {
+                OnANA_OBSChanging(value);
+                ReportPropertyChanging("ANA_OBS");
+                _ANA_OBS = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ANA_OBS");
+                OnANA_OBSChanged();
+            }
+        }
+        private global::System.String _ANA_OBS;
+        partial void OnANA_OBSChanging(global::System.String value);
+        partial void OnANA_OBSChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_ANA_ANALISTAS_SPO_SUBPROCESO", "SPO_SUBPROCESO")]
+        public SPO_SUBPROCESO SPO_SUBPROCESO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SPO_SUBPROCESO>("SisPARModel.FK_ANA_ANALISTAS_SPO_SUBPROCESO", "SPO_SUBPROCESO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SPO_SUBPROCESO>("SisPARModel.FK_ANA_ANALISTAS_SPO_SUBPROCESO", "SPO_SUBPROCESO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SPO_SUBPROCESO> SPO_SUBPROCESOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SPO_SUBPROCESO>("SisPARModel.FK_ANA_ANALISTAS_SPO_SUBPROCESO", "SPO_SUBPROCESO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SPO_SUBPROCESO>("SisPARModel.FK_ANA_ANALISTAS_SPO_SUBPROCESO", "SPO_SUBPROCESO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_ANA_ANALISTAS_USU_USUARIO", "USU_USUARIO")]
+        public USU_USUARIO USU_USUARIO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_ANA_ANALISTAS_USU_USUARIO", "USU_USUARIO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_ANA_ANALISTAS_USU_USUARIO", "USU_USUARIO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<USU_USUARIO> USU_USUARIOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_ANA_ANALISTAS_USU_USUARIO", "USU_USUARIO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<USU_USUARIO>("SisPARModel.FK_ANA_ANALISTAS_USU_USUARIO", "USU_USUARIO", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No hay documentación de metadatos disponible.
@@ -1194,18 +1460,18 @@ namespace SisPAR.Entidades
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_PRO_PROCESO_EPR_EMPRESA", "PRO_PROCESO")]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_EPR_EMPRESA_PRO_PROCESO", "PRO_PROCESO")]
         public EntityCollection<PRO_PROCESO> PRO_PROCESO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PRO_PROCESO>("SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA", "PRO_PROCESO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PRO_PROCESO>("SisPARModel.FK_EPR_EMPRESA_PRO_PROCESO", "PRO_PROCESO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PRO_PROCESO>("SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA", "PRO_PROCESO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PRO_PROCESO>("SisPARModel.FK_EPR_EMPRESA_PRO_PROCESO", "PRO_PROCESO", value);
                 }
             }
         }
@@ -1861,7 +2127,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> EVE_FECHA
+        public Nullable<global::System.Int32> EVE_FECHA
         {
             get
             {
@@ -1876,8 +2142,8 @@ namespace SisPAR.Entidades
                 OnEVE_FECHAChanged();
             }
         }
-        private Nullable<global::System.DateTime> _EVE_FECHA;
-        partial void OnEVE_FECHAChanging(Nullable<global::System.DateTime> value);
+        private Nullable<global::System.Int32> _EVE_FECHA;
+        partial void OnEVE_FECHAChanging(Nullable<global::System.Int32> value);
         partial void OnEVE_FECHAChanged();
 
         #endregion
@@ -2020,7 +2286,7 @@ namespace SisPAR.Entidades
         /// <param name="hRE_REQ_ID">Valor inicial de la propiedad HRE_REQ_ID.</param>
         /// <param name="hRE_EST_ID">Valor inicial de la propiedad HRE_EST_ID.</param>
         /// <param name="hRE_FECHA">Valor inicial de la propiedad HRE_FECHA.</param>
-        public static HRE_HISTORIAL_REQUERIMIENTO CreateHRE_HISTORIAL_REQUERIMIENTO(global::System.Int32 hRE_ID, global::System.Int32 hRE_REQ_ID, global::System.Int32 hRE_EST_ID, global::System.DateTime hRE_FECHA)
+        public static HRE_HISTORIAL_REQUERIMIENTO CreateHRE_HISTORIAL_REQUERIMIENTO(global::System.Int32 hRE_ID, global::System.Int32 hRE_REQ_ID, global::System.Int32 hRE_EST_ID, global::System.String hRE_FECHA)
         {
             HRE_HISTORIAL_REQUERIMIENTO hRE_HISTORIAL_REQUERIMIENTO = new HRE_HISTORIAL_REQUERIMIENTO();
             hRE_HISTORIAL_REQUERIMIENTO.HRE_ID = hRE_ID;
@@ -2114,7 +2380,7 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime HRE_FECHA
+        public global::System.String HRE_FECHA
         {
             get
             {
@@ -2124,13 +2390,13 @@ namespace SisPAR.Entidades
             {
                 OnHRE_FECHAChanging(value);
                 ReportPropertyChanging("HRE_FECHA");
-                _HRE_FECHA = StructuralObject.SetValidValue(value);
+                _HRE_FECHA = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("HRE_FECHA");
                 OnHRE_FECHAChanged();
             }
         }
-        private global::System.DateTime _HRE_FECHA;
-        partial void OnHRE_FECHAChanging(global::System.DateTime value);
+        private global::System.String _HRE_FECHA;
+        partial void OnHRE_FECHAChanging(global::System.String value);
         partial void OnHRE_FECHAChanged();
     
         /// <summary>
@@ -2735,19 +3001,19 @@ namespace SisPAR.Entidades
         /// </summary>
         /// <param name="pRO_ID">Valor inicial de la propiedad PRO_ID.</param>
         /// <param name="pRO_NOMBRE">Valor inicial de la propiedad PRO_NOMBRE.</param>
-        /// <param name="pRO_DESCRIPCION">Valor inicial de la propiedad PRO_DESCRIPCION.</param>
-        /// <param name="pRO_OBS">Valor inicial de la propiedad PRO_OBS.</param>
+        /// <param name="pRO_TIP_ID">Valor inicial de la propiedad PRO_TIP_ID.</param>
         /// <param name="pRO_EPR_ID">Valor inicial de la propiedad PRO_EPR_ID.</param>
-        /// <param name="pRO_RES_ID">Valor inicial de la propiedad PRO_RES_ID.</param>
-        public static PRO_PROCESO CreatePRO_PROCESO(global::System.Int32 pRO_ID, global::System.String pRO_NOMBRE, global::System.String pRO_DESCRIPCION, global::System.String pRO_OBS, global::System.Int32 pRO_EPR_ID, global::System.Int32 pRO_RES_ID)
+        /// <param name="pRO_USU_ID">Valor inicial de la propiedad PRO_USU_ID.</param>
+        /// <param name="pRO_OBS">Valor inicial de la propiedad PRO_OBS.</param>
+        public static PRO_PROCESO CreatePRO_PROCESO(global::System.Int32 pRO_ID, global::System.String pRO_NOMBRE, global::System.Int32 pRO_TIP_ID, global::System.Int32 pRO_EPR_ID, global::System.Int32 pRO_USU_ID, global::System.String pRO_OBS)
         {
             PRO_PROCESO pRO_PROCESO = new PRO_PROCESO();
             pRO_PROCESO.PRO_ID = pRO_ID;
             pRO_PROCESO.PRO_NOMBRE = pRO_NOMBRE;
-            pRO_PROCESO.PRO_DESCRIPCION = pRO_DESCRIPCION;
-            pRO_PROCESO.PRO_OBS = pRO_OBS;
+            pRO_PROCESO.PRO_TIP_ID = pRO_TIP_ID;
             pRO_PROCESO.PRO_EPR_ID = pRO_EPR_ID;
-            pRO_PROCESO.PRO_RES_ID = pRO_RES_ID;
+            pRO_PROCESO.PRO_USU_ID = pRO_USU_ID;
+            pRO_PROCESO.PRO_OBS = pRO_OBS;
             return pRO_PROCESO;
         }
 
@@ -2811,48 +3077,24 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String PRO_DESCRIPCION
+        public global::System.Int32 PRO_TIP_ID
         {
             get
             {
-                return _PRO_DESCRIPCION;
+                return _PRO_TIP_ID;
             }
             set
             {
-                OnPRO_DESCRIPCIONChanging(value);
-                ReportPropertyChanging("PRO_DESCRIPCION");
-                _PRO_DESCRIPCION = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("PRO_DESCRIPCION");
-                OnPRO_DESCRIPCIONChanged();
+                OnPRO_TIP_IDChanging(value);
+                ReportPropertyChanging("PRO_TIP_ID");
+                _PRO_TIP_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PRO_TIP_ID");
+                OnPRO_TIP_IDChanged();
             }
         }
-        private global::System.String _PRO_DESCRIPCION;
-        partial void OnPRO_DESCRIPCIONChanging(global::System.String value);
-        partial void OnPRO_DESCRIPCIONChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String PRO_OBS
-        {
-            get
-            {
-                return _PRO_OBS;
-            }
-            set
-            {
-                OnPRO_OBSChanging(value);
-                ReportPropertyChanging("PRO_OBS");
-                _PRO_OBS = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("PRO_OBS");
-                OnPRO_OBSChanged();
-            }
-        }
-        private global::System.String _PRO_OBS;
-        partial void OnPRO_OBSChanging(global::System.String value);
-        partial void OnPRO_OBSChanged();
+        private global::System.Int32 _PRO_TIP_ID;
+        partial void OnPRO_TIP_IDChanging(global::System.Int32 value);
+        partial void OnPRO_TIP_IDChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -2883,24 +3125,48 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 PRO_RES_ID
+        public global::System.Int32 PRO_USU_ID
         {
             get
             {
-                return _PRO_RES_ID;
+                return _PRO_USU_ID;
             }
             set
             {
-                OnPRO_RES_IDChanging(value);
-                ReportPropertyChanging("PRO_RES_ID");
-                _PRO_RES_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PRO_RES_ID");
-                OnPRO_RES_IDChanged();
+                OnPRO_USU_IDChanging(value);
+                ReportPropertyChanging("PRO_USU_ID");
+                _PRO_USU_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PRO_USU_ID");
+                OnPRO_USU_IDChanged();
             }
         }
-        private global::System.Int32 _PRO_RES_ID;
-        partial void OnPRO_RES_IDChanging(global::System.Int32 value);
-        partial void OnPRO_RES_IDChanged();
+        private global::System.Int32 _PRO_USU_ID;
+        partial void OnPRO_USU_IDChanging(global::System.Int32 value);
+        partial void OnPRO_USU_IDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PRO_OBS
+        {
+            get
+            {
+                return _PRO_OBS;
+            }
+            set
+            {
+                OnPRO_OBSChanging(value);
+                ReportPropertyChanging("PRO_OBS");
+                _PRO_OBS = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PRO_OBS");
+                OnPRO_OBSChanged();
+            }
+        }
+        private global::System.String _PRO_OBS;
+        partial void OnPRO_OBSChanging(global::System.String value);
+        partial void OnPRO_OBSChanged();
 
         #endregion
 
@@ -2957,16 +3223,16 @@ namespace SisPAR.Entidades
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_PRO_PROCESO_EPR_EMPRESA", "EPR_EMPRESA")]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_EPR_EMPRESA_PRO_PROCESO", "EPR_EMPRESA")]
         public EPR_EMPRESA EPR_EMPRESA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EPR_EMPRESA>("SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA", "EPR_EMPRESA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EPR_EMPRESA>("SisPARModel.FK_EPR_EMPRESA_PRO_PROCESO", "EPR_EMPRESA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EPR_EMPRESA>("SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA", "EPR_EMPRESA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EPR_EMPRESA>("SisPARModel.FK_EPR_EMPRESA_PRO_PROCESO", "EPR_EMPRESA").Value = value;
             }
         }
         /// <summary>
@@ -2978,51 +3244,13 @@ namespace SisPAR.Entidades
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EPR_EMPRESA>("SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA", "EPR_EMPRESA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EPR_EMPRESA>("SisPARModel.FK_EPR_EMPRESA_PRO_PROCESO", "EPR_EMPRESA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EPR_EMPRESA>("SisPARModel.FK_PRO_PROCESO_EPR_EMPRESA", "EPR_EMPRESA", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_PRO_PROCESO_RES_RESPONSABLE", "RES_RESPONSABLE")]
-        public RES_RESPONSABLE RES_RESPONSABLE
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_RESPONSABLE>("SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE", "RES_RESPONSABLE").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_RESPONSABLE>("SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE", "RES_RESPONSABLE").Value = value;
-            }
-        }
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<RES_RESPONSABLE> RES_RESPONSABLEReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_RESPONSABLE>("SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE", "RES_RESPONSABLE");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RES_RESPONSABLE>("SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE", "RES_RESPONSABLE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EPR_EMPRESA>("SisPARModel.FK_EPR_EMPRESA_PRO_PROCESO", "EPR_EMPRESA", value);
                 }
             }
         }
@@ -3067,6 +3295,82 @@ namespace SisPAR.Entidades
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SPO_SUBPROCESO>("SisPARModel.FK_SPO_SUBPROCESO_PRO_PROCESO", "SPO_SUBPROCESO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_TIP_TIPO_PROCESO_PRO_PROCESO", "TIP_TIPO_PROCESO")]
+        public TIP_TIPO_PROCESO TIP_TIPO_PROCESO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIP_TIPO_PROCESO>("SisPARModel.FK_TIP_TIPO_PROCESO_PRO_PROCESO", "TIP_TIPO_PROCESO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIP_TIPO_PROCESO>("SisPARModel.FK_TIP_TIPO_PROCESO_PRO_PROCESO", "TIP_TIPO_PROCESO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TIP_TIPO_PROCESO> TIP_TIPO_PROCESOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIP_TIPO_PROCESO>("SisPARModel.FK_TIP_TIPO_PROCESO_PRO_PROCESO", "TIP_TIPO_PROCESO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIP_TIPO_PROCESO>("SisPARModel.FK_TIP_TIPO_PROCESO_PRO_PROCESO", "TIP_TIPO_PROCESO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_USU_USUARIO_PRO_PROCESO", "USU_USUARIO")]
+        public USU_USUARIO USU_USUARIO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_USU_USUARIO_PRO_PROCESO", "USU_USUARIO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_USU_USUARIO_PRO_PROCESO", "USU_USUARIO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<USU_USUARIO> USU_USUARIOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_USU_USUARIO_PRO_PROCESO", "USU_USUARIO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<USU_USUARIO>("SisPARModel.FK_USU_USUARIO_PRO_PROCESO", "USU_USUARIO", value);
                 }
             }
         }
@@ -4069,28 +4373,6 @@ namespace SisPAR.Entidades
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_PRO_PROCESO_RES_RESPONSABLE", "PRO_PROCESO")]
-        public EntityCollection<PRO_PROCESO> PRO_PROCESO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PRO_PROCESO>("SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE", "PRO_PROCESO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PRO_PROCESO>("SisPARModel.FK_PRO_PROCESO_RES_RESPONSABLE", "PRO_PROCESO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_RES_RESPONSABLE", "REQ_REQUERIMIENTO")]
         public EntityCollection<REQ_REQUERIMIENTO> REQ_REQUERIMIENTO
         {
@@ -4179,28 +4461,6 @@ namespace SisPAR.Entidades
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<USU_USUARIO>("SisPARModel.FK_RES_RESPONSABLE_USU_USUARIO", "USU_USUARIO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_SPO_SUBPROCESO_RES_RESPONSABLE", "SPO_SUBPROCESO")]
-        public EntityCollection<SPO_SUBPROCESO> SPO_SUBPROCESO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SPO_SUBPROCESO>("SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE", "SPO_SUBPROCESO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SPO_SUBPROCESO>("SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE", "SPO_SUBPROCESO", value);
                 }
             }
         }
@@ -4358,18 +4618,18 @@ namespace SisPAR.Entidades
         /// Crear un nuevo objeto SPO_SUBPROCESO.
         /// </summary>
         /// <param name="sPO_ID">Valor inicial de la propiedad SPO_ID.</param>
-        /// <param name="sPO_NOMBRE">Valor inicial de la propiedad SPO_NOMBRE.</param>
-        /// <param name="sPO_OBSERVACION">Valor inicial de la propiedad SPO_OBSERVACION.</param>
         /// <param name="sPO_PRO_ID">Valor inicial de la propiedad SPO_PRO_ID.</param>
-        /// <param name="sPO_RES_ID">Valor inicial de la propiedad SPO_RES_ID.</param>
-        public static SPO_SUBPROCESO CreateSPO_SUBPROCESO(global::System.Int32 sPO_ID, global::System.String sPO_NOMBRE, global::System.String sPO_OBSERVACION, global::System.Int32 sPO_PRO_ID, global::System.Int32 sPO_RES_ID)
+        /// <param name="sPO_NOMBRE">Valor inicial de la propiedad SPO_NOMBRE.</param>
+        /// <param name="sPO_USU_ID">Valor inicial de la propiedad SPO_USU_ID.</param>
+        /// <param name="sPO_OBSERVACION">Valor inicial de la propiedad SPO_OBSERVACION.</param>
+        public static SPO_SUBPROCESO CreateSPO_SUBPROCESO(global::System.Int32 sPO_ID, global::System.Int32 sPO_PRO_ID, global::System.String sPO_NOMBRE, global::System.Int32 sPO_USU_ID, global::System.String sPO_OBSERVACION)
         {
             SPO_SUBPROCESO sPO_SUBPROCESO = new SPO_SUBPROCESO();
             sPO_SUBPROCESO.SPO_ID = sPO_ID;
-            sPO_SUBPROCESO.SPO_NOMBRE = sPO_NOMBRE;
-            sPO_SUBPROCESO.SPO_OBSERVACION = sPO_OBSERVACION;
             sPO_SUBPROCESO.SPO_PRO_ID = sPO_PRO_ID;
-            sPO_SUBPROCESO.SPO_RES_ID = sPO_RES_ID;
+            sPO_SUBPROCESO.SPO_NOMBRE = sPO_NOMBRE;
+            sPO_SUBPROCESO.SPO_USU_ID = sPO_USU_ID;
+            sPO_SUBPROCESO.SPO_OBSERVACION = sPO_OBSERVACION;
             return sPO_SUBPROCESO;
         }
 
@@ -4409,54 +4669,6 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String SPO_NOMBRE
-        {
-            get
-            {
-                return _SPO_NOMBRE;
-            }
-            set
-            {
-                OnSPO_NOMBREChanging(value);
-                ReportPropertyChanging("SPO_NOMBRE");
-                _SPO_NOMBRE = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("SPO_NOMBRE");
-                OnSPO_NOMBREChanged();
-            }
-        }
-        private global::System.String _SPO_NOMBRE;
-        partial void OnSPO_NOMBREChanging(global::System.String value);
-        partial void OnSPO_NOMBREChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String SPO_OBSERVACION
-        {
-            get
-            {
-                return _SPO_OBSERVACION;
-            }
-            set
-            {
-                OnSPO_OBSERVACIONChanging(value);
-                ReportPropertyChanging("SPO_OBSERVACION");
-                _SPO_OBSERVACION = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("SPO_OBSERVACION");
-                OnSPO_OBSERVACIONChanged();
-            }
-        }
-        private global::System.String _SPO_OBSERVACION;
-        partial void OnSPO_OBSERVACIONChanging(global::System.String value);
-        partial void OnSPO_OBSERVACIONChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int32 SPO_PRO_ID
         {
             get
@@ -4481,29 +4693,99 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 SPO_RES_ID
+        public global::System.String SPO_NOMBRE
         {
             get
             {
-                return _SPO_RES_ID;
+                return _SPO_NOMBRE;
             }
             set
             {
-                OnSPO_RES_IDChanging(value);
-                ReportPropertyChanging("SPO_RES_ID");
-                _SPO_RES_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("SPO_RES_ID");
-                OnSPO_RES_IDChanged();
+                OnSPO_NOMBREChanging(value);
+                ReportPropertyChanging("SPO_NOMBRE");
+                _SPO_NOMBRE = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SPO_NOMBRE");
+                OnSPO_NOMBREChanged();
             }
         }
-        private global::System.Int32 _SPO_RES_ID;
-        partial void OnSPO_RES_IDChanging(global::System.Int32 value);
-        partial void OnSPO_RES_IDChanged();
+        private global::System.String _SPO_NOMBRE;
+        partial void OnSPO_NOMBREChanging(global::System.String value);
+        partial void OnSPO_NOMBREChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SPO_USU_ID
+        {
+            get
+            {
+                return _SPO_USU_ID;
+            }
+            set
+            {
+                OnSPO_USU_IDChanging(value);
+                ReportPropertyChanging("SPO_USU_ID");
+                _SPO_USU_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SPO_USU_ID");
+                OnSPO_USU_IDChanged();
+            }
+        }
+        private global::System.Int32 _SPO_USU_ID;
+        partial void OnSPO_USU_IDChanging(global::System.Int32 value);
+        partial void OnSPO_USU_IDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SPO_OBSERVACION
+        {
+            get
+            {
+                return _SPO_OBSERVACION;
+            }
+            set
+            {
+                OnSPO_OBSERVACIONChanging(value);
+                ReportPropertyChanging("SPO_OBSERVACION");
+                _SPO_OBSERVACION = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SPO_OBSERVACION");
+                OnSPO_OBSERVACIONChanged();
+            }
+        }
+        private global::System.String _SPO_OBSERVACION;
+        partial void OnSPO_OBSERVACIONChanging(global::System.String value);
+        partial void OnSPO_OBSERVACIONChanged();
 
         #endregion
 
     
         #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_ANA_ANALISTAS_SPO_SUBPROCESO", "ANA_ANALISTAS")]
+        public EntityCollection<ANA_ANALISTAS> ANA_ANALISTAS
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ANA_ANALISTAS>("SisPARModel.FK_ANA_ANALISTAS_SPO_SUBPROCESO", "ANA_ANALISTAS");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ANA_ANALISTAS>("SisPARModel.FK_ANA_ANALISTAS_SPO_SUBPROCESO", "ANA_ANALISTAS", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -4615,16 +4897,16 @@ namespace SisPAR.Entidades
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_SPO_SUBPROCESO_RES_RESPONSABLE", "RES_RESPONSABLE")]
-        public RES_RESPONSABLE RES_RESPONSABLE
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_SPO_SUBPROCESO_USU_USUARIO", "USU_USUARIO")]
+        public USU_USUARIO USU_USUARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_RESPONSABLE>("SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE", "RES_RESPONSABLE").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_SPO_SUBPROCESO_USU_USUARIO", "USU_USUARIO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_RESPONSABLE>("SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE", "RES_RESPONSABLE").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_SPO_SUBPROCESO_USU_USUARIO", "USU_USUARIO").Value = value;
             }
         }
         /// <summary>
@@ -4632,17 +4914,126 @@ namespace SisPAR.Entidades
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<RES_RESPONSABLE> RES_RESPONSABLEReference
+        public EntityReference<USU_USUARIO> USU_USUARIOReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_RESPONSABLE>("SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE", "RES_RESPONSABLE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<USU_USUARIO>("SisPARModel.FK_SPO_SUBPROCESO_USU_USUARIO", "USU_USUARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RES_RESPONSABLE>("SisPARModel.FK_SPO_SUBPROCESO_RES_RESPONSABLE", "RES_RESPONSABLE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<USU_USUARIO>("SisPARModel.FK_SPO_SUBPROCESO_USU_USUARIO", "USU_USUARIO", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SisPARModel", Name="TIP_TIPO_PROCESO")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TIP_TIPO_PROCESO : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto TIP_TIPO_PROCESO.
+        /// </summary>
+        /// <param name="tIP_ID">Valor inicial de la propiedad TIP_ID.</param>
+        /// <param name="tIP_NOMBRE">Valor inicial de la propiedad TIP_NOMBRE.</param>
+        public static TIP_TIPO_PROCESO CreateTIP_TIPO_PROCESO(global::System.Int32 tIP_ID, global::System.String tIP_NOMBRE)
+        {
+            TIP_TIPO_PROCESO tIP_TIPO_PROCESO = new TIP_TIPO_PROCESO();
+            tIP_TIPO_PROCESO.TIP_ID = tIP_ID;
+            tIP_TIPO_PROCESO.TIP_NOMBRE = tIP_NOMBRE;
+            return tIP_TIPO_PROCESO;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TIP_ID
+        {
+            get
+            {
+                return _TIP_ID;
+            }
+            set
+            {
+                if (_TIP_ID != value)
+                {
+                    OnTIP_IDChanging(value);
+                    ReportPropertyChanging("TIP_ID");
+                    _TIP_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TIP_ID");
+                    OnTIP_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _TIP_ID;
+        partial void OnTIP_IDChanging(global::System.Int32 value);
+        partial void OnTIP_IDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TIP_NOMBRE
+        {
+            get
+            {
+                return _TIP_NOMBRE;
+            }
+            set
+            {
+                OnTIP_NOMBREChanging(value);
+                ReportPropertyChanging("TIP_NOMBRE");
+                _TIP_NOMBRE = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TIP_NOMBRE");
+                OnTIP_NOMBREChanged();
+            }
+        }
+        private global::System.String _TIP_NOMBRE;
+        partial void OnTIP_NOMBREChanging(global::System.String value);
+        partial void OnTIP_NOMBREChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_TIP_TIPO_PROCESO_PRO_PROCESO", "PRO_PROCESO")]
+        public EntityCollection<PRO_PROCESO> PRO_PROCESO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PRO_PROCESO>("SisPARModel.FK_TIP_TIPO_PROCESO_PRO_PROCESO", "PRO_PROCESO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PRO_PROCESO>("SisPARModel.FK_TIP_TIPO_PROCESO_PRO_PROCESO", "PRO_PROCESO", value);
                 }
             }
         }
@@ -5129,6 +5520,28 @@ namespace SisPAR.Entidades
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_ANA_ANALISTAS_USU_USUARIO", "ANA_ANALISTAS")]
+        public EntityCollection<ANA_ANALISTAS> ANA_ANALISTAS
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ANA_ANALISTAS>("SisPARModel.FK_ANA_ANALISTAS_USU_USUARIO", "ANA_ANALISTAS");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ANA_ANALISTAS>("SisPARModel.FK_ANA_ANALISTAS_USU_USUARIO", "ANA_ANALISTAS", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_USU_USUARIO_EPR_EMPRESA", "EPR_EMPRESA")]
         public EPR_EMPRESA EPR_EMPRESA
         {
@@ -5157,6 +5570,28 @@ namespace SisPAR.Entidades
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EPR_EMPRESA>("SisPARModel.FK_USU_USUARIO_EPR_EMPRESA", "EPR_EMPRESA", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_USU_USUARIO_PRO_PROCESO", "PRO_PROCESO")]
+        public EntityCollection<PRO_PROCESO> PRO_PROCESO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PRO_PROCESO>("SisPARModel.FK_USU_USUARIO_PRO_PROCESO", "PRO_PROCESO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PRO_PROCESO>("SisPARModel.FK_USU_USUARIO_PRO_PROCESO", "PRO_PROCESO", value);
                 }
             }
         }
@@ -5201,6 +5636,28 @@ namespace SisPAR.Entidades
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RES_RESPONSABLE>("SisPARModel.FK_RES_RESPONSABLE_USU_USUARIO", "RES_RESPONSABLE", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_SPO_SUBPROCESO_USU_USUARIO", "SPO_SUBPROCESO")]
+        public EntityCollection<SPO_SUBPROCESO> SPO_SUBPROCESO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SPO_SUBPROCESO>("SisPARModel.FK_SPO_SUBPROCESO_USU_USUARIO", "SPO_SUBPROCESO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SPO_SUBPROCESO>("SisPARModel.FK_SPO_SUBPROCESO_USU_USUARIO", "SPO_SUBPROCESO", value);
                 }
             }
         }

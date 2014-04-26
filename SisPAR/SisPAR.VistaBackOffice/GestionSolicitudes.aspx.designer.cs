@@ -238,6 +238,15 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.Table tblEvento;
         
         /// <summary>
+        /// Control tbrBotonesEventos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow tbrBotonesEventos;
+        
+        /// <summary>
         /// Control btnCrearEvento.
         /// </summary>
         /// <remarks>
@@ -292,13 +301,13 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.DropDownList ddlEventoRequerimiento;
         
         /// <summary>
-        /// Control tbEventoEstado.
+        /// Control ddlEventoEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbEventoEstado;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEventoEstado;
         
         /// <summary>
         /// Control tbEventoNombreResponsable.
@@ -353,5 +362,104 @@ namespace SisPAR.VistaBackOffice {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEventoCancelar;
+        
+        /// <summary>
+        /// Control tblConsultas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tblConsultas;
+        
+        /// <summary>
+        /// Control ddlConsultasEmpresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasEmpresa;
+        
+        /// <summary>
+        /// Control ddlConsultasResponsables.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasResponsables;
+        
+        /// <summary>
+        /// Control ddlConsultasProceso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasProceso;
+        
+        /// <summary>
+        /// Control ddlConsultasSubproceso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasSubproceso;
+        
+        /// <summary>
+        /// Control ddlConsultasFechaDesde.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasFechaDesde;
+        
+        /// <summary>
+        /// Control ddlConsultasFechaHasta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasFechaHasta;
+        
+        /// <summary>
+        /// Control btnConsultasConsultar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsultasConsultar;
+        
+        /// <summary>
+        /// Control gvConsultas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvConsultas;
+        
+        /// <summary>
+        /// Control btnConsultasExportar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsultasExportar;
+        
+        /// <summary>
+        /// Control btnConsultasAtras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsultasAtras;
     }
 }
