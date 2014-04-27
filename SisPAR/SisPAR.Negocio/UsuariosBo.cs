@@ -75,5 +75,16 @@ namespace SisPAR.Negocio
             var comprobar = _usuariosDa.ObtenerUsuarios().Count(usu => usuario.USU_RUT.Equals(usu.USU_RUT) && usuario.USU_PASSWORD.Equals(usu.USU_PASSWORD));
             return comprobar > 0;
         }
+
+        /// <summary>
+        /// Método que obtiene el nombre de un Usuario por su RUT
+        /// </summary>
+        /// <param name="rutUsuarios">rut de Usuario</param>
+        /// <returns>Nombre Usuarios</returns>
+        public string ObtenerUsuarioPorRut(int rutUsuarios)
+        {
+            var usuario = _usuariosDa.ObtenerUsuarios().First(usu => usu.USU_RUT.Equals(rutUsuarios));
+            return usuario.USU_NOMBRE + " " + usuario.USU_APELLIDO;
+        }
     }
 }

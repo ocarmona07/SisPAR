@@ -183,3 +183,9 @@ a:hover
     color: #1e90ff;
     padding: 20px 0 20px 0;
 }
+
+.Validador
+{
+    color: red;
+    font-weight: bold;
+}

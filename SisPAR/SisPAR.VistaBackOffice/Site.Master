@@ -38,13 +38,15 @@
                                 OnMenuItemClick="MenuItemClick">
                                 <Items>
                                     <asp:MenuItem Text="Soporte" Value="soporte">
-                                        <asp:MenuItem Text="Sol. Requerimientos" Value="solicitudReq" />
+                                        <asp:MenuItem Text="Solicitud de Req." Value="solicitudReq" />
+                                        <asp:MenuItem Text="Atención de Req." Value="atencionReq" />
+                                        <asp:MenuItem Text="Gestión de Solic." Value="gestionSol" />
                                     </asp:MenuItem>
                                     <asp:MenuItem Text="Sistemas" Value="sistemas">
-                                        <asp:MenuItem Text="Test Session" Value="test" />
+                                        
                                     </asp:MenuItem>
                                     <asp:MenuItem Text="Informes" Value="informes">
-                                        <asp:MenuItem Text="New Item" Value="New Item" />
+                                        <asp:MenuItem Text="Usuarios" Value="usuarios" />
                                     </asp:MenuItem>
                                     <asp:MenuItem Text="Finalizar" Value="finalizar" />
                                 </Items>

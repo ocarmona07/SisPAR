@@ -25,28 +25,39 @@
                 <asp:Table runat="server" CellSpacing="10">
                     <asp:TableRow>
                         <asp:TableHeaderCell runat="server" Width="100px" Height="30px" HorizontalAlign="Right"
-                            VerticalAlign="Middle">
+                            VerticalAlign="Top" Style="padding-top: 5px;">
                             <asp:Label runat="server" Text="Usuario:" />
                         </asp:TableHeaderCell>
-                        <asp:TableCell runat="server" Width="200px" HorizontalAlign="Left" VerticalAlign="Middle">
+                        <asp:TableCell runat="server" Width="200px" HorizontalAlign="Left" VerticalAlign="Top">
                             <asp:TextBox ID="tbUsuario" runat="server" MaxLength="12" Width="150px" ValidationGroup="Inicio"
-                                OnKeyPress="IngresoTextoUsuario" />
+                                OnKeyPress="IngresoTextoUsuario" CausesValidation="True" />
+                            <asp:RequiredFieldValidator runat="server" InitialValue="" ControlToValidate="tbUsuario"
+                                ValidationGroup="Inicio" ErrorMessage="*" CssClass="Validador" />
+                            <br />
+                            <asp:RangeValidator runat="server" Type="Integer" MinimumValue="1000000" MaximumValue="99999999"
+                                ControlToValidate="tbUsuario" ValidationGroup="Inicio" ErrorMessage=" RUT incorrecto"
+                                CssClass="Validador" Font-Size="small" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableHeaderCell runat="server" Height="30px" HorizontalAlign="Right" VerticalAlign="Middle">
+                        <asp:TableHeaderCell runat="server" Height="30px" HorizontalAlign="Right" VerticalAlign="Top"
+                            Style="padding-top: 5px;">
                             <asp:Label runat="server" Text="Contraseña:" />
                         </asp:TableHeaderCell>
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
                             <asp:TextBox ID="tbPassword" runat="server" MaxLength="12" Width="150px" TextMode="Password"
-                                ValidationGroup="Inicio" />
+                                ValidationGroup="Inicio" CausesValidation="True" />
+                            <asp:RequiredFieldValidator runat="server" InitialValue="" ControlToValidate="tbPassword"
+                                ValidationGroup="Inicio" ErrorMessage="*" CssClass="Validador" />
+                            <br />
+                            <asp:Label ID="lblPasswordError" runat="server" CssClass="Validador" Font-Size="small" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
                         <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Middle" ColumnSpan="2"
                             Height="40px">
                             <asp:Button ID="btnEntrar" runat="server" Width="120px" Height="30px" Text="Entrar"
-                                CausesValidation="True" OnClick="EntrarOnClick" />
+                                CausesValidation="True" OnClick="EntrarOnClick" ValidationGroup="Inicio" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>

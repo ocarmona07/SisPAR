@@ -1,9 +1,9 @@
-﻿using System.Web.UI.WebControls;
-
+﻿
 namespace SisPAR.VistaBackOffice
 {
     using System;
     using System.Configuration;
+    using System.Web.UI.WebControls;
 
     /// <summary>
     /// Clase principal de la MasterPage
@@ -19,9 +19,9 @@ namespace SisPAR.VistaBackOffice
         {
             lblCopyright.Text = ConfigurationManager.AppSettings["Copyright"];
 
-            //if (Session["Usuario"] == null) Response.Redirect("Home.aspx");
-            //if (String.IsNullOrEmpty(Session["Usuario"].ToString())) Response.Redirect("Home.aspx");
-            lblUsuarioConectado.Text = "Yo"; //Session["Usuario"].ToString();
+            if (Session["Usuario"] == null) Response.Redirect("Home.aspx");
+            if (String.IsNullOrEmpty(Session["Usuario"].ToString())) Response.Redirect("Home.aspx");
+            lblUsuarioConectado.Text = Session["Usuario"].ToString();
         }
 
         /// <summary>
@@ -37,12 +37,17 @@ namespace SisPAR.VistaBackOffice
                     Response.Redirect("SolicitudesPendientes.aspx");
                     break;
 
-                case "finalizar":
-                    Response.Redirect("Home.aspx");
+                case "atencionReq":
+                    Response.Redirect("AtencionRequerimientos.aspx");
                     break;
 
-                case "test":
+                case "gestionSol":
+                    Response.Redirect("GestionSolicitudes.aspx");
+                    break;
+
+                case "finalizar":
                     Session["Usuario"] = "";
+                    Response.Redirect("Home.aspx");
                     break;
             }
         }
