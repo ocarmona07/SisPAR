@@ -13,6 +13,15 @@ namespace SisPAR.VistaBackOffice {
     public partial class GestionSolicitudes {
         
         /// <summary>
+        /// Control tkmDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager tkmDate;
+        
+        /// <summary>
         /// Control btnSolicitud.
         /// </summary>
         /// <remarks>
@@ -49,148 +58,148 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.Table tblSolicitud;
         
         /// <summary>
-        /// Control tbSistema.
+        /// Control tbSolicitudSistema.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSistema;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudSistema;
         
         /// <summary>
-        /// Control tbFechaIngreso.
+        /// Control tbSolicitudFechaIngreso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbFechaIngreso;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudFechaIngreso;
         
         /// <summary>
-        /// Control tbModulo.
+        /// Control tbSolicitudModulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbModulo;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudModulo;
         
         /// <summary>
-        /// Control tbFechaCierre.
+        /// Control tbSolicitudFechaCierre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbFechaCierre;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudFechaCierre;
         
         /// <summary>
-        /// Control tbId.
+        /// Control tbSolicitudId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbId;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudId;
         
         /// <summary>
-        /// Control tbImpacto.
+        /// Control tbSolicitudImpacto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbImpacto;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudImpacto;
         
         /// <summary>
-        /// Control tbSolicitante.
+        /// Control tbSolicitudSolicitante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSolicitante;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudSolicitante;
         
         /// <summary>
-        /// Control tbArchivoAdjunto.
+        /// Control tbSolicitudArchivoAdjunto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbArchivoAdjunto;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudArchivoAdjunto;
         
         /// <summary>
-        /// Control tbGlosaUsuario.
+        /// Control tbSolicitudGlosaUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbGlosaUsuario;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudGlosaUsuario;
         
         /// <summary>
-        /// Control tbGlosaTecnica.
+        /// Control tbSolicitudGlosaTecnica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbGlosaTecnica;
+        protected global::System.Web.UI.WebControls.TextBox tbSolicitudGlosaTecnica;
         
         /// <summary>
-        /// Control ddlAsignado.
+        /// Control ddlSolicitudAsignado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAsignado;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSolicitudAsignado;
         
         /// <summary>
-        /// Control ddlImpacto.
+        /// Control ddlSolicitudImpacto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlImpacto;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSolicitudImpacto;
         
         /// <summary>
-        /// Control tbResponsable.
+        /// Control ddlSolicitudResponsable.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList tbResponsable;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSolicitudResponsable;
         
         /// <summary>
-        /// Control ddlEstado.
+        /// Control ddlSolicitudEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSolicitudEstado;
         
         /// <summary>
-        /// Control ddlTipo.
+        /// Control ddlSolicitudTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSolicitudTipo;
         
         /// <summary>
-        /// Control ddlSubtipo.
+        /// Control ddlSolicitudSubtipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSubtipo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSolicitudSubtipo;
         
         /// <summary>
         /// Control btnSolicitudModificar.
@@ -409,22 +418,40 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.DropDownList ddlConsultasSubproceso;
         
         /// <summary>
-        /// Control ddlConsultasFechaDesde.
+        /// Control tbConsultasFechaDesde.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasFechaDesde;
+        protected global::System.Web.UI.WebControls.TextBox tbConsultasFechaDesde;
         
         /// <summary>
-        /// Control ddlConsultasFechaHasta.
+        /// Control calConsultasDesde.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasFechaHasta;
+        protected global::AjaxControlToolkit.CalendarExtender calConsultasDesde;
+        
+        /// <summary>
+        /// Control tbConsultasFechaHasta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbConsultasFechaHasta;
+        
+        /// <summary>
+        /// Control calConsultasHasta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calConsultasHasta;
         
         /// <summary>
         /// Control btnConsultasConsultar.

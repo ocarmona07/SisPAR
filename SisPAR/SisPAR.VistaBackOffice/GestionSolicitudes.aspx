@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="GestionSolicitudes.aspx.cs" Inherits="SisPAR.VistaBackOffice.GestionSolicitudes" %>
+    CodeBehind="GestionSolicitudes.aspx.cs" Inherits="SisPAR.VistaBackOffice.GestionSolicitudes"
+    Culture="Auto" UICulture="Auto" %>
 
+<%@ Register TagPrefix="act" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=4.1.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPrincipal" runat="server">
+    <act:ToolkitScriptManager ID="tkmDate" runat="server" EnableScriptGlobalization="True"
+        EnableScriptLocalization="True" />
     <asp:Table runat="server" HorizontalAlign="Center" CellSpacing="0" CellPadding="0"
         Style="margin-bottom: -1px;">
         <asp:TableRow runat="server">
@@ -27,86 +31,88 @@
             <asp:TableCell runat="server" Width="120px" HorizontalAlign="Right" VerticalAlign="Middle"
                 Text="Sistema: " />
             <asp:TableCell runat="server" Width="330px" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:TextBox ID="tbSistema" runat="server" ReadOnly="True" Width="200px" />
+                <asp:TextBox ID="tbSolicitudSistema" runat="server" ReadOnly="True" Width="200px" />
             </asp:TableCell>
             <asp:TableCell runat="server" Width="130px" HorizontalAlign="Right" VerticalAlign="Middle"
                 Text="Fecha de Ingreso: " />
             <asp:TableCell runat="server" Width="280px" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:TextBox ID="tbFechaIngreso" runat="server" ReadOnly="True" Width="100px" />
+                <asp:TextBox ID="tbSolicitudFechaIngreso" runat="server" ReadOnly="True" Width="100px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Módulo: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:TextBox ID="tbModulo" runat="server" ReadOnly="True" Width="200px" />
+                <asp:TextBox ID="tbSolicitudModulo" runat="server" ReadOnly="True" Width="200px" />
             </asp:TableCell>
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Fecha de Cierre: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:TextBox ID="tbFechaCierre" runat="server" ReadOnly="True" Width="100px" />
+                <asp:TextBox ID="tbSolicitudFechaCierre" runat="server" ReadOnly="True" Width="100px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="ID: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:TextBox ID="tbId" runat="server" ReadOnly="True" Width="80px" />
+                <asp:TextBox ID="tbSolicitudId" runat="server" ReadOnly="True" Width="80px" />
             </asp:TableCell>
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Impacto: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:TextBox ID="tbImpacto" runat="server" ReadOnly="True" Width="150px" />
+                <asp:TextBox ID="tbSolicitudImpacto" runat="server" ReadOnly="True" Width="150px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Solicitante: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle" ColumnSpan="3">
-                <asp:TextBox ID="tbSolicitante" runat="server" ReadOnly="True" Width="250px" />
+                <asp:TextBox ID="tbSolicitudSolicitante" runat="server" ReadOnly="True" Width="250px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Archivo adjunto: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle" ColumnSpan="3">
-                <asp:TextBox ID="tbArchivoAdjunto" runat="server" ReadOnly="True" Width="460px" />
+                <asp:TextBox ID="tbSolicitudArchivoAdjunto" runat="server" ReadOnly="True" Width="460px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Glosa Usuario: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle" ColumnSpan="3">
-                <asp:TextBox ID="tbGlosaUsuario" runat="server" Width="700px" Height="80px" TextMode="MultiLine" />
+                <asp:TextBox ID="tbSolicitudGlosaUsuario" runat="server" Width="700px" Height="80px"
+                    TextMode="MultiLine" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Glosa Técnica: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle" ColumnSpan="3">
-                <asp:TextBox ID="tbGlosaTecnica" runat="server" Width="700px" Height="80px" TextMode="MultiLine" />
+                <asp:TextBox ID="tbSolicitudGlosaTecnica" runat="server" Width="700px" Height="80px"
+                    TextMode="MultiLine" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Asignado a: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlAsignado" runat="server" Width="300px" />
+                <asp:DropDownList ID="ddlSolicitudAsignado" runat="server" Width="300px" />
             </asp:TableCell>
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Impacto: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlImpacto" runat="server" Width="170px" />
+                <asp:DropDownList ID="ddlSolicitudImpacto" runat="server" Width="170px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Responsable: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="tbResponsable" runat="server" Width="300px" />
+                <asp:DropDownList ID="ddlSolicitudResponsable" runat="server" Width="300px" />
             </asp:TableCell>
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Estado: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlEstado" runat="server" Width="130px" />
+                <asp:DropDownList ID="ddlSolicitudEstado" runat="server" Width="130px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Tipo: " />
             <asp:TableCell runat="server">
-                <asp:DropDownList ID="ddlTipo" runat="server" Width="250px" />
+                <asp:DropDownList ID="ddlSolicitudTipo" runat="server" Width="250px" />
             </asp:TableCell>
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Subtipo: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlSubtipo" runat="server" Width="250px" />
+                <asp:DropDownList ID="ddlSolicitudSubtipo" runat="server" Width="250px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
@@ -272,11 +278,13 @@
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Fecha Desde: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlConsultasFechaDesde" runat="server" Width="100px" />
+                <asp:TextBox ID="tbConsultasFechaDesde" runat="server" Width="100px" />
+                <act:CalendarExtender ID="calConsultasDesde" runat="server" TargetControlID="tbConsultasFechaDesde" />
             </asp:TableCell>
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Fecha Hasta: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlConsultasFechaHasta" runat="server" Width="100px" />
+                <asp:TextBox ID="tbConsultasFechaHasta" runat="server" Width="100px" />
+                <act:CalendarExtender ID="calConsultasHasta" runat="server" TargetControlID="tbConsultasFechaHasta" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">

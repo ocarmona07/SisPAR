@@ -1661,7 +1661,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="SisPAR" ZoomLevel="29">
+      <Diagram Name="SisPAR" ZoomLevel="63">
         <EntityTypeShape EntityType="SisPARModel.ANA_ANALISTAS" Width="1.5" PointX="9.75" PointY="21.125" Height="2.1725878906250102" />
         <EntityTypeShape EntityType="SisPARModel.DER_DERIVACION" Width="1.5" PointX="7.5" PointY="14" Height="4.0956022135416674" />
         <EntityTypeShape EntityType="SisPARModel.EPR_EMPRESA" Width="1.5" PointX="0.75" PointY="12.125" Height="2.9417936197916674" />

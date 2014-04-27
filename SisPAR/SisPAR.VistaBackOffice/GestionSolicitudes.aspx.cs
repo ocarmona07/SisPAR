@@ -2,6 +2,11 @@
 {
     using System;
     using System.Data;
+    using System.Globalization;
+    using System.Threading;
+    using System.Web.UI.WebControls;
+    using Entidades;
+    using Negocio;
 
     /// <summary>
     /// Clase principal de Gestión de Solicitudes
@@ -15,6 +20,52 @@
         /// <param name="e">Argumentos del evento</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("es-ES");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-ES");
+            tbConsultasFechaDesde.Attributes.Add("readonly", "readonly");
+            tbConsultasFechaHasta.Attributes.Add("readonly", "readonly");
+
+            var itemSeleccionar = new ListItem("Seleccionar", "0");
+
+            if (!IsPostBack)
+            {
+                #region Tab Solicitud
+
+                LimpiarSolicitud();
+                var responsables = new ResponsablesBo().ObtenerResponsables();
+                ddlSolicitudAsignado.DataSource = responsables;
+                ddlSolicitudAsignado.DataTextField = "";
+                ddlSolicitudAsignado.DataValueField = "";
+                ddlSolicitudAsignado.DataBind();
+                ddlSolicitudAsignado.Items.IndexOf(itemSeleccionar);
+
+                ddlSolicitudResponsable.DataSource = responsables;
+                ddlSolicitudResponsable.DataTextField = "";
+                ddlSolicitudResponsable.DataValueField = "";
+                ddlSolicitudResponsable.DataBind();
+                ddlSolicitudResponsable.Items.IndexOf(itemSeleccionar);
+
+                ddlSolicitudImpacto.DataSource = new UrgenciasBo().ObtenerUrgencias();
+                ddlSolicitudImpacto.DataTextField = "";
+                ddlSolicitudImpacto.DataValueField = "";
+                ddlSolicitudImpacto.DataBind();
+                ddlSolicitudImpacto.Items.IndexOf(itemSeleccionar);
+
+                #endregion
+
+                #region Tab Evento
+
+                LimpiarEvento();
+
+                #endregion
+
+                #region Tab Consultas
+
+                LimpiarConsultas();
+
+                #endregion
+            }
+
             CargarTest();
         }
 
@@ -123,6 +174,46 @@
             LimpiarCrearEvento(null, null);
             tbrBotonesEventos.Enabled = true;
             tbrGrillaEventos.Enabled = true;
+        }
+
+        /// <summary>
+        /// Método que limpia los campos de la pestaña Solicitud
+        /// </summary>
+        private void LimpiarSolicitud()
+        {
+            tbSolicitudSistema.Text = string.Empty;
+            tbSolicitudFechaIngreso.Text = string.Empty;
+            tbSolicitudModulo.Text = string.Empty;
+            tbSolicitudFechaCierre.Text = string.Empty;
+            tbSolicitudId.Text = string.Empty;
+            tbSolicitudImpacto.Text = string.Empty;
+            tbSolicitudSolicitante.Text = string.Empty;
+
+            tbSolicitudGlosaUsuario.Text = string.Empty;
+            tbSolicitudGlosaTecnica.Text = string.Empty;
+
+            ddlSolicitudAsignado.SelectedIndex = -1;
+            ddlSolicitudImpacto.SelectedIndex = -1;
+            ddlSolicitudResponsable.SelectedIndex = -1;
+            ddlSolicitudEstado.SelectedIndex = -1;
+            ddlSolicitudTipo.SelectedIndex = -1;
+            ddlSolicitudSubtipo.SelectedIndex = -1;
+        }
+
+        /// <summary>
+        /// Método que limpia los campos de la pestaña Evento
+        /// </summary>
+        private void LimpiarEvento()
+        {
+
+        }
+
+        /// <summary>
+        /// Método que limpia los campos de la pestaña Consultas
+        /// </summary>
+        private void LimpiarConsultas()
+        {
+
         }
 
         private void CargarTest()
