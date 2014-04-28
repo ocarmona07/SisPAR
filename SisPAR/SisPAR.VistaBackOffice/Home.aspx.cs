@@ -1,11 +1,7 @@
-﻿
-using System.Globalization;
-
-namespace SisPAR.VistaBackOffice
+﻿namespace SisPAR.VistaBackOffice
 {
     using System;
     using System.Configuration;
-    using Entidades;
     using Negocio;
 
     /// <summary>
@@ -23,20 +19,23 @@ namespace SisPAR.VistaBackOffice
             lblCopyright.Text = ConfigurationManager.AppSettings["Copyright"];
         }
 
+        /// <summary>
+        /// Método que valida el ingreso al sistema
+        /// </summary>
+        /// <param name="sender">Objeto del evento</param>
+        /// <param name="e">Argumentos del evento</param>
         protected void EntrarOnClick(object sender, EventArgs e)
         {
             int zero;
-            if (!int.TryParse(tbUsuario.Text, out zero)) return;
-
-            var usuario = new USU_USUARIO
+            if (!int.TryParse(tbUsuario.Text, out zero))
             {
-                USU_RUT = int.Parse(tbUsuario.Text),
-                USU_PASSWORD = tbPassword.Text
-            };
+                lblPasswordError.Text = "El campo Usuario debe ser numérico";
+                return;
+            }
 
-            if (new UsuariosBo().ComprobarUsuario(usuario))
+            if (new UsuariosBo().ComprobarUsuarioBack(int.Parse(tbUsuario.Text), tbPassword.Text))
             {
-                Session["Usuario"] = new UsuariosBo().ObtenerUsuarioPorRut(int.Parse(tbUsuario.Text));
+                Session["UsuarioBack"] = new UsuariosBo().ObtenerUsuarioPorRut(int.Parse(tbUsuario.Text));
                 Response.Redirect("SolicitudesPendientes.aspx");
             }
             else

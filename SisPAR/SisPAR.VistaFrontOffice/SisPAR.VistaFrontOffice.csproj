@@ -37,6 +37,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -106,7 +107,16 @@
       <DependentUpon>SolicitudRequerimiento.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SisPAR.Entidades\SisPAR.Entidades.csproj">
+      <Project>{CDF781D6-D430-4D79-8758-E0E05E4A820F}</Project>
+      <Name>SisPAR.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SisPAR.Negocio\SisPAR.Negocio.csproj">
+      <Project>{1AA98470-6471-4FC0-A301-C4E3F797C4C7}</Project>
+      <Name>SisPAR.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
   </ItemGroup>

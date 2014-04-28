@@ -68,11 +68,23 @@ namespace SisPAR.Negocio
         /// <summary>
         /// Método que valida el ingreso del usuario
         /// </summary>
-        /// <param name="usuario">Datos del usuario</param>
+        /// <param name="rutUsuario">Rut del usuario</param>
         /// <returns>Validación usuario</returns>
-        public bool ComprobarUsuario(USU_USUARIO usuario)
+        public bool ComprobarUsuarioFront(int rutUsuario)
         {
-            var comprobar = _usuariosDa.ObtenerUsuarios().Count(usu => usuario.USU_RUT.Equals(usu.USU_RUT) && usuario.USU_PASSWORD.Equals(usu.USU_PASSWORD));
+            var comprobar = _usuariosDa.ObtenerUsuarios().Count(usu => usu.USU_RUT.Equals(rutUsuario));
+            return comprobar > 0;
+        }
+
+        /// <summary>
+        /// Método que valida el ingreso del usuario
+        /// </summary>
+        /// <param name="rutUsuario">Rut del usuario</param>
+        /// <param name="password">Contraseña del usuario</param>
+        /// <returns>Validación usuario</returns>
+        public bool ComprobarUsuarioBack(int rutUsuario, string password)
+        {
+            var comprobar = _usuariosDa.ObtenerUsuarios().Count(usu => usu.USU_RUT.Equals(rutUsuario) && usu.USU_PASSWORD.Equals(password));
             return comprobar > 0;
         }
 

@@ -4,10 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SisPAR</title>
+    <title>SisPAR - Sistema Plataforma de Atención de Requerimientos</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <link href="http://fonts.googleapis.com/css?family=Varela" rel="stylesheet" />
     <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -16,7 +15,7 @@
 <body>
     <form id="frmPrincipal" runat="server">
     <br />
-    <asp:Table ID="Table1" runat="server" Width="990px" HorizontalAlign="Center" CaptionAlign="Top">
+    <asp:Table runat="server" Width="990px" HorizontalAlign="Center" CaptionAlign="Top">
         <asp:TableRow>
             <asp:TableCell Width="2px" BackColor="#3ADF00" />
         </asp:TableRow>
@@ -24,12 +23,15 @@
             <asp:TableCell>
                 <br />
                 <asp:Table runat="server" ID="tblInicio" HorizontalAlign="Center" Width="930px">
-                    <asp:TableRow ID="TableRow1" runat="server">
-                        <asp:TableCell ID="TableCell1" runat="server" Width="220px">
-                                <asp:Image ID="Image1" runat="server" ImageUrl="~/images/LogoAguasNuevas.jpg" />
+                    <asp:TableRow runat="server">
+                        <asp:TableCell runat="server" Width="220px">
+                                <asp:Image runat="server" ImageUrl="~/images/LogoAguasNuevas.jpg" />
                         </asp:TableCell>
-                        <asp:TableCell ID="TableCell2" runat="server" HorizontalAlign="Right">
-                            Login
+                        <asp:TableCell runat="server" HorizontalAlign="Right">
+                            <asp:Label runat="server" Text="Usuario conectado: " />
+                            <asp:Label ID="lblUsuarioConectado" runat="server" Font-Bold="True" />
+                            <br />
+                            <asp:LinkButton runat="server" Text="Salir " OnClick="LinkSalir" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
@@ -43,7 +45,7 @@
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell ID="TableCell3" runat="server" Width="40px">
+            <asp:TableCell runat="server" Width="40px">
                 <div class="copyright">
                     <asp:Label runat="server" ID="lblCopyright" />
                 </div>

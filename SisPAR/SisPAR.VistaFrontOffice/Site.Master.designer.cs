@@ -40,15 +40,6 @@ namespace SisPAR.VistaFrontOffice {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmPrincipal;
         
         /// <summary>
-        /// Control Table1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
-        
-        /// <summary>
         /// Control tblInicio.
         /// </summary>
         /// <remarks>
@@ -58,40 +49,13 @@ namespace SisPAR.VistaFrontOffice {
         protected global::System.Web.UI.WebControls.Table tblInicio;
         
         /// <summary>
-        /// Control TableRow1.
+        /// Control lblUsuarioConectado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow TableRow1;
-        
-        /// <summary>
-        /// Control TableCell1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell1;
-        
-        /// <summary>
-        /// Control Image1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
-        
-        /// <summary>
-        /// Control TableCell2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell2;
+        protected global::System.Web.UI.WebControls.Label lblUsuarioConectado;
         
         /// <summary>
         /// Control cphPrincipal.
@@ -101,15 +65,6 @@ namespace SisPAR.VistaFrontOffice {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cphPrincipal;
-        
-        /// <summary>
-        /// Control TableCell3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell3;
         
         /// <summary>
         /// Control lblCopyright.

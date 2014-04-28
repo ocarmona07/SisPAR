@@ -1,5 +1,4 @@
-﻿
-namespace SisPAR.VistaBackOffice
+﻿namespace SisPAR.VistaBackOffice
 {
     using System;
     using System.Configuration;
@@ -19,9 +18,9 @@ namespace SisPAR.VistaBackOffice
         {
             lblCopyright.Text = ConfigurationManager.AppSettings["Copyright"];
 
-            if (Session["Usuario"] == null) Response.Redirect("Home.aspx");
-            if (String.IsNullOrEmpty(Session["Usuario"].ToString())) Response.Redirect("Home.aspx");
-            lblUsuarioConectado.Text = Session["Usuario"].ToString();
+            if (Session["UsuarioBack"] == null) Response.Redirect("Home.aspx");
+            if (String.IsNullOrEmpty(Session["UsuarioBack"].ToString())) Response.Redirect("Home.aspx");
+            lblUsuarioConectado.Text = Session["UsuarioBack"].ToString();
         }
 
         /// <summary>
@@ -46,7 +45,7 @@ namespace SisPAR.VistaBackOffice
                     break;
 
                 case "finalizar":
-                    Session["Usuario"] = "";
+                    Session["UsuarioBack"] = string.Empty;
                     Response.Redirect("Home.aspx");
                     break;
             }
