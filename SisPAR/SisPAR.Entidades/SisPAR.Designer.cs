@@ -535,14 +535,14 @@ namespace SisPAR.Entidades
         /// <param name="aNA_ID">Valor inicial de la propiedad ANA_ID.</param>
         /// <param name="aNA_SPO_ID">Valor inicial de la propiedad ANA_SPO_ID.</param>
         /// <param name="aNA_USU_ID">Valor inicial de la propiedad ANA_USU_ID.</param>
-        /// <param name="aNA_OBS">Valor inicial de la propiedad ANA_OBS.</param>
-        public static ANA_ANALISTAS CreateANA_ANALISTAS(global::System.Int32 aNA_ID, global::System.Int32 aNA_SPO_ID, global::System.Int32 aNA_USU_ID, global::System.String aNA_OBS)
+        /// <param name="aNA_OBSERVACION">Valor inicial de la propiedad ANA_OBSERVACION.</param>
+        public static ANA_ANALISTAS CreateANA_ANALISTAS(global::System.Int32 aNA_ID, global::System.Int32 aNA_SPO_ID, global::System.Int32 aNA_USU_ID, global::System.String aNA_OBSERVACION)
         {
             ANA_ANALISTAS aNA_ANALISTAS = new ANA_ANALISTAS();
             aNA_ANALISTAS.ANA_ID = aNA_ID;
             aNA_ANALISTAS.ANA_SPO_ID = aNA_SPO_ID;
             aNA_ANALISTAS.ANA_USU_ID = aNA_USU_ID;
-            aNA_ANALISTAS.ANA_OBS = aNA_OBS;
+            aNA_ANALISTAS.ANA_OBSERVACION = aNA_OBSERVACION;
             return aNA_ANALISTAS;
         }
 
@@ -630,24 +630,24 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String ANA_OBS
+        public global::System.String ANA_OBSERVACION
         {
             get
             {
-                return _ANA_OBS;
+                return _ANA_OBSERVACION;
             }
             set
             {
-                OnANA_OBSChanging(value);
-                ReportPropertyChanging("ANA_OBS");
-                _ANA_OBS = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ANA_OBS");
-                OnANA_OBSChanged();
+                OnANA_OBSERVACIONChanging(value);
+                ReportPropertyChanging("ANA_OBSERVACION");
+                _ANA_OBSERVACION = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ANA_OBSERVACION");
+                OnANA_OBSERVACIONChanged();
             }
         }
-        private global::System.String _ANA_OBS;
-        partial void OnANA_OBSChanging(global::System.String value);
-        partial void OnANA_OBSChanged();
+        private global::System.String _ANA_OBSERVACION;
+        partial void OnANA_OBSERVACIONChanging(global::System.String value);
+        partial void OnANA_OBSERVACIONChanged();
 
         #endregion
 
@@ -1538,14 +1538,14 @@ namespace SisPAR.Entidades
         /// Crear un nuevo objeto EST_ESTADOS.
         /// </summary>
         /// <param name="eST_ID">Valor inicial de la propiedad EST_ID.</param>
-        /// <param name="eST_TIP">Valor inicial de la propiedad EST_TIP.</param>
-        /// <param name="eST_OBS">Valor inicial de la propiedad EST_OBS.</param>
-        public static EST_ESTADOS CreateEST_ESTADOS(global::System.Int32 eST_ID, global::System.String eST_TIP, global::System.String eST_OBS)
+        /// <param name="eST_TIPO">Valor inicial de la propiedad EST_TIPO.</param>
+        /// <param name="eST_OBSERVACION">Valor inicial de la propiedad EST_OBSERVACION.</param>
+        public static EST_ESTADOS CreateEST_ESTADOS(global::System.Int32 eST_ID, global::System.String eST_TIPO, global::System.String eST_OBSERVACION)
         {
             EST_ESTADOS eST_ESTADOS = new EST_ESTADOS();
             eST_ESTADOS.EST_ID = eST_ID;
-            eST_ESTADOS.EST_TIP = eST_TIP;
-            eST_ESTADOS.EST_OBS = eST_OBS;
+            eST_ESTADOS.EST_TIPO = eST_TIPO;
+            eST_ESTADOS.EST_OBSERVACION = eST_OBSERVACION;
             return eST_ESTADOS;
         }
 
@@ -1585,48 +1585,48 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String EST_TIP
+        public global::System.String EST_TIPO
         {
             get
             {
-                return _EST_TIP;
+                return _EST_TIPO;
             }
             set
             {
-                OnEST_TIPChanging(value);
-                ReportPropertyChanging("EST_TIP");
-                _EST_TIP = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("EST_TIP");
-                OnEST_TIPChanged();
+                OnEST_TIPOChanging(value);
+                ReportPropertyChanging("EST_TIPO");
+                _EST_TIPO = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("EST_TIPO");
+                OnEST_TIPOChanged();
             }
         }
-        private global::System.String _EST_TIP;
-        partial void OnEST_TIPChanging(global::System.String value);
-        partial void OnEST_TIPChanged();
+        private global::System.String _EST_TIPO;
+        partial void OnEST_TIPOChanging(global::System.String value);
+        partial void OnEST_TIPOChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String EST_OBS
+        public global::System.String EST_OBSERVACION
         {
             get
             {
-                return _EST_OBS;
+                return _EST_OBSERVACION;
             }
             set
             {
-                OnEST_OBSChanging(value);
-                ReportPropertyChanging("EST_OBS");
-                _EST_OBS = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("EST_OBS");
-                OnEST_OBSChanged();
+                OnEST_OBSERVACIONChanging(value);
+                ReportPropertyChanging("EST_OBSERVACION");
+                _EST_OBSERVACION = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("EST_OBSERVACION");
+                OnEST_OBSERVACIONChanged();
             }
         }
-        private global::System.String _EST_OBS;
-        partial void OnEST_OBSChanging(global::System.String value);
-        partial void OnEST_OBSChanged();
+        private global::System.String _EST_OBSERVACION;
+        partial void OnEST_OBSERVACIONChanging(global::System.String value);
+        partial void OnEST_OBSERVACIONChanged();
 
         #endregion
 
@@ -3004,8 +3004,8 @@ namespace SisPAR.Entidades
         /// <param name="pRO_TIP_ID">Valor inicial de la propiedad PRO_TIP_ID.</param>
         /// <param name="pRO_EPR_ID">Valor inicial de la propiedad PRO_EPR_ID.</param>
         /// <param name="pRO_USU_ID">Valor inicial de la propiedad PRO_USU_ID.</param>
-        /// <param name="pRO_OBS">Valor inicial de la propiedad PRO_OBS.</param>
-        public static PRO_PROCESO CreatePRO_PROCESO(global::System.Int32 pRO_ID, global::System.String pRO_NOMBRE, global::System.Int32 pRO_TIP_ID, global::System.Int32 pRO_EPR_ID, global::System.Int32 pRO_USU_ID, global::System.String pRO_OBS)
+        /// <param name="pRO_OBSERVACION">Valor inicial de la propiedad PRO_OBSERVACION.</param>
+        public static PRO_PROCESO CreatePRO_PROCESO(global::System.Int32 pRO_ID, global::System.String pRO_NOMBRE, global::System.Int32 pRO_TIP_ID, global::System.Int32 pRO_EPR_ID, global::System.Int32 pRO_USU_ID, global::System.String pRO_OBSERVACION)
         {
             PRO_PROCESO pRO_PROCESO = new PRO_PROCESO();
             pRO_PROCESO.PRO_ID = pRO_ID;
@@ -3013,7 +3013,7 @@ namespace SisPAR.Entidades
             pRO_PROCESO.PRO_TIP_ID = pRO_TIP_ID;
             pRO_PROCESO.PRO_EPR_ID = pRO_EPR_ID;
             pRO_PROCESO.PRO_USU_ID = pRO_USU_ID;
-            pRO_PROCESO.PRO_OBS = pRO_OBS;
+            pRO_PROCESO.PRO_OBSERVACION = pRO_OBSERVACION;
             return pRO_PROCESO;
         }
 
@@ -3149,24 +3149,24 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String PRO_OBS
+        public global::System.String PRO_OBSERVACION
         {
             get
             {
-                return _PRO_OBS;
+                return _PRO_OBSERVACION;
             }
             set
             {
-                OnPRO_OBSChanging(value);
-                ReportPropertyChanging("PRO_OBS");
-                _PRO_OBS = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("PRO_OBS");
-                OnPRO_OBSChanged();
+                OnPRO_OBSERVACIONChanging(value);
+                ReportPropertyChanging("PRO_OBSERVACION");
+                _PRO_OBSERVACION = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PRO_OBSERVACION");
+                OnPRO_OBSERVACIONChanged();
             }
         }
-        private global::System.String _PRO_OBS;
-        partial void OnPRO_OBSChanging(global::System.String value);
-        partial void OnPRO_OBSChanged();
+        private global::System.String _PRO_OBSERVACION;
+        partial void OnPRO_OBSERVACIONChanging(global::System.String value);
+        partial void OnPRO_OBSERVACIONChanged();
 
         #endregion
 
@@ -4272,13 +4272,13 @@ namespace SisPAR.Entidades
         /// Crear un nuevo objeto RES_RESPONSABLE.
         /// </summary>
         /// <param name="rES_ID">Valor inicial de la propiedad RES_ID.</param>
-        /// <param name="rES_TIPO_ID">Valor inicial de la propiedad RES_TIPO_ID.</param>
+        /// <param name="rES_ROL_ID">Valor inicial de la propiedad RES_ROL_ID.</param>
         /// <param name="rES_USU_ID">Valor inicial de la propiedad RES_USU_ID.</param>
-        public static RES_RESPONSABLE CreateRES_RESPONSABLE(global::System.Int32 rES_ID, global::System.Int32 rES_TIPO_ID, global::System.Int32 rES_USU_ID)
+        public static RES_RESPONSABLE CreateRES_RESPONSABLE(global::System.Int32 rES_ID, global::System.Int32 rES_ROL_ID, global::System.Int32 rES_USU_ID)
         {
             RES_RESPONSABLE rES_RESPONSABLE = new RES_RESPONSABLE();
             rES_RESPONSABLE.RES_ID = rES_ID;
-            rES_RESPONSABLE.RES_TIPO_ID = rES_TIPO_ID;
+            rES_RESPONSABLE.RES_ROL_ID = rES_ROL_ID;
             rES_RESPONSABLE.RES_USU_ID = rES_USU_ID;
             return rES_RESPONSABLE;
         }
@@ -4319,24 +4319,24 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 RES_TIPO_ID
+        public global::System.Int32 RES_ROL_ID
         {
             get
             {
-                return _RES_TIPO_ID;
+                return _RES_ROL_ID;
             }
             set
             {
-                OnRES_TIPO_IDChanging(value);
-                ReportPropertyChanging("RES_TIPO_ID");
-                _RES_TIPO_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("RES_TIPO_ID");
-                OnRES_TIPO_IDChanged();
+                OnRES_ROL_IDChanging(value);
+                ReportPropertyChanging("RES_ROL_ID");
+                _RES_ROL_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RES_ROL_ID");
+                OnRES_ROL_IDChanged();
             }
         }
-        private global::System.Int32 _RES_TIPO_ID;
-        partial void OnRES_TIPO_IDChanging(global::System.Int32 value);
-        partial void OnRES_TIPO_IDChanged();
+        private global::System.Int32 _RES_ROL_ID;
+        partial void OnRES_ROL_IDChanging(global::System.Int32 value);
+        partial void OnRES_ROL_IDChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -5057,13 +5057,13 @@ namespace SisPAR.Entidades
         /// </summary>
         /// <param name="uRG_ID">Valor inicial de la propiedad URG_ID.</param>
         /// <param name="uRG_TIPO">Valor inicial de la propiedad URG_TIPO.</param>
-        /// <param name="uRG_OBS">Valor inicial de la propiedad URG_OBS.</param>
-        public static URG_URGENCIA CreateURG_URGENCIA(global::System.Int32 uRG_ID, global::System.String uRG_TIPO, global::System.String uRG_OBS)
+        /// <param name="uRG_OBSERVACION">Valor inicial de la propiedad URG_OBSERVACION.</param>
+        public static URG_URGENCIA CreateURG_URGENCIA(global::System.Int32 uRG_ID, global::System.String uRG_TIPO, global::System.String uRG_OBSERVACION)
         {
             URG_URGENCIA uRG_URGENCIA = new URG_URGENCIA();
             uRG_URGENCIA.URG_ID = uRG_ID;
             uRG_URGENCIA.URG_TIPO = uRG_TIPO;
-            uRG_URGENCIA.URG_OBS = uRG_OBS;
+            uRG_URGENCIA.URG_OBSERVACION = uRG_OBSERVACION;
             return uRG_URGENCIA;
         }
 
@@ -5127,24 +5127,24 @@ namespace SisPAR.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String URG_OBS
+        public global::System.String URG_OBSERVACION
         {
             get
             {
-                return _URG_OBS;
+                return _URG_OBSERVACION;
             }
             set
             {
-                OnURG_OBSChanging(value);
-                ReportPropertyChanging("URG_OBS");
-                _URG_OBS = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("URG_OBS");
-                OnURG_OBSChanged();
+                OnURG_OBSERVACIONChanging(value);
+                ReportPropertyChanging("URG_OBSERVACION");
+                _URG_OBSERVACION = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("URG_OBSERVACION");
+                OnURG_OBSERVACIONChanged();
             }
         }
-        private global::System.String _URG_OBS;
-        partial void OnURG_OBSChanging(global::System.String value);
-        partial void OnURG_OBSChanged();
+        private global::System.String _URG_OBSERVACION;
+        partial void OnURG_OBSERVACIONChanging(global::System.String value);
+        partial void OnURG_OBSERVACIONChanged();
 
         #endregion
 
@@ -5460,30 +5460,6 @@ namespace SisPAR.Entidades
         private global::System.Int32 _USU_EPR_ID;
         partial void OnUSU_EPR_IDChanging(global::System.Int32 value);
         partial void OnUSU_EPR_IDChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String USU_USERNAME
-        {
-            get
-            {
-                return _USU_USERNAME;
-            }
-            set
-            {
-                OnUSU_USERNAMEChanging(value);
-                ReportPropertyChanging("USU_USERNAME");
-                _USU_USERNAME = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("USU_USERNAME");
-                OnUSU_USERNAMEChanged();
-            }
-        }
-        private global::System.String _USU_USERNAME;
-        partial void OnUSU_USERNAMEChanging(global::System.String value);
-        partial void OnUSU_USERNAMEChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.

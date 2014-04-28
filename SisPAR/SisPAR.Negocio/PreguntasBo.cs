@@ -7,7 +7,7 @@
     /// <summary>
     /// Clase de Negocio Preguntas
     /// </summary>
-    public class Preguntas
+    public class PreguntasBo
     {
         /// <summary>
         /// Instancia de la clase Preguntas

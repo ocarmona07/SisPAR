@@ -3,9 +3,9 @@
     using System;
     using System.Data;
     using System.Globalization;
+    using System.Linq;
     using System.Threading;
     using System.Web.UI.WebControls;
-    using Entidades;
     using Negocio;
 
     /// <summary>
@@ -33,23 +33,48 @@
 
                 LimpiarSolicitud();
                 var responsables = new ResponsablesBo().ObtenerResponsables();
-                ddlSolicitudAsignado.DataSource = responsables;
-                ddlSolicitudAsignado.DataTextField = "";
-                ddlSolicitudAsignado.DataValueField = "";
+                var ddlResp = from resp in responsables
+                              orderby resp.RES_ID
+                              select new { resp.RES_ID, resp.USU_USUARIO.USU_NOMBRE };
+                ddlSolicitudAsignado.DataSource = ddlResp;
+                ddlSolicitudAsignado.DataTextField = "USU_NOMBRE";
+                ddlSolicitudAsignado.DataValueField = "RES_ID";
                 ddlSolicitudAsignado.DataBind();
-                ddlSolicitudAsignado.Items.IndexOf(itemSeleccionar);
+                ddlSolicitudAsignado.Items.Insert(0, itemSeleccionar);
+
+                var urgencias = new UrgenciasBo().ObtenerUrgencias();
+                ddlSolicitudImpacto.DataSource = urgencias;
+                ddlSolicitudImpacto.DataTextField = "URG_TIPO";
+                ddlSolicitudImpacto.DataValueField = "URG_ID";
+                ddlSolicitudImpacto.DataBind();
+                ddlSolicitudImpacto.Items.Insert(0, itemSeleccionar);
 
                 ddlSolicitudResponsable.DataSource = responsables;
-                ddlSolicitudResponsable.DataTextField = "";
-                ddlSolicitudResponsable.DataValueField = "";
+                ddlSolicitudResponsable.DataTextField = "USU_NOMBRE";
+                ddlSolicitudResponsable.DataValueField = "RES_ID";
                 ddlSolicitudResponsable.DataBind();
-                ddlSolicitudResponsable.Items.IndexOf(itemSeleccionar);
+                ddlSolicitudResponsable.Items.Insert(0, itemSeleccionar);
 
-                ddlSolicitudImpacto.DataSource = new UrgenciasBo().ObtenerUrgencias();
-                ddlSolicitudImpacto.DataTextField = "";
-                ddlSolicitudImpacto.DataValueField = "";
-                ddlSolicitudImpacto.DataBind();
-                ddlSolicitudImpacto.Items.IndexOf(itemSeleccionar);
+                var estados = new EstadosBo().ObtenerEstados();
+                ddlSolicitudEstado.DataSource = estados;
+                ddlSolicitudEstado.DataTextField = "EST_TIPO";
+                ddlSolicitudEstado.DataValueField = "EST_ID";
+                ddlSolicitudEstado.DataBind();
+                ddlSolicitudEstado.Items.Insert(0, itemSeleccionar);
+
+                var tipos = new ProcesosBo().ObtenerProcesos();
+                ddlSolicitudTipo.DataSource = tipos;
+                ddlSolicitudTipo.DataTextField = "PRO_NOMBRE";
+                ddlSolicitudTipo.DataValueField = "PRO_ID";
+                ddlSolicitudTipo.DataBind();
+                ddlSolicitudTipo.Items.Insert(0, itemSeleccionar);
+
+                var subtipos = new SubprocesosBo().ObtenerSubprocesos();
+                ddlSolicitudSubtipo.DataSource = subtipos;
+                ddlSolicitudSubtipo.DataTextField = "SPO_NOMBRE";
+                ddlSolicitudSubtipo.DataValueField = "SPO_ID";
+                ddlSolicitudSubtipo.DataBind();
+                ddlSolicitudSubtipo.Items.Insert(0, itemSeleccionar);
 
                 #endregion
 
@@ -62,6 +87,35 @@
                 #region Tab Consultas
 
                 LimpiarConsultas();
+
+                var itemTodos = new ListItem("Todos", "0");
+                var empresas = new EmpresasBo().ObtenerEmpresas();
+                ddlConsultasEmpresa.DataSource = empresas;
+                ddlConsultasEmpresa.DataTextField = "EPR_RAZONSOCIAL";
+                ddlConsultasEmpresa.DataValueField = "EPR_ID";
+                ddlConsultasEmpresa.DataBind();
+                ddlConsultasEmpresa.Items.Insert(0, new ListItem("Todas", "0"));
+
+                ddlConsultasResponsables.DataSource = responsables;
+                ddlConsultasResponsables.DataTextField = "USU_NOMBRE";
+                ddlConsultasResponsables.DataValueField = "RES_ID";
+                ddlConsultasResponsables.DataBind();
+                ddlConsultasResponsables.Items.Insert(0, itemTodos);
+                
+                ddlConsultasProceso.DataSource = tipos;
+                ddlConsultasProceso.DataTextField = "PRO_NOMBRE";
+                ddlConsultasProceso.DataValueField = "PRO_ID";
+                ddlConsultasProceso.DataBind();
+                ddlConsultasProceso.Items.Insert(0, itemTodos);
+
+                ddlConsultasSubproceso.DataSource = subtipos;
+                ddlConsultasSubproceso.DataTextField = "SPO_NOMBRE";
+                ddlConsultasSubproceso.DataValueField = "SPO_ID";
+                ddlConsultasSubproceso.DataBind();
+                ddlConsultasSubproceso.Items.Insert(0, itemTodos);
+
+                tbConsultasFechaDesde.Text = "01/01/2014";
+                tbConsultasFechaHasta.Text = DateTime.Today.ToShortDateString();
 
                 #endregion
             }
@@ -205,7 +259,8 @@
         /// </summary>
         private void LimpiarEvento()
         {
-
+            LimpiarCrearEvento(null, null);
+            CancelarEvento(null, null);
         }
 
         /// <summary>
@@ -213,7 +268,12 @@
         /// </summary>
         private void LimpiarConsultas()
         {
-
+            ddlConsultasEmpresa.SelectedIndex = -1;
+            ddlConsultasResponsables.SelectedIndex = -1;
+            ddlConsultasProceso.SelectedIndex = -1;
+            ddlConsultasSubproceso.SelectedIndex = -1;
+            tbConsultasFechaDesde.Text = string.Empty;
+            tbConsultasFechaHasta.Text = string.Empty;
         }
 
         private void CargarTest()

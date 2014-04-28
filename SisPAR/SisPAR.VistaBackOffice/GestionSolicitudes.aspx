@@ -278,12 +278,12 @@
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Fecha Desde: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:TextBox ID="tbConsultasFechaDesde" runat="server" Width="100px" />
+                <asp:TextBox ID="tbConsultasFechaDesde" runat="server" Width="100px" CssClass="Fecha" />
                 <act:CalendarExtender ID="calConsultasDesde" runat="server" TargetControlID="tbConsultasFechaDesde" />
             </asp:TableCell>
             <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Fecha Hasta: " />
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:TextBox ID="tbConsultasFechaHasta" runat="server" Width="100px" />
+                <asp:TextBox ID="tbConsultasFechaHasta" runat="server" Width="100px" CssClass="Fecha" />
                 <act:CalendarExtender ID="calConsultasHasta" runat="server" TargetControlID="tbConsultasFechaHasta" />
             </asp:TableCell>
         </asp:TableRow>

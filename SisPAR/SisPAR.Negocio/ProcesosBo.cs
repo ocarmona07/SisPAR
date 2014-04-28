@@ -7,7 +7,7 @@
     /// <summary>
     /// Clase de Negocio Procesos
     /// </summary>
-    public class Procesos
+    public class ProcesosBo
     {
         /// <summary>
         /// Instancia de la clase Procesos
