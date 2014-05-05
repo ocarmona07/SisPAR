@@ -54,6 +54,9 @@
     <Content Include="GestionSolicitudes.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="images\banner.png" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\download-file.png" />
+    <Content Include="images\edit.gif" />
     <Content Include="images\LogoAguasNuevas.jpg" />
     <Content Include="images\menu_bg.gif" />
     <Content Include="SolicitudesPendientes.aspx" />

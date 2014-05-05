@@ -153,34 +153,30 @@
         </asp:TableRow>
         <asp:TableRow ID="tbrGrillaEventos" runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Middle" ColumnSpan="2">
-                <asp:GridView ID="gvEventos" runat="server" AutoGenerateColumns="False">
+                <asp:GridView ID="gvEventos" runat="server" AutoGenerateColumns="False" Width="760px"
+                    OnRowCommand="EventosRowCommand">
                     <Columns>
-                        <asp:TemplateField HeaderText="Número">
-                            <ItemTemplate>
-                                <asp:Label ID="lblNumero" runat="server" />
-                            </ItemTemplate>
-                            <HeaderStyle Width="80px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Fecha">
-                            <ItemTemplate>
-                                <asp:Label ID="lblFecha" runat="server" />
-                            </ItemTemplate>
-                            <HeaderStyle Width="80px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Estado">
-                            <HeaderStyle Width="90px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Tipo">
-                            <HeaderStyle Width="100px" />
-                        </asp:TemplateField>
+                        <asp:BoundField HeaderText="Número" DataField="EVE_ID" ItemStyle-Width="80px" />
+                        <asp:BoundField HeaderText="Fecha" DataField="EVE_FECHA" DataFormatString="d" ItemStyle-Width="80px" />
+                        <asp:BoundField HeaderText="Tipo" ItemStyle-Width="100px" />
                         <asp:TemplateField HeaderText="Archivo Adjunto">
+                            <ItemTemplate>
+                                <asp:ImageButton runat="server" ID="ibAdjunto" ImageUrl="images/download-file.png"
+                                    ToolTip="Descargar" CommandName="Descargar" CommandArgument="<%# Eval("EVE_ADJUNTO") %>" />
+                            </ItemTemplate>
                             <HeaderStyle Width="80px" />
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Glosa">
-                            <HeaderStyle Width="200px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Responsable">
-                            <HeaderStyle Width="150px" />
+                        <asp:BoundField HeaderText="Glosa" DataField="EVE_DESCRIPCION" ItemStyle-Width="300px" />
+                        <asp:BoundField HeaderText="Responsable" DataField="EVE_RESPONSABLE" ItemStyle-Width="150px" />
+                        <asp:TemplateField HeaderText="Acciones">
+                            <ItemTemplate>
+                                <asp:ImageButton runat="server" ID="ibEditar" ImageUrl="images/edit.gif" ToolTip="Editar"
+                                    CommandName="Editar" CommandArgument="<%# Eval("EVE_ID") %>" />
+                                <asp:Label runat="server" Text=" / " />
+                                <asp:ImageButton runat="server" ID="ibEliminar" ImageUrl="images/delete.gif" ToolTip="Eliminar"
+                                    CommandName="Eliminar" CommandArgument="<%# Eval("EVE_ID") %>" OnClientClick="javascript: return confirm('¿Desea eliminar el evento seleccionado?');" />
+                            </ItemTemplate>
+                            <HeaderStyle Width="60px" />
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
@@ -189,6 +185,7 @@
         <asp:TableRow ID="tbcCrearEvento" runat="server" Visible="False">
             <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Middle" ColumnSpan="2"
                 Style="padding-top: 30px;">
+                <asp:HiddenField ID="hdnIdEvento" runat="server" />
                 <asp:Table runat="server" HorizontalAlign="Center" BorderWidth="1px" CellPadding="5">
                     <asp:TableRow runat="server">
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
@@ -209,6 +206,14 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
+                        <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Archivo Adjunto: " />
+                        <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
+                            <asp:ImageButton ID="ibEventoAdjunto" runat="server" Visible="False" ToolTip="Archivo Adjunto"
+                                ImageUrl="images/download-file.png" OnClick="EventoAdjuntoOnClick" />
+                            <asp:FileUpload ID="fupEventoAdjunto" runat="server" Width="200px" ValidationGroup="CrearEvento" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
                         <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Nombre Responsable: " />
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
                             <asp:TextBox ID="tbEventoNombreResponsable" runat="server" Width="200px" ValidationGroup="CrearEvento" />
@@ -224,7 +229,9 @@
                     <asp:TableRow runat="server">
                         <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Fecha: " />
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                            <asp:TextBox ID="tbEventoFecha" runat="server" Width="100px" ValidationGroup="CrearEvento" />
+                            <asp:TextBox ID="tbEventoFecha" runat="server" Width="100px" ValidationGroup="CrearEvento"
+                                CssClass="Fecha" />
+                            <act:CalendarExtender ID="calEventoFecha" runat="server" TargetControlID="tbEventoFecha" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">

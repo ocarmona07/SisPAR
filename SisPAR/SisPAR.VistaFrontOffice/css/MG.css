@@ -1,0 +1,55 @@
+﻿
+.Mtable
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0.35, #DCDCF5),
+	color-stop(0.58, #1569E8)
+);
+background-image: -o-linear-gradient(bottom, #DCDCF5 35%, #1569E8 58%);
+background-image: -moz-linear-gradient(bottom, #DCDCF5 35%, #1569E8 58%);
+background-image: -webkit-linear-gradient(bottom, #DCDCF5 35%, #1569E8 58%);
+background-image: -ms-linear-gradient(bottom, #DCDCF5 35%, #1569E8 58%);
+background-image: linear-gradient(to bottom, #DCDCF5 35%, #1569E8 58%);
+    -webkit-border-radius: 12px;
+}
+.Mtable2
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0.35, #DCDCF5),
+	color-stop(0.58, #1569E8)
+);
+background-image: -o-linear-gradient(bottom, #DCDCF5 35%, #1569E8 58%);
+background-image: -moz-linear-gradient(bottom, #DCDCF5 35%, #1569E8 58%);
+background-image: -webkit-linear-gradient(bottom, #DCDCF5 35%, #1569E8 58%);
+background-image: -ms-linear-gradient(bottom, #DCDCF5 35%, #1569E8 58%);
+background-image: linear-gradient(to bottom, #DCDCF5 35%, #1569E8 58%);
+    -webkit-border-radius: 12px;
+}
+
+.Mtable th:first-child
+{
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    
+}
+
+
+
+/*
+.Mtable th:last-child
+{
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    
+}
+*/

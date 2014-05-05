@@ -36,7 +36,7 @@
             if (new UsuariosBo().ComprobarUsuarioBack(int.Parse(tbUsuario.Text), tbPassword.Text))
             {
                 Session["UsuarioBack"] = new UsuariosBo().ObtenerUsuarioPorRut(int.Parse(tbUsuario.Text));
-                Response.Redirect("SolicitudesPendientes.aspx");
+                Response.Redirect("GestionSolicitudes.aspx");
             }
             else
             {

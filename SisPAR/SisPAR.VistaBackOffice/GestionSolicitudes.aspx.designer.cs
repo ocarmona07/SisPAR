@@ -301,6 +301,15 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.TableRow tbcCrearEvento;
         
         /// <summary>
+        /// Control hdnIdEvento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnIdEvento;
+        
+        /// <summary>
         /// Control ddlEventoRequerimiento.
         /// </summary>
         /// <remarks>
@@ -317,6 +326,24 @@ namespace SisPAR.VistaBackOffice {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEventoEstado;
+        
+        /// <summary>
+        /// Control ibEventoAdjunto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibEventoAdjunto;
+        
+        /// <summary>
+        /// Control fupEventoAdjunto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fupEventoAdjunto;
         
         /// <summary>
         /// Control tbEventoNombreResponsable.
@@ -344,6 +371,15 @@ namespace SisPAR.VistaBackOffice {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbEventoFecha;
+        
+        /// <summary>
+        /// Control calEventoFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calEventoFecha;
         
         /// <summary>
         /// Control btnEventoCrear.

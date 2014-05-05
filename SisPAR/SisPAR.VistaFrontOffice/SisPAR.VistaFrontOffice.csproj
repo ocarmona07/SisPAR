@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Encuesta.aspx.cs">
       <DependentUpon>Encuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Encuesta.aspx.designer.cs">
       <DependentUpon>Encuesta.aspx</DependentUpon>
