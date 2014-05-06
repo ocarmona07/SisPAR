@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina un Subproceso
         /// </summary>
-        /// <param name="subproceso">Datos del Subproceso</param>
+        /// <param name="idSubproceso">Id del Subproceso</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarSubproceso(SPO_SUBPROCESO subproceso)
+        public int EliminarSubproceso(int idSubproceso)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.SPO_SUBPROCESO.DeleteObject(subproceso);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.SPO_SUBPROCESO", "SPO_ID", idSubproceso), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

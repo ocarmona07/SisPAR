@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina una Empresas
         /// </summary>
-        /// <param name="empresa">Datos de la Empresa</param>
+        /// <param name="idEmpresa">Id de la Empresa</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarEmpresa(EPR_EMPRESA empresa)
+        public int EliminarEmpresa(int idEmpresa)
         {
-            return _empresasDa.EliminarEmpresa(empresa);
+            return _empresasDa.EliminarEmpresa(idEmpresa);
         }
     }
 }

@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina un Proceso
         /// </summary>
-        /// <param name="proceso">Datos del Proceso</param>
+        /// <param name="idProceso">Id del Proceso</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarProceso(PRO_PROCESO proceso)
+        public int EliminarProceso(int idProceso)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.PRO_PROCESO.DeleteObject(proceso);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.PRO_PROCESO", "PRO_ID", idProceso), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

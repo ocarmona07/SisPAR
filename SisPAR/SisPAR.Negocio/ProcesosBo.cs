@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina Procesos
         /// </summary>
-        /// <param name="procesos">Datos de Procesos</param>
+        /// <param name="idProcesos">Id de Proceso</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarProceso(PRO_PROCESO procesos)
+        public int EliminarProceso(int idProcesos)
         {
-            return _procesosDa.EliminarProceso(procesos);
+            return _procesosDa.EliminarProceso(idProcesos);
         }
     }
 }

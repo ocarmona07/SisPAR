@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina un Historial de Requerimientos
         /// </summary>
-        /// <param name="historialReq">Datos del Historial</param>
+        /// <param name="idHistorialReq">Id del Historial</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarHistorialRequerimientos(HRE_HISTORIAL_REQUERIMIENTO historialReq)
+        public int EliminarHistorialRequerimientos(int idHistorialReq)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.HRE_HISTORIAL_REQUERIMIENTO.DeleteObject(historialReq);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.HRE_HISTORIAL_REQUERIMIENTO", "HRE_ID", idHistorialReq), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

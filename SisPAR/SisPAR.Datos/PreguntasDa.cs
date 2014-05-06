@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina una Pregunta
         /// </summary>
-        /// <param name="pregunta">Datos de la Pregunta</param>
+        /// <param name="idPregunta">Id de la Pregunta</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarPregunta(PRE_PREGUNTA pregunta)
+        public int EliminarPregunta(int idPregunta)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.PRE_PREGUNTA.DeleteObject(pregunta);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.PRE_PREGUNTA", "PRE_ID", idPregunta), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

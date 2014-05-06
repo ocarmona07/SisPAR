@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina una Evaluacion
         /// </summary>
-        /// <param name="evaluacion">Datos de la Evaluacion</param>
+        /// <param name="idEvaluacion">Id de la Evaluacion</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarEvaluacion(EVA_EVALUACION evaluacion)
+        public int EliminarEvaluacion(int idEvaluacion)
         {
-            return _evaluacionesDa.EliminarEvaluacion(evaluacion);
+            return _evaluacionesDa.EliminarEvaluacion(idEvaluacion);
         }
     }
 }

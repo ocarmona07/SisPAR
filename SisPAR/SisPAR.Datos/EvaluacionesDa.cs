@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina una Evaluación
         /// </summary>
-        /// <param name="evaluacion">Datos de la Evaluación</param>
+        /// <param name="idEvaluacion">Id de la Evaluación</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarEvaluacion(EVA_EVALUACION evaluacion)
+        public int EliminarEvaluacion(int idEvaluacion)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.EVA_EVALUACION.DeleteObject(evaluacion);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.EVA_EVALUACION", "EVA_ID", idEvaluacion), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina una Derivación
         /// </summary>
-        /// <param name="derivacion">Datos de la Derivación</param>
+        /// <param name="idDerivacion">Id de la Derivación</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarDerivacion(DER_DERIVACION derivacion)
+        public int EliminarDerivacion(int idDerivacion)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.DER_DERIVACION.DeleteObject(derivacion);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.DER_DERIVACION", "DER_ID", idDerivacion), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

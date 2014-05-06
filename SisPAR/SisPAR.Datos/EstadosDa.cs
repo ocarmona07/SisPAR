@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina un Estado
         /// </summary>
-        /// <param name="estado">Datos del Estado</param>
+        /// <param name="idEstado">Id del Estado</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarEstado(EST_ESTADOS estado)
+        public int EliminarEstado(int idEstado)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.EST_ESTADOS.DeleteObject(estado);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.EST_ESTADOS", "EST_ID", idEstado), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

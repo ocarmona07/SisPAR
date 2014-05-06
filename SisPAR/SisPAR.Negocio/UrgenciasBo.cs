@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina Urgencias
         /// </summary>
-        /// <param name="urgencias">Datos de Urgencias</param>
+        /// <param name="idUrgencia">Id de Urgencia</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarUrgencia(URG_URGENCIA urgencias)
+        public int EliminarUrgencia(int idUrgencia)
         {
-            return _urgenciasDa.EliminarUrgencia(urgencias);
+            return _urgenciasDa.EliminarUrgencia(idUrgencia);
         }
     }
 }

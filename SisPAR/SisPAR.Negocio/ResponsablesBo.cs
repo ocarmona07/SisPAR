@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina Responsables
         /// </summary>
-        /// <param name="responsables">Datos de Responsables</param>
+        /// <param name="idResponsable">Id de Responsables</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarResponsable(RES_RESPONSABLE responsables)
+        public int EliminarResponsable(int idResponsable)
         {
-            return _responsablesDa.EliminarResponsable(responsables);
+            return _responsablesDa.EliminarResponsable(idResponsable);
         }
     }
 }

@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina Notificaciones
         /// </summary>
-        /// <param name="notificaciones">Datos de Notificaciones</param>
+        /// <param name="idNotificaciones">Id de Notificaciones</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarNotificacion(NOT_NOTIFICACION notificaciones)
+        public int EliminarNotificacion(int idNotificaciones)
         {
-            return _notificacionesDa.EliminarNotificacion(notificaciones);
+            return _notificacionesDa.EliminarNotificacion(idNotificaciones);
         }
     }
 }

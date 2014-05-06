@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina Requerimientos
         /// </summary>
-        /// <param name="requerimientos">Datos de Requerimientos</param>
+        /// <param name="idRequerimiento">Id de Requerimiento</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarRequerimiento(REQ_REQUERIMIENTO requerimientos)
+        public int EliminarRequerimiento(int idRequerimiento)
         {
-            return _requerimientosDa.EliminarRequerimiento(requerimientos);
+            return _requerimientosDa.EliminarRequerimiento(idRequerimiento);
         }
     }
 }

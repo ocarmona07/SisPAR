@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina una Empresa
         /// </summary>
-        /// <param name="empresa">Datos de la Empresa</param>
+        /// <param name="idEmpresa">Id de la Empresa</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarEmpresa(EPR_EMPRESA empresa)
+        public int EliminarEmpresa(int idEmpresa)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.EPR_EMPRESA.DeleteObject(empresa);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.EPR_EMPRESA", "EPR_ID", idEmpresa), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

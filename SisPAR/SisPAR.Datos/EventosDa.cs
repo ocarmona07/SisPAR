@@ -117,11 +117,10 @@
         public int EliminarEvento(int idEvento)
         {
             var idRetorno = -1;
-            var keyEvento = new EntityKey("SisPAREntities.EVE_EVENTO", "EVE_ID", idEvento);
             try
             {
                 object deletedObject;
-                _dbSisParEntities.TryGetObjectByKey(keyEvento, out deletedObject);
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.EVE_EVENTO", "EVE_ID", idEvento), out deletedObject);
                 _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();

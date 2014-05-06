@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina Roles
         /// </summary>
-        /// <param name="roles">Datos de Roles</param>
+        /// <param name="idRol">Id de Rol</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarRol(ROL_ROL roles)
+        public int EliminarRol(int idRol)
         {
-            return _rolesDa.EliminarRol(roles);
+            return _rolesDa.EliminarRol(idRol);
         }
     }
 }

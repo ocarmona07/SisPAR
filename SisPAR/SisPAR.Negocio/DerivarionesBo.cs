@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina una Derivación
         /// </summary>
-        /// <param name="derivacion">Datos de la Derivación</param>
+        /// <param name="idDerivacion">Id de la Derivación</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarDerivacion(DER_DERIVACION derivacion)
+        public int EliminarDerivacion(int idDerivacion)
         {
-            return _derivacionesDa.EliminarDerivacion(derivacion);
+            return _derivacionesDa.EliminarDerivacion(idDerivacion);
         }
     }
 }

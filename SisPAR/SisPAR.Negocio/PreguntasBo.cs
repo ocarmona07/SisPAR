@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina Preguntas
         /// </summary>
-        /// <param name="preguntas">Datos de Preguntas</param>
+        /// <param name="idPregunta">Id de Pregunta</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarPregunta(PRE_PREGUNTA preguntas)
+        public int EliminarPregunta(int idPregunta)
         {
-            return _preguntasDa.EliminarPregunta(preguntas);
+            return _preguntasDa.EliminarPregunta(idPregunta);
         }
     }
 }

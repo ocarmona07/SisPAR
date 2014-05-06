@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina Subprocesos
         /// </summary>
-        /// <param name="subprocesos">Datos de Subprocesos</param>
+        /// <param name="idSubproceso">Id de Subprocesos</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarSubproceso(SPO_SUBPROCESO subprocesos)
+        public int EliminarSubproceso(int idSubproceso)
         {
-            return _subprocesosDa.EliminarSubproceso(subprocesos);
+            return _subprocesosDa.EliminarSubproceso(idSubproceso);
         }
     }
 }

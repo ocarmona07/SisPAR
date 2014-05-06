@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina un Usuario
         /// </summary>
-        /// <param name="usuario">Datos del Usuario</param>
+        /// <param name="idUsuario">Id del Usuario</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarUsuario(USU_USUARIO usuario)
+        public int EliminarUsuario(int idUsuario)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.USU_USUARIO.DeleteObject(usuario);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.USU_USUARIO", "USU_ID", idUsuario), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

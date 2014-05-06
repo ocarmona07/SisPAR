@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina un HistorialReq
         /// </summary>
-        /// <param name="historialReq">Datos del HistorialReq</param>
+        /// <param name="idHistorialReq">Datos del HistorialReq</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarHistorialRequerimientos(HRE_HISTORIAL_REQUERIMIENTO historialReq)
+        public int EliminarHistorialRequerimientos(int idHistorialReq)
         {
-            return _historialReqDa.EliminarHistorialRequerimientos(historialReq);
+            return _historialReqDa.EliminarHistorialRequerimientos(idHistorialReq);
         }
     }
 }

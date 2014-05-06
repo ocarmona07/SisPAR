@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina un Requerimiento
         /// </summary>
-        /// <param name="requerimiento">Datos del Requerimiento</param>
+        /// <param name="idRequerimiento">Id del Requerimiento</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarRequerimiento(REQ_REQUERIMIENTO requerimiento)
+        public int EliminarRequerimiento(int idRequerimiento)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.REQ_REQUERIMIENTO.DeleteObject(requerimiento);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.REQ_REQUERIMIENTO", "REQ_ID", idRequerimiento), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

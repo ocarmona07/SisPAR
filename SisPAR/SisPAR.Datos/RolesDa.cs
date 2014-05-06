@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina un Rol
         /// </summary>
-        /// <param name="rol">Datos del Rol</param>
+        /// <param name="idRol">Id del Rol</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarRol(ROL_ROL rol)
+        public int EliminarRol(int idRol)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.ROL_ROL.DeleteObject(rol);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.ROL_ROL", "ROL_ID", idRol), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

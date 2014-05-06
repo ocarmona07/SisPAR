@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina una Notificación
         /// </summary>
-        /// <param name="notificacion">Datos de la Notificación</param>
+        /// <param name="idNotificacion">Id de la Notificación</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarNotificacion(NOT_NOTIFICACION notificacion)
+        public int EliminarNotificacion(int idNotificacion)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.NOT_NOTIFICACION.DeleteObject(notificacion);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.NOT_NOTIFICACION", "NOT_ID", idNotificacion), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

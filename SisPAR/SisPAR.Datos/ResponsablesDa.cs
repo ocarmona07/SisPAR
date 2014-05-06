@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina un Responsable
         /// </summary>
-        /// <param name="resonsable">Datos del Responsable</param>
+        /// <param name="idResponsable">Id del Responsable</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarResponsable(RES_RESPONSABLE resonsable)
+        public int EliminarResponsable(int idResponsable)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.RES_RESPONSABLE.DeleteObject(resonsable);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.RES_RESPONSABLE", "RES_ID", idResponsable), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

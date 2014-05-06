@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina un Estado
         /// </summary>
-        /// <param name="estado">Datos del Estado</param>
+        /// <param name="idEstado">Id del Estado</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarEstado(EST_ESTADOS estado)
+        public int EliminarEstado(int idEstado)
         {
-            return _estadosDa.EliminarEstado(estado);
+            return _estadosDa.EliminarEstado(idEstado);
         }
     }
 }

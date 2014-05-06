@@ -58,11 +58,11 @@ namespace SisPAR.Negocio
         /// <summary>
         /// Método que elimina Usuarios
         /// </summary>
-        /// <param name="usuarios">Datos de Usuarios</param>
+        /// <param name="idUsuario">Id de Usuarios</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarUsuario(USU_USUARIO usuarios)
+        public int EliminarUsuario(int idUsuario)
         {
-            return _usuariosDa.EliminarUsuario(usuarios);
+            return _usuariosDa.EliminarUsuario(idUsuario);
         }
 
         /// <summary>

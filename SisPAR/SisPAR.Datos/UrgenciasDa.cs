@@ -112,14 +112,16 @@
         /// <summary>
         /// Método que elimina una Urgencia
         /// </summary>
-        /// <param name="urgencia">Datos de la Urgencia</param>
+        /// <param name="idUrgencia">Id de la Urgencia</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarUrgencia(URG_URGENCIA urgencia)
+        public int EliminarUrgencia(int idUrgencia)
         {
             var idRetorno = -1;
             try
             {
-                _dbSisParEntities.URG_URGENCIA.DeleteObject(urgencia);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(new EntityKey("SisPAREntities.URG_URGENCIA", "URG_ID", idUrgencia), out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;
