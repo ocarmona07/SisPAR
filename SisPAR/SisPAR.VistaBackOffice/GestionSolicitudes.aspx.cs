@@ -6,7 +6,6 @@ namespace SisPAR.VistaBackOffice
     using System;
     using System.Configuration;
     using System.Globalization;
-    using System.Linq;
     using System.Threading;
     using System.Web.UI;
     using System.Web.UI.WebControls;
@@ -39,11 +38,8 @@ namespace SisPAR.VistaBackOffice
 
             LimpiarSolicitud();
             var responsables = new ResponsablesBo().ObtenerResponsables();
-            var ddlResp = from resp in responsables
-                          orderby resp.RES_ID
-                          select new { resp.RES_ID, resp.USU_USUARIO.USU_NOMBRE };
-            ddlSolicitudAsignado.DataSource = ddlResp;
-            ddlSolicitudAsignado.DataTextField = "USU_NOMBRE";
+            ddlSolicitudAsignado.DataSource = responsables;
+            ddlSolicitudAsignado.DataTextField = "RES_USU_ID";
             ddlSolicitudAsignado.DataValueField = "RES_ID";
             ddlSolicitudAsignado.DataBind();
             ddlSolicitudAsignado.Items.Insert(0, itemSeleccionar);
@@ -56,7 +52,7 @@ namespace SisPAR.VistaBackOffice
             ddlSolicitudImpacto.Items.Insert(0, itemSeleccionar);
 
             ddlSolicitudResponsable.DataSource = responsables;
-            ddlSolicitudResponsable.DataTextField = "USU_NOMBRE";
+            ddlSolicitudResponsable.DataTextField = "RES_USU_ID";
             ddlSolicitudResponsable.DataValueField = "RES_ID";
             ddlSolicitudResponsable.DataBind();
             ddlSolicitudResponsable.Items.Insert(0, itemSeleccionar);
@@ -88,11 +84,8 @@ namespace SisPAR.VistaBackOffice
 
             LimpiarEvento();
             var requerimientos = new RequerimientosBo().ObtenerRequerimientos();
-            var ddlReq = from req in requerimientos
-                         orderby req.REQ_ID
-                         select new { req.REQ_ID, req.EPR_EMPRESA.EPR_RAZONSOCIAL };
-            ddlEventoRequerimiento.DataSource = ddlReq;
-            ddlEventoRequerimiento.DataTextField = "REQ_ID - EPR_RAZONSOCIAL";
+            ddlEventoRequerimiento.DataSource = requerimientos;
+            ddlEventoRequerimiento.DataTextField = "REQ_ID";
             ddlEventoRequerimiento.DataValueField = "REQ_ID";
             ddlEventoRequerimiento.DataBind();
             ddlEventoRequerimiento.Items.Insert(0, itemSeleccionar);
@@ -118,7 +111,7 @@ namespace SisPAR.VistaBackOffice
             ddlConsultasEmpresa.Items.Insert(0, new ListItem("Todas", "0"));
 
             ddlConsultasResponsables.DataSource = responsables;
-            ddlConsultasResponsables.DataTextField = "USU_NOMBRE";
+            ddlConsultasResponsables.DataTextField = "RES_USU_ID";
             ddlConsultasResponsables.DataValueField = "RES_ID";
             ddlConsultasResponsables.DataBind();
             ddlConsultasResponsables.Items.Insert(0, itemTodos);
@@ -325,6 +318,8 @@ namespace SisPAR.VistaBackOffice
         {
             LimpiarCrearEvento(null, null);
             CancelarEvento(null, null);
+            gvEventos.DataSource = new EventosBo().ObtenerEventos();
+            gvEventos.DataBind();
         }
 
         /// <summary>
@@ -350,7 +345,7 @@ namespace SisPAR.VistaBackOffice
             switch (e.CommandName)
             {
                 case "Editar":
-                    LimpiarCrearEvento(null, null);
+                    CrearEvento(null, null);
                     var editarEvento = new EventosBo().ObtenerEvento(int.Parse(e.CommandArgument.ToString()));
                     hdnIdEvento.Value = e.CommandArgument.ToString();
                     ddlEventoRequerimiento.SelectedValue = editarEvento.EVE_REQ_ID.ToString(CultureInfo.InvariantCulture);

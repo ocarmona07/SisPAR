@@ -156,18 +156,22 @@
                 <asp:GridView ID="gvEventos" runat="server" AutoGenerateColumns="False" Width="760px"
                     OnRowCommand="EventosRowCommand">
                     <Columns>
-                        <asp:BoundField HeaderText="Número" DataField="EVE_ID" ItemStyle-Width="80px" />
-                        <asp:BoundField HeaderText="Fecha" DataField="EVE_FECHA" DataFormatString="d" ItemStyle-Width="80px" />
-                        <asp:BoundField HeaderText="Tipo" ItemStyle-Width="100px" />
+                        <asp:BoundField HeaderText="Número" DataField="EVE_ID" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
+                        <asp:BoundField HeaderText="Fecha" DataField="EVE_FECHA" DataFormatString="{0:dd/MM/yyyy}"
+                            ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
+                        <asp:BoundField HeaderText="Estado" DataField="EVE_EST_ID" ItemStyle-Width="100px"
+                            ItemStyle-HorizontalAlign="Center" />
                         <asp:TemplateField HeaderText="Archivo Adjunto">
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="ibAdjunto" ImageUrl="images/download-file.png"
                                     ToolTip="Descargar" CommandName="Descargar" CommandArgument='<%# Eval("EVE_ADJUNTO") %>' />
                             </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
                             <HeaderStyle Width="80px" />
                         </asp:TemplateField>
                         <asp:BoundField HeaderText="Glosa" DataField="EVE_DESCRIPCION" ItemStyle-Width="300px" />
-                        <asp:BoundField HeaderText="Responsable" DataField="EVE_RESPONSABLE" ItemStyle-Width="150px" />
+                        <asp:BoundField HeaderText="Responsable" DataField="EVE_RESPONSABLE" ItemStyle-Width="150px"
+                            ItemStyle-HorizontalAlign="Center" />
                         <asp:TemplateField HeaderText="Acciones">
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="ibEditar" ImageUrl="images/edit.gif" ToolTip="Editar"
@@ -176,6 +180,7 @@
                                 <asp:ImageButton runat="server" ID="ibEliminar" ImageUrl="images/delete.gif" ToolTip="Eliminar"
                                     CommandName="Eliminar" CommandArgument='<%# Eval("EVE_ID") %>' OnClientClick="javascript: return confirm('¿Desea eliminar el evento seleccionado?');" />
                             </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
                             <HeaderStyle Width="60px" />
                         </asp:TemplateField>
                     </Columns>

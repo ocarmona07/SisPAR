@@ -28,10 +28,12 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_EPR_EMPRESA_PRO_PROCESO", "EPR_EMPRESA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EPR_EMPRESA), "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.PRO_PROCESO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_EPR_EMPRESA", "EPR_EMPRESA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EPR_EMPRESA), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_USU_USUARIO_EPR_EMPRESA", "EPR_EMPRESA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EPR_EMPRESA), "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.USU_USUARIO), true)]
+[assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVE_EVENTO_EST_ESTADOS", "EST_ESTADOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EST_ESTADOS), "EVE_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVE_EVENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_HRE_HISTORIAL_REQUERIMIENTO_EST_ESTADOS", "EST_ESTADOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EST_ESTADOS), "HRE_HISTORIAL_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.HRE_HISTORIAL_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_EST_ESTADOS", "EST_ESTADOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SisPAR.Entidades.EST_ESTADOS), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVA_EVALUACION_PRE_PREGUNTA", "PRE_PREGUNTA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.PRE_PREGUNTA), "EVA_EVALUACION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVA_EVALUACION), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVA_EVALUACION_REQ_REQUERIMIENTO", "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), "EVA_EVALUACION", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVA_EVALUACION), true)]
+[assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVE_EVENTO_REQ_REQUERIMIENTO", "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), "EVE_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVE_EVENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_HRE_HISTORIAL_REQUERIMIENTO_REQ_REQUERIMIENTO", "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), "HRE_HISTORIAL_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.HRE_HISTORIAL_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_REQ_REQUERIMIENTO_PRO_PROCESO", "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SisPAR.Entidades.PRO_PROCESO), "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_SPO_SUBPROCESO_PRO_PROCESO", "PRO_PROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.PRO_PROCESO), "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.SPO_SUBPROCESO), true)]
@@ -44,8 +46,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_RES_RESPONSABLE_ROL_ROL", "ROL_ROL", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.ROL_ROL), "RES_RESPONSABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.RES_RESPONSABLE), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_RES_RESPONSABLE_USU_USUARIO", "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.USU_USUARIO), "RES_RESPONSABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.RES_RESPONSABLE), true)]
 [assembly: EdmRelationshipAttribute("SisPARModel", "FK_SPO_SUBPROCESO_USU_USUARIO", "USU_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.USU_USUARIO), "SPO_SUBPROCESO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.SPO_SUBPROCESO), true)]
-[assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVE_EVENTO_EST_ESTADOS", "EST_ESTADOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.EST_ESTADOS), "EVE_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVE_EVENTO), true)]
-[assembly: EdmRelationshipAttribute("SisPARModel", "FK_EVE_EVENTO_REQ_REQUERIMIENTO", "REQ_REQUERIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisPAR.Entidades.REQ_REQUERIMIENTO), "EVE_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisPAR.Entidades.EVE_EVENTO), true)]
 
 #endregion
 
@@ -176,6 +176,22 @@ namespace SisPAR.Entidades
             }
         }
         private ObjectSet<EVA_EVALUACION> _EVA_EVALUACION;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<EVE_EVENTO> EVE_EVENTO
+        {
+            get
+            {
+                if ((_EVE_EVENTO == null))
+                {
+                    _EVE_EVENTO = base.CreateObjectSet<EVE_EVENTO>("EVE_EVENTO");
+                }
+                return _EVE_EVENTO;
+            }
+        }
+        private ObjectSet<EVE_EVENTO> _EVE_EVENTO;
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -352,22 +368,6 @@ namespace SisPAR.Entidades
             }
         }
         private ObjectSet<USU_USUARIO> _USU_USUARIO;
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        public ObjectSet<EVE_EVENTO> EVE_EVENTO
-        {
-            get
-            {
-                if ((_EVE_EVENTO == null))
-                {
-                    _EVE_EVENTO = base.CreateObjectSet<EVE_EVENTO>("EVE_EVENTO");
-                }
-                return _EVE_EVENTO;
-            }
-        }
-        private ObjectSet<EVE_EVENTO> _EVE_EVENTO;
 
         #endregion
         #region Métodos AddTo
@@ -410,6 +410,14 @@ namespace SisPAR.Entidades
         public void AddToEVA_EVALUACION(EVA_EVALUACION eVA_EVALUACION)
         {
             base.AddObject("EVA_EVALUACION", eVA_EVALUACION);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet EVE_EVENTO. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToEVE_EVENTO(EVE_EVENTO eVE_EVENTO)
+        {
+            base.AddObject("EVE_EVENTO", eVE_EVENTO);
         }
     
         /// <summary>
@@ -498,14 +506,6 @@ namespace SisPAR.Entidades
         public void AddToUSU_USUARIO(USU_USUARIO uSU_USUARIO)
         {
             base.AddObject("USU_USUARIO", uSU_USUARIO);
-        }
-    
-        /// <summary>
-        /// Método desusado para agregar un nuevo objeto al EntitySet EVE_EVENTO. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
-        /// </summary>
-        public void AddToEVE_EVENTO(EVE_EVENTO eVE_EVENTO)
-        {
-            base.AddObject("EVE_EVENTO", eVE_EVENTO);
         }
 
         #endregion
@@ -1625,6 +1625,28 @@ namespace SisPAR.Entidades
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_EVE_EVENTO_EST_ESTADOS", "EVE_EVENTO")]
+        public EntityCollection<EVE_EVENTO> EVE_EVENTO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EVE_EVENTO>("SisPARModel.FK_EVE_EVENTO_EST_ESTADOS", "EVE_EVENTO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVE_EVENTO>("SisPARModel.FK_EVE_EVENTO_EST_ESTADOS", "EVE_EVENTO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_HRE_HISTORIAL_REQUERIMIENTO_EST_ESTADOS", "HRE_HISTORIAL_REQUERIMIENTO")]
         public EntityCollection<HRE_HISTORIAL_REQUERIMIENTO> HRE_HISTORIAL_REQUERIMIENTO
         {
@@ -1659,28 +1681,6 @@ namespace SisPAR.Entidades
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REQ_REQUERIMIENTO>("SisPARModel.FK_REQ_REQUERIMIENTO_EST_ESTADOS", "REQ_REQUERIMIENTO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_EVE_EVENTO_EST_ESTADOS", "EVE_EVENTO")]
-        public EntityCollection<EVE_EVENTO> EVE_EVENTO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EVE_EVENTO>("SisPARModel.FK_EVE_EVENTO_EST_ESTADOS", "EVE_EVENTO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVE_EVENTO>("SisPARModel.FK_EVE_EVENTO_EST_ESTADOS", "EVE_EVENTO", value);
                 }
             }
         }
@@ -3707,30 +3707,6 @@ namespace SisPAR.Entidades
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String REQ_PRV_ID
-        {
-            get
-            {
-                return _REQ_PRV_ID;
-            }
-            set
-            {
-                OnREQ_PRV_IDChanging(value);
-                ReportPropertyChanging("REQ_PRV_ID");
-                _REQ_PRV_ID = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("REQ_PRV_ID");
-                OnREQ_PRV_IDChanged();
-            }
-        }
-        private global::System.String _REQ_PRV_ID;
-        partial void OnREQ_PRV_IDChanging(global::System.String value);
-        partial void OnREQ_PRV_IDChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 REQ_EPR_ID
@@ -3920,6 +3896,28 @@ namespace SisPAR.Entidades
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVA_EVALUACION>("SisPARModel.FK_EVA_EVALUACION_REQ_REQUERIMIENTO", "EVA_EVALUACION", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_EVE_EVENTO_REQ_REQUERIMIENTO", "EVE_EVENTO")]
+        public EntityCollection<EVE_EVENTO> EVE_EVENTO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EVE_EVENTO>("SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO", "EVE_EVENTO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVE_EVENTO>("SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO", "EVE_EVENTO", value);
                 }
             }
         }
@@ -4132,28 +4130,6 @@ namespace SisPAR.Entidades
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<USU_USUARIO>("SisPARModel.FK_REQ_REQUERIMIENTO_USU_USUARIO", "USU_USUARIO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisPARModel", "FK_EVE_EVENTO_REQ_REQUERIMIENTO", "EVE_EVENTO")]
-        public EntityCollection<EVE_EVENTO> EVE_EVENTO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EVE_EVENTO>("SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO", "EVE_EVENTO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVE_EVENTO>("SisPARModel.FK_EVE_EVENTO_REQ_REQUERIMIENTO", "EVE_EVENTO", value);
                 }
             }
         }
