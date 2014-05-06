@@ -7,12 +7,12 @@
     <script type="text/javascript">
         function ValidarFechas() {
             var mensaje = 'La Fecha Hasta no debe ser superior a la Fecha Desde';
-            
+
             var fechaDesde = document.getElementById("<%= tbConsultasFechaDesde.ClientID %>").value;
             var xDay = fechaDesde.substring(0, 2);
             var xMonth = fechaDesde.substring(3, 5);
             var xYear = fechaDesde.substring(6, 10);
-            
+
             var fechaHasta = document.getElementById("<%= tbConsultasFechaHasta.ClientID %>").value;
             var yDay = fechaHasta.substring(0, 2);
             var yMonth = fechaHasta.substring(3, 5);
@@ -38,7 +38,7 @@
                     }
                 } else {
                     alert(mensaje);
-                    return false;                    
+                    return false;
                 }
             }
         }
