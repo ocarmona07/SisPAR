@@ -56,11 +56,11 @@
         /// <summary>
         /// Método que elimina un Evento
         /// </summary>
-        /// <param name="evento">Datos del Evento</param>
+        /// <param name="idEvento">Id del Evento</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarEvento(EVE_EVENTO evento)
+        public int EliminarEvento(int idEvento)
         {
-            return _eventosDa.EliminarEvento(evento);
+            return _eventosDa.EliminarEvento(idEvento);
         }
     }
 }

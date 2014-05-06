@@ -112,14 +112,17 @@
         /// <summary>
         /// Método que elimina un Evento
         /// </summary>
-        /// <param name="evento">Datos del Evento</param>
+        /// <param name="idEvento">Id del Evento</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarEvento(EVE_EVENTO evento)
+        public int EliminarEvento(int idEvento)
         {
             var idRetorno = -1;
+            var keyEvento = new EntityKey("SisPAREntities.EVE_EVENTO", "EVE_ID", idEvento);
             try
             {
-                _dbSisParEntities.EVE_EVENTO.DeleteObject(evento);
+                object deletedObject;
+                _dbSisParEntities.TryGetObjectByKey(keyEvento, out deletedObject);
+                _dbSisParEntities.DeleteObject(deletedObject);
                 idRetorno = _dbSisParEntities.SaveChanges();
                 _dbSisParEntities.Dispose();
                 return idRetorno;

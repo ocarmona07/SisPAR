@@ -1,22 +1,29 @@
-﻿using System.IO;
-using System.Web;
-
-namespace SisPAR.VistaBackOffice
+﻿namespace SisPAR.VistaBackOffice
 {
+    #region Librerías
+
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
     using System.Globalization;
+    using System.IO;
+    using System.Linq;
     using System.Threading;
+    using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using Entidades;
     using Negocio;
+
+    #endregion
 
     /// <summary>
     /// Clase principal de Gestión de Solicitudes
     /// </summary>
     public partial class GestionSolicitudes : Page
     {
+        #region Page Load
+
         /// <summary>
         /// Método que se ejecuta al iniciar la vista
         /// </summary>
@@ -103,12 +110,12 @@ namespace SisPAR.VistaBackOffice
             LimpiarConsultas();
 
             var itemTodos = new ListItem("Todos", "0");
-            var empresas = new EmpresasBo().ObtenerEmpresas();
-            ddlConsultasEmpresa.DataSource = empresas;
-            ddlConsultasEmpresa.DataTextField = "EPR_RAZONSOCIAL";
-            ddlConsultasEmpresa.DataValueField = "EPR_ID";
-            ddlConsultasEmpresa.DataBind();
-            ddlConsultasEmpresa.Items.Insert(0, new ListItem("Todas", "0"));
+
+            ddlConsultasEstado.DataSource = estados;
+            ddlConsultasEstado.DataTextField = "EST_TIPO";
+            ddlConsultasEstado.DataValueField = "EST_ID";
+            ddlConsultasEstado.DataBind();
+            ddlConsultasEstado.Items.Insert(0, itemTodos);
 
             ddlConsultasResponsables.DataSource = responsables;
             ddlConsultasResponsables.DataTextField = "RES_USU_ID";
@@ -116,23 +123,15 @@ namespace SisPAR.VistaBackOffice
             ddlConsultasResponsables.DataBind();
             ddlConsultasResponsables.Items.Insert(0, itemTodos);
 
-            ddlConsultasProceso.DataSource = tipos;
-            ddlConsultasProceso.DataTextField = "PRO_NOMBRE";
-            ddlConsultasProceso.DataValueField = "PRO_ID";
-            ddlConsultasProceso.DataBind();
-            ddlConsultasProceso.Items.Insert(0, itemTodos);
-
-            ddlConsultasSubproceso.DataSource = subtipos;
-            ddlConsultasSubproceso.DataTextField = "SPO_NOMBRE";
-            ddlConsultasSubproceso.DataValueField = "SPO_ID";
-            ddlConsultasSubproceso.DataBind();
-            ddlConsultasSubproceso.Items.Insert(0, itemTodos);
-
             tbConsultasFechaDesde.Text = "01/01/2014";
             tbConsultasFechaHasta.Text = DateTime.Today.ToShortDateString();
 
             #endregion
         }
+
+        #endregion
+
+        #region Eventos
 
         /// <summary>
         /// Método que muestra la tabla Solicitud
@@ -189,6 +188,9 @@ namespace SisPAR.VistaBackOffice
             btnEvento.CssClass = "tablaTabs tablaTabsActivo";
             btnConsultas.Enabled = false;
             btnConsultas.CssClass = "tablaTabs tablaTabsInactivo";
+
+            gvConsultas.DataSource = new EventosBo().ObtenerEventos();
+            gvConsultas.DataBind();
         }
 
         /// <summary>
@@ -241,7 +243,7 @@ namespace SisPAR.VistaBackOffice
             {
                 guardaEvento.EVE_ID = int.Parse(hdnIdEvento.Value);
                 guardaEvento.EVE_ADJUNTO = fupEventoAdjunto.HasFile
-                    ? rutaAdjuntos + fupEventoAdjunto.FileName
+                    ? fupEventoAdjunto.FileName
                     : ibEventoAdjunto.CommandArgument;
                 if (new EventosBo().ActualizarEvento(guardaEvento) > 0)
                 {
@@ -253,7 +255,8 @@ namespace SisPAR.VistaBackOffice
                     mensaje = "Error al modificar el evento";
             }
 
-            ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeGuardado", @"<script language='javascript' type='text/javascript'>alert('" + mensaje + "');</script>", false);
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeGuardado",
+                @"<script language='javascript' type='text/javascript'>alert('" + mensaje + "');</script>", false);
 
         }
 
@@ -268,6 +271,7 @@ namespace SisPAR.VistaBackOffice
             ddlEventoRequerimiento.SelectedIndex = -1;
             ddlEventoEstado.SelectedIndex = -1;
             ibEventoAdjunto.Visible = false;
+            rfvAdjunto.Enabled = true;
             tbEventoNombreResponsable.Text = string.Empty;
             tbEventoDescripcion.Text = string.Empty;
             tbEventoFecha.Text = DateTime.Today.ToShortDateString();
@@ -286,6 +290,103 @@ namespace SisPAR.VistaBackOffice
             tbrBotonesEventos.Enabled = true;
             tbrGrillaEventos.Enabled = true;
         }
+
+        /// <summary>
+        /// Método que obtiene las acciones a realizar con los datos de la grilla
+        /// </summary>
+        /// <param name="sender">Objeto del evento</param>
+        /// <param name="e">Argumentos del evento</param>
+        protected void EventosRowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "Editar":
+                    CrearEvento(null, null);
+                    var editarEvento = new EventosBo().ObtenerEvento(int.Parse(e.CommandArgument.ToString()));
+                    hdnIdEvento.Value = e.CommandArgument.ToString();
+                    ddlEventoRequerimiento.SelectedValue = editarEvento.EVE_REQ_ID.ToString(CultureInfo.InvariantCulture);
+                    ddlEventoEstado.SelectedValue = editarEvento.EVE_EST_ID.ToString(CultureInfo.InvariantCulture);
+                    ibEventoAdjunto.CommandArgument = editarEvento.EVE_ADJUNTO;
+                    ibEventoAdjunto.ToolTip = "Archivo adjunto: " + editarEvento.EVE_ADJUNTO;
+                    ibEventoAdjunto.Visible = true;
+                    rfvAdjunto.Enabled = false;
+                    tbEventoNombreResponsable.Text = editarEvento.EVE_RESPONSABLE;
+                    tbEventoDescripcion.Text = editarEvento.EVE_DESCRIPCION;
+                    tbEventoFecha.Text = editarEvento.EVE_FECHA.ToShortDateString();
+                    btnEventoCrear.Text = "Modificar";
+                    break;
+
+                case "Eliminar":
+                    var mensaje = new EventosBo().EliminarEvento(int.Parse(e.CommandArgument.ToString())) > 0
+                        ? "Evento eliminado correctamente"
+                        : "Error al eliminar el evento";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeEliminar",
+                        @"<script language='javascript' type='text/javascript'>alert('" + mensaje + "');</script>",
+                        false);
+                    gvEventos.DataSource = new EventosBo().ObtenerEventos();
+                    gvEventos.DataBind();
+                    break;
+
+                case "Descargar":
+                    var rutaArchivo =
+                        new FileInfo(ConfigurationManager.AppSettings["NotificacionAdjunto"] + e.CommandArgument);
+                    Response.Clear();
+                    Response.AddHeader("Content-Disposition",
+                        "attachment; filename=" + HttpUtility.UrlEncode(rutaArchivo.Name));
+                    Response.AddHeader("Content-Length", rutaArchivo.Length.ToString(CultureInfo.InvariantCulture));
+                    Response.ContentType = "application/octet-stream";
+                    Response.WriteFile(rutaArchivo.FullName);
+                    Response.End();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Método que descarga el archivo adjunto del evento
+        /// </summary>
+        /// <param name="sender">Objeto del evento</param>
+        /// <param name="e">Argumentos del evento</param>
+        protected void EventoAdjuntoOnClick(object sender, ImageClickEventArgs e)
+        {
+            var rutaArchivo =
+                new FileInfo(ConfigurationManager.AppSettings["NotificacionAdjunto"] + ibEventoAdjunto.CommandArgument);
+            Response.Clear();
+            Response.AddHeader("Content-Disposition", "attachment; filename=" + HttpUtility.UrlEncode(rutaArchivo.Name));
+            Response.AddHeader("Content-Length", rutaArchivo.Length.ToString(CultureInfo.InvariantCulture));
+            Response.ContentType = "application/octet-stream";
+            Response.WriteFile(rutaArchivo.FullName);
+            Response.End();
+        }
+
+        /// <summary>
+        /// Método que se ejecuta al filtrar la lista de consultas
+        /// </summary>
+        /// <param name="sender">Objeto del evento</param>
+        /// <param name="e">Argumentos del evento</param>
+        protected void ConsultasFiltrarOnClick(object sender, EventArgs e)
+        {
+            var listaEventos = new EventosBo().ObtenerEventos();
+            IEnumerable<EVE_EVENTO> listaFiltrada = listaEventos;
+
+            if (ddlConsultasResponsables.SelectedValue != "0")
+            {
+                listaFiltrada = listaEventos.Where(eve => ddlConsultasResponsables.SelectedValue.Equals(eve.EVE_RESPONSABLE));
+            }
+
+            if (ddlConsultasEstado.SelectedValue != "0")
+            {
+                listaFiltrada = listaFiltrada.Where(eve => ddlConsultasEstado.SelectedValue.Equals(eve.EVE_EST_ID.ToString(CultureInfo.InvariantCulture)));
+            }
+
+            var fechaDesde = Convert.ToDateTime(tbConsultasFechaDesde.Text);
+            var fechaHasta = Convert.ToDateTime(tbConsultasFechaHasta.Text);
+            gvConsultas.DataSource = listaFiltrada.Where(eve => eve.EVE_FECHA >= fechaDesde && eve.EVE_FECHA <= fechaHasta).ToList();
+            gvConsultas.DataBind();
+        }
+
+        #endregion
+
+        #region Métodos
 
         /// <summary>
         /// Método que limpia los campos de la pestaña Solicitud
@@ -327,70 +428,12 @@ namespace SisPAR.VistaBackOffice
         /// </summary>
         private void LimpiarConsultas()
         {
-            ddlConsultasEmpresa.SelectedIndex = -1;
+            ddlConsultasEstado.SelectedIndex = -1;
             ddlConsultasResponsables.SelectedIndex = -1;
-            ddlConsultasProceso.SelectedIndex = -1;
-            ddlConsultasSubproceso.SelectedIndex = -1;
             tbConsultasFechaDesde.Text = string.Empty;
             tbConsultasFechaHasta.Text = string.Empty;
         }
 
-        /// <summary>
-        /// Método que obtiene las acciones a realizar con los datos de la grilla
-        /// </summary>
-        /// <param name="sender">Objeto del evento</param>
-        /// <param name="e">Argumentos del evento</param>
-        protected void EventosRowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            switch (e.CommandName)
-            {
-                case "Editar":
-                    CrearEvento(null, null);
-                    var editarEvento = new EventosBo().ObtenerEvento(int.Parse(e.CommandArgument.ToString()));
-                    hdnIdEvento.Value = e.CommandArgument.ToString();
-                    ddlEventoRequerimiento.SelectedValue = editarEvento.EVE_REQ_ID.ToString(CultureInfo.InvariantCulture);
-                    ddlEventoEstado.SelectedValue = editarEvento.EVE_EST_ID.ToString(CultureInfo.InvariantCulture);
-                    ibEventoAdjunto.CommandArgument = editarEvento.EVE_ADJUNTO;
-                    tbEventoNombreResponsable.Text = editarEvento.EVE_RESPONSABLE;
-                    tbEventoDescripcion.Text = editarEvento.EVE_DESCRIPCION;
-                    tbEventoFecha.Text = editarEvento.EVE_FECHA.ToShortDateString();
-                    btnEventoCrear.Text = "Modificar";
-                    break;
-
-                case "Eliminar":
-                    var objetoEvento = new EVE_EVENTO { EVE_ID = int.Parse(e.CommandArgument.ToString()) };
-                    var mensaje = new EventosBo().EliminarEvento(objetoEvento) > 0
-                        ? "Evento eliminado correctamente"
-                        : "Error al eliminar el evento";
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeEliminar", @"<script language='javascript' type='text/javascript'>alert('" + mensaje + "');</script>", false);
-                    break;
-
-                case "Descargar":
-                    var rutaArchivo = new FileInfo(e.CommandArgument.ToString());
-                    Response.Clear();
-                    Response.AddHeader("Content-Disposition", "attachment; filename=" + HttpUtility.UrlEncode(rutaArchivo.Name));
-                    Response.AddHeader("Content-Length", rutaArchivo.Length.ToString(CultureInfo.InvariantCulture));
-                    Response.ContentType = "application/octet-stream";
-                    Response.WriteFile(rutaArchivo.FullName);
-                    Response.End();
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// Método que descarga el archivo adjunto del evento
-        /// </summary>
-        /// <param name="sender">Objeto del evento</param>
-        /// <param name="e">Argumentos del evento</param>
-        protected void EventoAdjuntoOnClick(object sender, ImageClickEventArgs e)
-        {
-            var rutaArchivo = new FileInfo(ibEventoAdjunto.CommandArgument);
-            Response.Clear();
-            Response.AddHeader("Content-Disposition", "attachment; filename=" + HttpUtility.UrlEncode(rutaArchivo.Name));
-            Response.AddHeader("Content-Length", rutaArchivo.Length.ToString(CultureInfo.InvariantCulture));
-            Response.ContentType = "application/octet-stream";
-            Response.WriteFile(rutaArchivo.FullName);
-            Response.End();
-        }
+        #endregion
     }
 }

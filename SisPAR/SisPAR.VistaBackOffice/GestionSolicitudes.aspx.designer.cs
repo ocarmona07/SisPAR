@@ -346,6 +346,15 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.FileUpload fupEventoAdjunto;
         
         /// <summary>
+        /// Control rfvAdjunto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAdjunto;
+        
+        /// <summary>
         /// Control tbEventoNombreResponsable.
         /// </summary>
         /// <remarks>
@@ -418,15 +427,6 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.Table tblConsultas;
         
         /// <summary>
-        /// Control ddlConsultasEmpresa.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasEmpresa;
-        
-        /// <summary>
         /// Control ddlConsultasResponsables.
         /// </summary>
         /// <remarks>
@@ -436,22 +436,13 @@ namespace SisPAR.VistaBackOffice {
         protected global::System.Web.UI.WebControls.DropDownList ddlConsultasResponsables;
         
         /// <summary>
-        /// Control ddlConsultasProceso.
+        /// Control ddlConsultasEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasProceso;
-        
-        /// <summary>
-        /// Control ddlConsultasSubproceso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasSubproceso;
+        protected global::System.Web.UI.WebControls.DropDownList ddlConsultasEstado;
         
         /// <summary>
         /// Control tbConsultasFechaDesde.

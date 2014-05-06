@@ -4,6 +4,45 @@
 
 <%@ Register TagPrefix="act" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=4.1.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        function ValidarFechas() {
+            var mensaje = 'La Fecha Hasta no debe ser superior a la Fecha Desde';
+            
+            var fechaDesde = document.getElementById("<%= tbConsultasFechaDesde.ClientID %>").value;
+            var xDay = fechaDesde.substring(0, 2);
+            var xMonth = fechaDesde.substring(3, 5);
+            var xYear = fechaDesde.substring(6, 10);
+            
+            var fechaHasta = document.getElementById("<%= tbConsultasFechaHasta.ClientID %>").value;
+            var yDay = fechaHasta.substring(0, 2);
+            var yMonth = fechaHasta.substring(3, 5);
+            var yYear = fechaHasta.substring(6, 10);
+            if (xYear < yYear) {
+                return true;
+            } else {
+                if (xYear == yYear) {
+                    if (xMonth < yMonth) {
+                        return true;
+                    } else {
+                        if (xMonth == yMonth) {
+                            if (xDay <= yDay)
+                                return true;
+                            else {
+                                alert(mensaje);
+                                return false;
+                            }
+                        } else {
+                            alert(mensaje);
+                            return false;
+                        }
+                    }
+                } else {
+                    alert(mensaje);
+                    return false;                    
+                }
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPrincipal" runat="server">
     <act:ToolkitScriptManager ID="tkmDate" runat="server" EnableScriptGlobalization="True"
@@ -132,7 +171,8 @@
                                 Text="Imprimir" />
                         </asp:TableCell>
                         <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Bottom">
-                            <asp:Button ID="btnSolicitudAtras" runat="server" Width="120px" Height="30px" Text="Atrás" />
+                            <asp:Button ID="btnSolicitudAtras" runat="server" Width="120px" Height="30px" Text="Atrás"
+                                PostBackUrl="AtencionRequerimientos.aspx" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
@@ -148,7 +188,8 @@
                     Height="25px" OnClick="CrearEvento" />
             </asp:TableCell>
             <asp:TableCell runat="server" Width="434px" HorizontalAlign="Center" VerticalAlign="Middle">
-                <asp:Button ID="btnEventoAtras" runat="server" Text="Atrás" Width="100px" Height="25px" />
+                <asp:Button ID="btnEventoAtras" runat="server" Text="Atrás" Width="100px" Height="25px"
+                    PostBackUrl="AtencionRequerimientos.aspx" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow ID="tbrGrillaEventos" runat="server">
@@ -164,7 +205,7 @@
                         <asp:TemplateField HeaderText="Archivo Adjunto">
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="ibAdjunto" ImageUrl="images/download-file.png"
-                                    ToolTip="Descargar" CommandName="Descargar" CommandArgument='<%# Eval("EVE_ADJUNTO") %>' />
+                                    ToolTip="Descargar adjunto" CommandName="Descargar" CommandArgument='<%# Eval("EVE_ADJUNTO") %>' />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                             <HeaderStyle Width="80px" />
@@ -217,10 +258,10 @@
                     <asp:TableRow runat="server">
                         <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Archivo Adjunto: " />
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                            <asp:ImageButton ID="ibEventoAdjunto" runat="server" Visible="False" ToolTip="Archivo Adjunto"
-                                ImageUrl="images/download-file.png" OnClick="EventoAdjuntoOnClick" />
-                            <asp:FileUpload ID="fupEventoAdjunto" runat="server" Width="400px" ValidationGroup="CrearEvento" />
-                            <asp:RequiredFieldValidator runat="server" ErrorMessage="*" CssClass="Validador"
+                            <asp:ImageButton ID="ibEventoAdjunto" runat="server" Visible="False" ImageUrl="images/download-file.png"
+                                OnClick="EventoAdjuntoOnClick" Style="margin-right: 10px;" />
+                            <asp:FileUpload ID="fupEventoAdjunto" runat="server" Width="400px" />
+                            <asp:RequiredFieldValidator ID="rfvAdjunto" runat="server" ErrorMessage="*" CssClass="Validador"
                                 ControlToValidate="fupEventoAdjunto" InitialValue="" ValidationGroup="CrearEvento" />
                         </asp:TableCell>
                     </asp:TableRow>
@@ -278,25 +319,15 @@
     <asp:Table ID="tblConsultas" runat="server" HorizontalAlign="Center" CssClass="tablaTabsCampo"
         Visible="False">
         <asp:TableRow runat="server">
-            <asp:TableCell runat="server" Width="120px" HorizontalAlign="Right" VerticalAlign="Middle"
-                Text="Empresa: " />
-            <asp:TableCell runat="server" Width="330px" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlConsultasEmpresa" runat="server" Width="200px" />
-            </asp:TableCell>
             <asp:TableCell runat="server" Width="130px" HorizontalAlign="Right" VerticalAlign="Middle"
                 Text="Responsable: " />
             <asp:TableCell runat="server" Width="280px" HorizontalAlign="Left" VerticalAlign="Middle">
                 <asp:DropDownList ID="ddlConsultasResponsables" runat="server" Width="200px" />
             </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow runat="server">
-            <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Proceso: " />
-            <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlConsultasProceso" runat="server" Width="200px" />
-            </asp:TableCell>
-            <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Subproceso: " />
-            <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
-                <asp:DropDownList ID="ddlConsultasSubproceso" runat="server" Width="200px" />
+            <asp:TableCell runat="server" Width="120px" HorizontalAlign="Right" VerticalAlign="Middle"
+                Text="Estado: " />
+            <asp:TableCell runat="server" Width="330px" HorizontalAlign="Left" VerticalAlign="Middle">
+                <asp:DropDownList ID="ddlConsultasEstado" runat="server" Width="200px" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
@@ -315,41 +346,31 @@
             <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="60px"
                 ColumnSpan="4">
                 <asp:Button ID="btnConsultasConsultar" runat="server" Width="100px" Height="25px"
-                    Text="Consultar" />
+                    Text="Consultar" OnClick="ConsultasFiltrarOnClick" OnClientClick="javascript: return ValidarFechas();" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server">
             <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="60px"
                 ColumnSpan="4">
-                <asp:GridView ID="gvConsultas" runat="server" AutoGenerateColumns="False">
+                <asp:GridView ID="gvConsultas" runat="server" AutoGenerateColumns="False" Width="760px"
+                    OnRowCommand="EventosRowCommand" EmptyDataText="<div style='text-align: Center;'>No existen resultados</div>">
                     <Columns>
-                        <asp:TemplateField HeaderText="Número">
-                            <ItemTemplate>
-                                <asp:Label ID="lblNumero" runat="server" />
-                            </ItemTemplate>
-                            <HeaderStyle Width="80px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Fecha">
-                            <ItemTemplate>
-                                <asp:Label ID="lblFecha" runat="server" />
-                            </ItemTemplate>
-                            <HeaderStyle Width="80px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Estado">
-                            <HeaderStyle Width="90px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Tipo">
-                            <HeaderStyle Width="100px" />
-                        </asp:TemplateField>
+                        <asp:BoundField HeaderText="Número" DataField="EVE_ID" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
+                        <asp:BoundField HeaderText="Fecha" DataField="EVE_FECHA" DataFormatString="{0:dd/MM/yyyy}"
+                            ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
+                        <asp:BoundField HeaderText="Estado" DataField="EVE_EST_ID" ItemStyle-Width="100px"
+                            ItemStyle-HorizontalAlign="Center" />
                         <asp:TemplateField HeaderText="Archivo Adjunto">
+                            <ItemTemplate>
+                                <asp:ImageButton runat="server" ID="ibAdjunto" ImageUrl="images/download-file.png"
+                                    ToolTip="Descargar adjunto" CommandName="Descargar" CommandArgument='<%# Eval("EVE_ADJUNTO") %>' />
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
                             <HeaderStyle Width="80px" />
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Glosa">
-                            <HeaderStyle Width="200px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Responsable">
-                            <HeaderStyle Width="150px" />
-                        </asp:TemplateField>
+                        <asp:BoundField HeaderText="Glosa" DataField="EVE_DESCRIPCION" ItemStyle-Width="350px" />
+                        <asp:BoundField HeaderText="Responsable" DataField="EVE_RESPONSABLE" ItemStyle-Width="150px"
+                            ItemStyle-HorizontalAlign="Center" />
                     </Columns>
                 </asp:GridView>
             </asp:TableCell>
@@ -362,7 +383,7 @@
             </asp:TableCell>
             <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle" ColumnSpan="2">
                 <asp:Button ID="btnConsultasAtras" runat="server" Width="100px" Height="25px" Text="Atras"
-                    Style="margin-left: 50px;" />
+                    Style="margin-left: 50px;" PostBackUrl="AtencionRequerimientos.aspx" />
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
