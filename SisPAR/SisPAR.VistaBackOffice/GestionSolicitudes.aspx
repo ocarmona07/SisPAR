@@ -162,7 +162,7 @@
                         <asp:TemplateField HeaderText="Archivo Adjunto">
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="ibAdjunto" ImageUrl="images/download-file.png"
-                                    ToolTip="Descargar" CommandName="Descargar" CommandArgument="<%# Eval("EVE_ADJUNTO") %>" />
+                                    ToolTip="Descargar" CommandName="Descargar" CommandArgument='<%# Eval("EVE_ADJUNTO") %>' />
                             </ItemTemplate>
                             <HeaderStyle Width="80px" />
                         </asp:TemplateField>
@@ -171,10 +171,10 @@
                         <asp:TemplateField HeaderText="Acciones">
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="ibEditar" ImageUrl="images/edit.gif" ToolTip="Editar"
-                                    CommandName="Editar" CommandArgument="<%# Eval("EVE_ID") %>" />
+                                    CommandName="Editar" CommandArgument='<%# Eval("EVE_ID") %>' />
                                 <asp:Label runat="server" Text=" / " />
                                 <asp:ImageButton runat="server" ID="ibEliminar" ImageUrl="images/delete.gif" ToolTip="Eliminar"
-                                    CommandName="Eliminar" CommandArgument="<%# Eval("EVE_ID") %>" OnClientClick="javascript: return confirm('¿Desea eliminar el evento seleccionado?');" />
+                                    CommandName="Eliminar" CommandArgument='<%# Eval("EVE_ID") %>' OnClientClick="javascript: return confirm('¿Desea eliminar el evento seleccionado?');" />
                             </ItemTemplate>
                             <HeaderStyle Width="60px" />
                         </asp:TemplateField>
@@ -197,12 +197,16 @@
                             Width="200px" />
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle" Width="500px">
                             <asp:DropDownList ID="ddlEventoRequerimiento" runat="server" Width="210px" ValidationGroup="CrearEvento" />
+                            <asp:RequiredFieldValidator runat="server" ErrorMessage="*" CssClass="Validador"
+                                ControlToValidate="ddlEventoRequerimiento" InitialValue="0" ValidationGroup="CrearEvento" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
                         <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Estado: " />
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
                             <asp:DropDownList ID="ddlEventoEstado" runat="server" Width="100px" ValidationGroup="CrearEvento" />
+                            <asp:RequiredFieldValidator runat="server" ErrorMessage="*" CssClass="Validador"
+                                ControlToValidate="ddlEventoEstado" InitialValue="0" ValidationGroup="CrearEvento" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
@@ -210,13 +214,17 @@
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
                             <asp:ImageButton ID="ibEventoAdjunto" runat="server" Visible="False" ToolTip="Archivo Adjunto"
                                 ImageUrl="images/download-file.png" OnClick="EventoAdjuntoOnClick" />
-                            <asp:FileUpload ID="fupEventoAdjunto" runat="server" Width="200px" ValidationGroup="CrearEvento" />
+                            <asp:FileUpload ID="fupEventoAdjunto" runat="server" Width="400px" ValidationGroup="CrearEvento" />
+                            <asp:RequiredFieldValidator runat="server" ErrorMessage="*" CssClass="Validador"
+                                ControlToValidate="fupEventoAdjunto" InitialValue="" ValidationGroup="CrearEvento" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
                         <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle" Text="Nombre Responsable: " />
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
                             <asp:TextBox ID="tbEventoNombreResponsable" runat="server" Width="200px" ValidationGroup="CrearEvento" />
+                            <asp:RequiredFieldValidator runat="server" ErrorMessage="*" CssClass="Validador"
+                                ControlToValidate="tbEventoNombreResponsable" InitialValue="" ValidationGroup="CrearEvento" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
@@ -224,6 +232,8 @@
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
                             <asp:TextBox ID="tbEventoDescripcion" runat="server" Width="400px" Height="60px"
                                 TextMode="MultiLine" ValidationGroup="CrearEvento" />
+                            <asp:RequiredFieldValidator runat="server" ErrorMessage="*" CssClass="Validador"
+                                ControlToValidate="tbEventoDescripcion" InitialValue="" ValidationGroup="CrearEvento" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
@@ -231,6 +241,8 @@
                         <asp:TableCell runat="server" HorizontalAlign="Left" VerticalAlign="Middle">
                             <asp:TextBox ID="tbEventoFecha" runat="server" Width="100px" ValidationGroup="CrearEvento"
                                 CssClass="Fecha" />
+                            <asp:RequiredFieldValidator runat="server" ErrorMessage="*" CssClass="Validador"
+                                ControlToValidate="tbEventoFecha" InitialValue="" ValidationGroup="CrearEvento" />
                             <act:CalendarExtender ID="calEventoFecha" runat="server" TargetControlID="tbEventoFecha" />
                         </asp:TableCell>
                     </asp:TableRow>
@@ -244,7 +256,7 @@
                                     </asp:TableCell>
                                     <asp:TableCell runat="server">
                                         <asp:Button ID="btnEventoLimpiar" runat="server" Text="Limpiar" Width="100px" Height="25px"
-                                            OnClick="LimpiarCrearEvento" />
+                                            OnClick="LimpiarCrearEvento" OnClientClick="javascript: return confirm('¿Desea limpiar los campos de evento?');" />
                                     </asp:TableCell>
                                     <asp:TableCell runat="server">
                                         <asp:Button ID="btnEventoCancelar" runat="server" Text="Cancelar" Width="100px" Height="25px"

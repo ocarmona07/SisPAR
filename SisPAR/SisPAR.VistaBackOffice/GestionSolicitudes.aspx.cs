@@ -87,6 +87,21 @@ namespace SisPAR.VistaBackOffice
             #region Tab Evento
 
             LimpiarEvento();
+            var requerimientos = new RequerimientosBo().ObtenerRequerimientos();
+            var ddlReq = from req in requerimientos
+                         orderby req.REQ_ID
+                         select new { req.REQ_ID, req.EPR_EMPRESA.EPR_RAZONSOCIAL };
+            ddlEventoRequerimiento.DataSource = ddlReq;
+            ddlEventoRequerimiento.DataTextField = "REQ_ID - EPR_RAZONSOCIAL";
+            ddlEventoRequerimiento.DataValueField = "REQ_ID";
+            ddlEventoRequerimiento.DataBind();
+            ddlEventoRequerimiento.Items.Insert(0, itemSeleccionar);
+
+            ddlEventoEstado.DataSource = estados;
+            ddlEventoEstado.DataTextField = "EST_TIPO";
+            ddlEventoEstado.DataValueField = "EST_ID";
+            ddlEventoEstado.DataBind();
+            ddlEventoEstado.Items.Insert(0, itemSeleccionar);
 
             #endregion
 
@@ -217,6 +232,20 @@ namespace SisPAR.VistaBackOffice
 
             if (string.IsNullOrEmpty(hdnIdEvento.Value))
             {
+                if (!Directory.Exists(rutaAdjuntos)) Directory.CreateDirectory(rutaAdjuntos);
+
+                guardaEvento.EVE_ADJUNTO = fupEventoAdjunto.FileName;
+                if (new EventosBo().CrearEvento(guardaEvento) > 0)
+                {
+                    fupEventoAdjunto.SaveAs(rutaAdjuntos + fupEventoAdjunto.FileName);
+                    mensaje = "Evento guardado correctamente";
+                    LimpiarEvento();
+                }
+                else
+                    mensaje = "Error al guardar el evento";
+            }
+            else
+            {
                 guardaEvento.EVE_ID = int.Parse(hdnIdEvento.Value);
                 guardaEvento.EVE_ADJUNTO = fupEventoAdjunto.HasFile
                     ? rutaAdjuntos + fupEventoAdjunto.FileName
@@ -225,33 +254,14 @@ namespace SisPAR.VistaBackOffice
                 {
                     if (fupEventoAdjunto.HasFile) fupEventoAdjunto.SaveAs(rutaAdjuntos + fupEventoAdjunto.FileName);
                     mensaje = "Evento modificado correctamente";
+                    LimpiarEvento();
                 }
                 else
-                {
-                    mensaje = "Error al modificar el evento";                    
-                }
-            }
-            else
-            {
-                if (!Directory.Exists(rutaAdjuntos))
-                {
-                    Directory.CreateDirectory(rutaAdjuntos);
-                }
-
-                guardaEvento.EVE_ADJUNTO = fupEventoAdjunto.FileName;
-                if (new EventosBo().CrearEvento(guardaEvento) > 0)
-                {
-                    fupEventoAdjunto.SaveAs(rutaAdjuntos + fupEventoAdjunto.FileName);
-                    mensaje = "Evento guardado correctamente";
-                }
-                else
-                {
-                    mensaje = "Error al guardar el evento";                    
-                }
+                    mensaje = "Error al modificar el evento";
             }
 
             ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeGuardado", @"<script language='javascript' type='text/javascript'>alert('" + mensaje + "');</script>", false);
-                    
+
         }
 
         /// <summary>
@@ -263,7 +273,7 @@ namespace SisPAR.VistaBackOffice
         {
             hdnIdEvento.Value = string.Empty;
             ddlEventoRequerimiento.SelectedIndex = -1;
-            ddlEventoEstado.Text = string.Empty;
+            ddlEventoEstado.SelectedIndex = -1;
             ibEventoAdjunto.Visible = false;
             tbEventoNombreResponsable.Text = string.Empty;
             tbEventoDescripcion.Text = string.Empty;
