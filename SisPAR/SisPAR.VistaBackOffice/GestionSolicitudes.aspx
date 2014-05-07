@@ -200,7 +200,7 @@
                         <asp:BoundField HeaderText="Número" DataField="EVE_ID" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
                         <asp:BoundField HeaderText="Fecha" DataField="EVE_FECHA" DataFormatString="{0:dd/MM/yyyy}"
                             ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
-                        <asp:BoundField HeaderText="Estado" DataField="EVE_EST_ID" ItemStyle-Width="100px"
+                        <asp:BoundField HeaderText="Estado" DataField="EST_ESTADOS.EST_TIPO" ItemStyle-Width="100px"
                             ItemStyle-HorizontalAlign="Center" />
                         <asp:TemplateField HeaderText="Archivo Adjunto">
                             <ItemTemplate>
@@ -358,7 +358,7 @@
                         <asp:BoundField HeaderText="Número" DataField="EVE_ID" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
                         <asp:BoundField HeaderText="Fecha" DataField="EVE_FECHA" DataFormatString="{0:dd/MM/yyyy}"
                             ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
-                        <asp:BoundField HeaderText="Estado" DataField="EVE_EST_ID" ItemStyle-Width="100px"
+                        <asp:BoundField HeaderText="Estado" DataField="EST_ESTADOS.EST_TIPO" ItemStyle-Width="100px"
                             ItemStyle-HorizontalAlign="Center" />
                         <asp:TemplateField HeaderText="Archivo Adjunto">
                             <ItemTemplate>

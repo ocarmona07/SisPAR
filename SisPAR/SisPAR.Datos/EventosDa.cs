@@ -57,7 +57,7 @@
             var listaRetorno = new List<EVE_EVENTO>();
             try
             {
-                listaRetorno = _dbSisParEntities.EVE_EVENTO.ToList();
+                listaRetorno = _dbSisParEntities.EVE_EVENTO.Include("EST_ESTADOS").ToList();
                 _dbSisParEntities.Dispose();
                 return listaRetorno;
             }
